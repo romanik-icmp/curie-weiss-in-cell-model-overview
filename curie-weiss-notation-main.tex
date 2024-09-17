@@ -65,8 +65,8 @@
 			0, \quad x \notin \Delta_l.
 		\end{array}
 		\right.
-	\end{equation}
-	The first term in $\Phi_{N_v}$ describes the pairwise attraction between all particles and is characterized by $J_1 > 0$. The second term in $\Phi_{N_v}$ describes the repulsion between two particles contained within the same cell $\Delta_l$ and is characterized by $J_2 > 0.$ Two situations are possible, either two particles belong to the same cell or to different ones. Explicitly, for these two cases one has
+	\end{equation} 
+	The first term in $\Phi_{N_v}$ describes the pairwise attraction between all particles and is characterized by $J_1 > 0$. The second term in $\Phi_{N_v}$ describes the repulsion between two particles contained within the same cell $\Delta_l$ and is characterized by $J_2 > 0.$ For convenience, in $W_{N_v}$ above the self-interaction term $\Phi_{N_v}(x,x)$ is included, which does not affect the physics of the model. Two cases are possible, either two particles belong to the same cell or to different ones. Explicitly, one has
 	\begin{equation}
 		\Phi_{N_v}(x, y) = \left\{
 		\begin{array}{ll}
@@ -78,11 +78,11 @@
 	\end{equation}
 	
 	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
-	If the notation from~\cite{hansen2013theory} is followed, the previous formulas can be rewritten as follows. The space coordinate of the $i$-th particle is denoted by $\vb{r}_i$, and thus the configuration of $N$ particles is defined by $\gamma = \{\vb{r}^N\}$, where $\vb{r}^N \equiv \vb{r}_1, ..., \vb{r}_N$. The interaction energy is expressed as (cf.~\cite{hansen2013theory}[eq.~(2.5.16)])
+	If the notation from~\cite{hansen2013theory} is followed, the previous formulas can be rewritten as follows. The space coordinate of the $i$-th particle is denoted by $\vb{r}_i$, and thus the configuration of $N$ particles is defined by $\gamma = \{\vb{r}^N\}$, where $\vb{r}^N \equiv \vb{r}_1, ..., \vb{r}_N$. The interaction energy is expressed as (cf.~\cite[eq.~(2.5.16)]{hansen2013theory})
 	\begin{eqnarray*}
 		W_{N_v}(\vb{r}^N) & = & \frac{1}{2} \sum_{\vb{r}_i,\vb{r}_j \in \gamma} \Phi_{N_v} (\vb{r}_i,\vb{r}_j).
 		\\
-		& = & \frac12 \underset{i\neq j}{\sum_{i=1}^N \sum_{j=1}^N} \Phi_{N_v} (\vb{r}_i,\vb{r}_j),
+		& = & \frac12 {\sum_{i=1}^N \sum_{j=1}^N} \Phi_{N_v} (\vb{r}_i,\vb{r}_j),
 	\end{eqnarray*}
 	with
 	\begin{equation*}
@@ -98,6 +98,7 @@
 		\end{array}
 		\right.
 	\end{equation*}
+	Unlike~\cite[eq.~(2.5.16)]{hansen2013theory}, we do not exclude term with $i = j$ in the expression for $W_{N_v}$ due to the self-interaction.
 	\end{mdframed}
 	
 	\textbf{Stability.} For stability of interaction the following condition must hold
@@ -118,7 +119,7 @@
 	$$a = J_2/J_1,$$
 	and thus $a > 1.$
 	
-	\textbf{The grand partition function} is expressed as follows~\cite{hansen2013theory}[eqs.~(2.4.6) and~(2.3.13)]
+	\textbf{The grand partition function} is expressed as follows~\cite[eqs.~(2.4.6) and~(2.3.13)]{hansen2013theory}
 	\begin{equation*}
 		\Xi = \sum_{N=0}^{\infty}\frac{z^N}{N!} \int_{V} \dotsc \int_{V} \exp(-\beta W_{N_v}(\gamma)) {\rm d} x_1 \dotsc {\rm d} x_N
 	\end{equation*}
