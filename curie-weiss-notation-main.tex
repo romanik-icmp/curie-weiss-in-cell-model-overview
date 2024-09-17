@@ -47,7 +47,7 @@
 		\Delta_l \cap \Delta_m = \emptyset, \text{ if } l \neq m.
 	\end{equation*}
 	
-	\textbf{Interaction.} The interaction energy between particles in configuration $\gamma = \{x_1, ..., x_N\}$, where $x_i$ is the space coordinate of the $i$-th particle and $N$ is the number of particles in the configuration $\gamma$, is defined as follows
+	\textbf{Interaction.} The interaction energy between particles in configuration $\gamma = \{x_1, ..., x_N\}$, where $x_i$ is the space coordinate of the $i$-th particle and $N$ is the number of points (particles) in the configuration $\gamma$, is defined as follows
 	\begin{equation*}
 		W_{N_v}(\gamma) = \frac{1}{2} \sum_{x,y \in \gamma} \Phi_{N_v} (x,y)
 	\end{equation*}
@@ -76,6 +76,7 @@
 		\end{array}
 		\right.
 	\end{equation}
+	In~\cite{KozitskyKozlovskiiDobush2020}, the notation $\abs{\gamma}$ was used to denote the number of points (particles) in configuration $\gamma$, thus $\abs{\gamma} \equiv N$.
 	
 	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
 	If the notation from~\cite{hansen2013theory} is followed, the previous formulas can be rewritten as follows. The space coordinate of the $i$-th particle is denoted by $\vb{r}_i$, and thus the configuration of $N$ particles is defined by $\gamma = \{\vb{r}^N\}$, where $\vb{r}^N \equiv \vb{r}_1, ..., \vb{r}_N$. The interaction energy is expressed as (cf.~\cite[eq.~(2.5.16)]{hansen2013theory})
@@ -153,6 +154,27 @@
 		P^* = \frac{Pv}{J_1} & & \text{ -- the reduced pressure.}
 	\end{eqnarray*}
 	For any dimensional quantity $Q$, it is convenient to denote its reduced counterpart by $Q^*$. To maintain consistency with other thermodynamic quantities, it may be beneficial to use $\beta^*$ instead of $p$ for the reduced inverse temperature (cf.~\cite{RioEtAl2013}).
+	
+	\subsection{Partition function transformation}
+	Note the following summation:
+	\begin{equation}
+		\sum_{x,y \in \gamma} 1 = N^2 = \abs{\gamma}^2.
+	\end{equation}
+	The grand partition function is then explicitly written as
+	\begin{equation}
+		\label{eq:gpf1}
+		\Xi = \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!}\int \exp[\beta\mu N + \frac{p}{2N_{v}} N^2 - \frac{ap}{2} \sum_{x,y \in \gamma} \sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(x)\mathbb{I}_{\Delta_l}(y)] {\rm d} x_1 \dotsc {\rm d} x_N
+	\end{equation}
+	
+	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
+		\begin{equation}
+			\label{eq:gpf1_alt}
+			\Xi = \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!}
+			\int 
+			\exp[\beta\mu N + \frac{\beta^*}{2N_{v}} N^2 - \frac{a\beta^*}{2} \sum_{\vb{r}_i,\vb{r}_j \in \gamma} \sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(\vb{r}_i)\mathbb{I}_{\Delta_l}(\vb{r}_j)] {\rm d} \vb{r}^N.
+		\end{equation}
+	\end{mdframed}
+	Equations~\eqref{eq:gpf1} and~\eqref{eq:gpf1_alt} can be compared with~\cite[(2.5)]{KozitskyKozlovskiiDobush2020}.
 	
 	\section{Known results}
 	
