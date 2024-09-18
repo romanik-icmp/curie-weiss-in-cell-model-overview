@@ -34,7 +34,7 @@
 		\textbf{Keywords:} Cell fluid model, Curie-Weiss interaction.
 	}
 	\section{Introduction}
-	The cell model was introduced and described in~\cite{KozitskyKozlovskiiDobush2018book,KozitskyKozlovskiiDobush2020}. This model possesses an exact solution in the case of Curie-Weiss interaction. The exact asymptotic expression for the grand partition function was obtained in~\cite{KozitskyKozlovskiiDobush2020}.
+	The cell model was introduced and described in~\cite{KKD2018,KKD2020}. This model possesses an exact solution in the case of Curie-Weiss interaction. The exact asymptotic expression for the grand partition function was obtained in~\cite{KKD2020}.
 	The goal of this manuscript is to summarize the notation, properly account for quantity dimensions corresponding to physical problems.
 	
 	\section{\label{sec:model} Model}
@@ -78,10 +78,10 @@
 		\end{array}
 		\right.
 	\end{equation}
-	In~\cite{KozitskyKozlovskiiDobush2020}, the notation $\abs{\gamma}$ was used to denote the number of points (particles) in configuration $\gamma$, thus $\abs{\gamma} \equiv N$.
+	In~\cite{KKD2020}, the notation $\abs{\gamma}$ was used to denote the number of points (particles) in configuration $\gamma$, thus $\abs{\gamma} \equiv N$.
 	
 	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
-	If the notation from~\cite{hansen2013theory} is followed, the previous formulas can be rewritten as follows. The space coordinate of the $i$-th particle is denoted by $\vb{r}_i$, and thus the configuration of $N$ particles is defined by $\gamma = \{\vb{r}^N\}$, where $\vb{r}^N \equiv \vb{r}_1, ..., \vb{r}_N$. The interaction energy is expressed as (cf.~\cite[eq.~(2.5.16)]{hansen2013theory})
+	If the notation from~\cite{HansenMcDonald2013} is followed, the previous formulas can be rewritten as follows. The space coordinate of the $i$-th particle is denoted by $\vb{r}_i$, and thus the configuration of $N$ particles is defined by $\gamma = \{\vb{r}^N\}$, where $\vb{r}^N \equiv \vb{r}_1, ..., \vb{r}_N$. The interaction energy is expressed as (cf.~\cite[eq.~(2.5.16)]{HansenMcDonald2013})
 	\begin{eqnarray*}
 		W_{N_v}(\vb{r}^N) & = & \frac{1}{2} \sum_{\vb{r}_i,\vb{r}_j \in \gamma} \Phi_{N_v} (\vb{r}_i,\vb{r}_j).
 		\\
@@ -101,14 +101,14 @@
 		\end{array}
 		\right.
 	\end{equation*}
-	Unlike~\cite[eq.~(2.5.16)]{hansen2013theory}, we do not exclude term with $i = j$ in the expression for $W_{N_v}$ due to the self-interaction.
+	Unlike~\cite[eq.~(2.5.16)]{HansenMcDonald2013}, we do not exclude term with $i = j$ in the expression for $W_{N_v}$ due to the self-interaction.
 	\end{mdframed}
 	
 	\textbf{Stability.} For stability of interaction the following condition must hold
 	\begin{equation*}
 		J_2 > J_1
 	\end{equation*}
-	to satisfy such inequality~\cite{KozitskyKozlovskiiDobush2020,Ruelle1970}
+	to satisfy such inequality~\cite{KKD2020,Ruelle1970}
 	\begin{equation}
 		\int_{V} \Phi_{N_v}(x,y) {\rm d}y > 0, \quad \text{for all } x \in V.
 	\end{equation}
@@ -122,7 +122,7 @@
 	$$a = J_2/J_1,$$
 	and thus $a > 1.$
 	
-	\textbf{The grand partition function} is expressed as follows~\cite[eqs.~(2.4.6) and~(2.3.13)]{hansen2013theory}
+	\textbf{The grand partition function} is expressed as follows~\cite[eqs.~(2.4.6) and~(2.3.13)]{HansenMcDonald2013}
 	\begin{equation*}
 		\Xi = \sum_{N=0}^{\infty}\frac{z^N}{N!} \int_{V} \dotsc \int_{V} \exp(-\beta W_{N_v}(\gamma)) {\rm d} x_1 \dotsc {\rm d} x_N
 	\end{equation*}
@@ -133,7 +133,7 @@
 	$\beta = k_{\rm B} T$ the inverse temperature, $k_{\rm B}$ the Boltzmann constant, $T$ the temperature, $\mu$ the chemical potential, $\Lambda = (2\pi\beta\hbar^2/m)^{1/2}$ the de Broglie thermal wavelength, $\hbar$ the Planck constant, $m$ the mass of a particle. In the grand partition function the integration goes over all configurations with $N$ particles and then the summation goes over all positive integer values of $N$.
 	
 	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
-		Alternatively, in notation from~\cite{hansen2013theory}, the grand partition function is expressed as [cf. eqs.~(2.4.6) and~(2.3.13)]
+		Alternatively, in notation from~\cite{HansenMcDonald2013}, the grand partition function is expressed as [cf. eqs.~(2.4.6) and~(2.3.13)]
 		\begin{equation}
 			\Xi=\sum_{N=0}^{\infty}\frac{z^N}{N!}Z_N,
 		\end{equation}
@@ -177,7 +177,7 @@
 			\exp[\beta\mu N + \frac{\beta^*}{2N_{v}} N^2 - \frac{a\beta^*}{2} \sum_{\vb{r}_i,\vb{r}_j \in \gamma} \sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(\vb{r}_i)\mathbb{I}_{\Delta_l}(\vb{r}_j)] {\rm d} \vb{r}^N.
 		\end{equation}
 	\end{mdframed}
-	Equations~\eqref{eq:gpf1} and~\eqref{eq:gpf1_alt} can be compared with~\cite[(2.5)]{KozitskyKozlovskiiDobush2020}.
+	Equations~\eqref{eq:gpf1} and~\eqref{eq:gpf1_alt} can be compared with~\cite[(2.5)]{KKD2020}.
 	
 	For a given $l = 1, \cdots , N_v$ and a configuration $\gamma$, we set $\gamma_l = \gamma \cap \Delta_l,$ that is, $\gamma_l$ is the part of the configuration contained in $\Delta_l$. Then, $N_l$ or $\abs{\gamma_l}$ stands for the number of points (particles) of $\gamma$ contained in $\Delta_l$. 
 	
@@ -217,8 +217,11 @@
 	
 	\section{Known results}
 	
-	\bibliographystyle{elsarticle-num}
-	\bibliography{fluids_cv,books_romanik_bibliography,articles}
+	%\bibliographystyle{elsarticle-num}
+	%\bibliography{fluids_cv,books_romanik_bibliography,articles}
+	
+	\bibliographystyle{JHEPm}
+	\bibliography{Mbank}
 	
 	%\bibliographystyle{cmpj} % still looking for the best style
 	%\bibliography{fluids_general} % BibTeX / BibLaTeX should be used
