@@ -9,6 +9,8 @@
 \usepackage{caption} % for \caption*
 \usepackage{mdframed}
 
+\usepackage[dvipsnames]{xcolor}
+
 \textwidth 160mm
 \textheight 230mm
 \voffset = -20mm
@@ -163,10 +165,11 @@
 	The grand partition function is then explicitly written as
 	\begin{equation}
 		\label{eq:gpf1}
-		\Xi = \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!}\int \exp[\beta\mu N + \frac{p}{2N_{v}} N^2 - \frac{ap}{2} \sum_{x,y \in \gamma} \sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(x)\mathbb{I}_{\Delta_l}(y)] {\rm d} x_1 \dotsc {\rm d} x_N
+		\Xi = \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!}\int \exp[\beta\mu N + \frac{p}{2N_{v}} N^2 - \frac{ap}{2} \sum_{x,y \in \gamma} \sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(x)\mathbb{I}_{\Delta_l}(y)] {\rm d} x_1 \dotsc {\rm d} x_N.
 	\end{equation}
 	
 	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
+	Alternatively
 		\begin{equation}
 			\label{eq:gpf1_alt}
 			\Xi = \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!}
@@ -175,6 +178,42 @@
 		\end{equation}
 	\end{mdframed}
 	Equations~\eqref{eq:gpf1} and~\eqref{eq:gpf1_alt} can be compared with~\cite[(2.5)]{KozitskyKozlovskiiDobush2020}.
+	
+	For a given $l = 1, \cdots , N_v$ and a configuration $\gamma$, we set $\gamma_l = \gamma \cap \Delta_l,$ that is, $\gamma_l$ is the part of the configuration contained in $\Delta_l$. Then, $N_l$ or $\abs{\gamma_l}$ stands for the number of points (particles) of $\gamma$ contained in $\Delta_l$. 
+	
+	Note the following summation results:
+	\begin{equation}
+		N_l \equiv \abs{\gamma_l} = \sum_{x \in \gamma_l} 1 = \sum_{x \in \gamma} \mathbb{I}_{\Delta_l}(x),
+	\end{equation}
+	\textbf{\textcolor{Red}{Question:}} Can $x \in \gamma_l$ and $x \in \Delta_l$ be used interchangeably?
+	\begin{equation}
+		\sum_{l=1}^{N_v} N_l = N, \quad \sum_{l=1}^{N_v} \abs{\gamma_l} = \abs{\gamma},
+	\end{equation}
+	\begin{equation}
+		\left(\sum_{l=1}^{N_v} N_l \right)^2 = N^2, \quad \left(\sum_{l=1}^{N_v} \abs{\gamma_l} \right)^2 = \abs{\gamma}^2.
+	\end{equation}
+	\begin{equation}
+		\sum_{x \in \gamma} \rightarrow \sum_{l=1}^{N_v} \sum_{x \in \Delta_l};
+	\end{equation}
+	\begin{equation}
+		\sum_{x,y \in \gamma} \rightarrow \sum_{l,l'=1}^{N_v} \sum_{x \in \Delta_l} \sum_{y \in \Delta_{l'}}.
+	\end{equation}
+	\begin{equation}
+		\sum_{x \in \Delta_l}\sum_{y \in \Delta_l'} 1 = N_l N_{l'} = \abs{\gamma_l} \abs{\gamma_{l'}}.
+	\end{equation}
+	\begin{equation}
+		\label{eq:sumII}
+		\sum_{x,y \in \gamma}\sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(x) \mathbb{I}_{\Delta_{l}}(y) = \sum_{l=1}^{N_v} N_l^2 \equiv \sum_{l=1}^{N_v} \abs{\gamma_l}^2.
+	\end{equation}
+	Combining these formulas, we get
+	\begin{eqnarray}
+		\sum_{x,y \in \gamma} \Phi_{N_v}(x,y) & = & \sum_{l,l'=1}^{N_v} \sum_{x \in \Delta_l} \sum_{y \in \Delta_{l'}} \Phi_{N_v}(x,y) 
+		\nonumber\\
+		& = & - \frac{J_1}{N_v} \left(\sum_{l=1}^{N_v} N_l\right)^2 + J_2\sum_{l=1}^{N_v}N_l^2
+		\\
+		& = & - \frac{J_1}{N_v} \left(\sum_{l=1}^{N_v} \gamma_l\right)^2 + J_2\sum_{l=1}^{N_v}\abs{\gamma_l}^2
+	\end{eqnarray}
+	
 	
 	\section{Known results}
 	
