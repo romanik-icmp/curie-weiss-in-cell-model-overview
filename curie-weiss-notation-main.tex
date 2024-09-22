@@ -182,7 +182,7 @@
 	
 	For a given $l = 1, \cdots , N_v$ and a configuration $\gamma$, we set $\gamma_l = \gamma \cap \Delta_l,$ that is, $\gamma_l$ is the part of the configuration contained in $\Delta_l$. Then, $N_l$ or $\abs{\gamma_l}$ stands for the number of points (particles) of $\gamma$ contained in $\Delta_l$. 
 	
-	Note the following summation results:
+	\textbf{Some useful formulas}. Note the following summation results:
 	\begin{equation}
 		\label{eq:1}
 		N_l \equiv \abs{\gamma_l} = \sum_{x \in \gamma_l} 1 = \sum_{x \in \gamma} \mathbb{I}_{\Delta_l}(x) = \sum_{j=1}^{N} \mathbb{I}_{\Delta_{l}}(x_j),
@@ -221,7 +221,7 @@
 		& = & - \frac{J_1}{N_v} \left(\sum_{l=1}^{N_v} \abs{\gamma_l}\right)^2 + J_2\sum_{l=1}^{N_v}\abs{\gamma_l}^2
 	\end{eqnarray}
 	
-	To rewrite the integrand in~\eqref{eq:gpf1} in a more convenient form we set (cf.~\cite[eq.~(2.7)]{KKD20})
+	\textbf{GPF transformation}. To rewrite the integrand in~\eqref{eq:gpf1} in a more convenient form we set (cf.~\cite[eq.~(2.7)]{KKD20})
 	\begin{equation}
 		F_{N_v}(\varrho, p, \mu) = \exp[\frac{p}{2N_v}\left(\sum_{l=1}^{N_v} \varrho_l\right)^2 + \beta\mu\sum_{l=1}^{N_v} \varrho_l - \frac{a p}{2} \sum_{l=1}^{N_v} \varrho_l^2],
 	\end{equation}
@@ -308,6 +308,7 @@
 	
 	The GPF takes on the form (cf.~\cite[2.11]{KKD20}):
 	\begin{eqnarray}
+		\label{eq:XiPi}
 		\Xi(p,\mu) & = & \sum_{\varrho \in \mathbb{N}_0^{N_v}} F_{N_v}(\varrho, p, \mu) \prod\limits_{l=1}^{N_v} \frac{(v^*)^{\varrho_l}}{\varrho_l !}
 		\nonumber\\
 		& = & \sum_{\varrho \in \mathbb{N}_0^{N_v}} \exp[\frac{p}{2 N_v} \left(\sum_{l=1}^{N_v} \varrho_l\right)^2] \prod\limits_{l=1}^{N_v} \pi(\varrho_l, \mu),
@@ -336,7 +337,31 @@
 		f(n; \lambda) = \frac{\lambda^n {\rm e}^{-\lambda}}{n!}, \quad \lambda = v^* {\rm e}^{\beta\mu}.
 	\end{equation}
 	
+	\textbf{Further transformation}. Applying the Gaussian integral
+	\begin{equation}
+		\exp[\frac{p}{2N_v}\left(\sum_{l=1}^{N_v} \varrho_l\right)^2] = \sqrt{\frac{N_v}{2\pi p}}
+		\int\limits_{-\infty}^{\infty} \exp(-N_v \frac{y^2}{2p} + y\sum_{l=1}^{N_v} \varrho_l) {\rm d}y
+	\end{equation}
+	we transform~\eqref{eq:XiPi} into the following expression
+	\begin{equation}
+		\Xi (p, \mu) = \sqrt{\frac{N_v}{2\pi p}} \int\limits_{-\infty}^{\infty} \exp[N_v E(y, p, \mu)] {\rm d} y,
+	\end{equation}
+	where 
+	\begin{equation}
+		E(y,p,\mu) = -\frac{y^2}{2p} + \ln K(y,p,\mu),
+	\end{equation}
+	with
+	\begin{equation}
+		K(y,p,\mu) = \sum_{n=0}^{\infty} \frac{(v^*)^n}{n!} \exp[(y+\beta\mu)n - \frac{ap}{2}n^2].
+	\end{equation}
+	Explicit derivation of expressions for $E(y,p,\mu)$ and $K(y,p,\mu)$ is given in Appendix~\ref{sec:app1}.
+	
 	\section{Known results}
+	
+	\appendix
+	
+	\section{\label{sec:app1} Explicit derivation of $E(y,p,\mu)$ and $K(y,p,\mu)$}
+
 	
 	\bibliographystyle{elsarticle-num}
 	%\bibliography{fluids_cv,books_romanik_bibliography,articles}
