@@ -1,19 +1,20 @@
 \documentclass[12pt]{article}
-%\usepackage{orcidlink} % to insert a hyperlinked ORCiD logo
 \usepackage{amssymb}
 \usepackage{physics}
+%\usepackage{orcidlink} % to insert a hyperlinked ORCiD logo
 %\usepackage{cite} % may be useful for different formats of numerical citation
 %\usepackage{hyperref} % for hyperlinks in references
+\usepackage[notref,notcite,color]{showkeyskay}\definecolor{labelkey}{rgb}{1,0,0.5}
 
 \usepackage{caption} % for \caption*
 \usepackage{mdframed} % for framed text and formulas
-
 \usepackage[dvipsnames]{xcolor}
 
-\usepackage[notref,notcite,color]{showkeyskay}\definecolor{labelkey}{rgb}{1,0,0.5}
 \newcommand{\be}{\begin{equation}}
 \newcommand{\ee}{\end{equation}}
 \newcommand{\e}{\mbox{e}}
+\newcommand {\mm}[1]{\quad\mbox{#1}\quad}
+\newcommand {\MM}[1]{\qquad\mbox{#1}\qquad}
 
 \textwidth 170mm
 \textheight 230mm
@@ -138,7 +139,7 @@
 	
 	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
 		Alternatively, in notation from~\cite{HansenMcDonald13}, the grand partition function is expressed as [cf. eqs.~(2.4.6) and~(2.3.13)]
-		\begin{equation}
+		\begin{equation}\label{ZGR}
 			\Xi=\sum_{N=0}^{\infty}\frac{z^N}{N!}Z_N,
 		\end{equation}
 		where $Z_N$ is the configuration integral:
@@ -227,20 +228,24 @@
 
 \section{The special function $K_0$ and its integral representation}
 
-\be
+\be\label{KOZ}
 K_0(z)=\sum_{n\ge0}\frac1{n!}\,\e^{zn-an^2}
 \ee
-
+Note that sum in \eqref{KOZ} is precisely of the same functional form as that in the definition \eqref{ZGR} of the grand partition function up to replacements
 \be
-K_0(z)=\frac1{2\sqrt\pi}\int_{-\infty}^\infty\e^{-\frac{x^2}4}
-\mbox{exp}\left(\e^{z+ix\sqrt a}\right)
+N\to n,\qquad z\to\e^{-z},\MM{and}Z_n\to\e^{-an^2}.
 \ee
 
-In the form of a manifestly real integral,
+The integral representation of $K_0(z)$ is given by
+\be
+K_0(z)=\frac1{2\sqrt\pi}\int_{-\infty}^\infty\e^{-\frac{x^2}4}
+\mbox{exp}\left(\e^{z+ix\sqrt a}\right),
+\ee
+or, in the form of a manifestly real integral,
 \be\label{KOR}
 K_0(z)=\frac1{2\sqrt\pi}\int_{-\infty}^\infty\e^{-\frac{x^2}4}
 \mbox{exp}\left[\e^z\cos(x\sqrt a\,)\right]
-\cos\left[\e^z\sin(x\sqrt a\,)\right]
+\cos\left[\e^z\sin(x\sqrt a\,)\right].
 \ee
 
 Can you calculate the asymptotic behavior as $z\to+\infty$ of two last integrals?
