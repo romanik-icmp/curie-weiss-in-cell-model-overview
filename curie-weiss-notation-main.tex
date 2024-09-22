@@ -60,6 +60,7 @@
 	\end{equation}
 	and $I_{\Delta_l}(x)$ is the indicator of $\Delta_l$
 	\begin{equation}
+		\label{def:I}
 		I_{\Delta_l} (x) = \left\{
 		\begin{array}{ll}
 			1, \quad x \in \Delta_l,
@@ -183,22 +184,28 @@
 	
 	Note the following summation results:
 	\begin{equation}
-		N_l \equiv \abs{\gamma_l} = \sum_{x \in \gamma_l} 1 = \sum_{x \in \gamma} \mathbb{I}_{\Delta_l}(x),
+		\label{eq:1}
+		N_l \equiv \abs{\gamma_l} = \sum_{x \in \gamma_l} 1 = \sum_{x \in \gamma} \mathbb{I}_{\Delta_l}(x) = \sum_{j=1}^{N} \mathbb{I}_{\Delta_{l}}(x_j),
 	\end{equation}
 	\textbf{\textcolor{Red}{Question:}} Can $x \in \gamma_l$ and $x \in \Delta_l$ be used interchangeably?
 	\begin{equation}
+		\label{eq:2}
 		\sum_{l=1}^{N_v} N_l = N, \quad \sum_{l=1}^{N_v} \abs{\gamma_l} = \abs{\gamma},
 	\end{equation}
 	\begin{equation}
+		\label{eq:3}
 		\left(\sum_{l=1}^{N_v} N_l \right)^2 = N^2, \quad \left(\sum_{l=1}^{N_v} \abs{\gamma_l} \right)^2 = \abs{\gamma}^2.
 	\end{equation}
 	\begin{equation}
+		\label{eq:4}
 		\sum_{x \in \gamma} \rightarrow \sum_{l=1}^{N_v} \sum_{x \in \Delta_l};
 	\end{equation}
 	\begin{equation}
+		\label{eq:5}
 		\sum_{x,y \in \gamma} \rightarrow \sum_{l,l'=1}^{N_v} \sum_{x \in \Delta_l} \sum_{y \in \Delta_{l'}}.
 	\end{equation}
 	\begin{equation}
+		\label{eq:6}
 		\sum_{x \in \Delta_l}\sum_{y \in \Delta_l'} 1 = N_l N_{l'} = \abs{\gamma_l} \abs{\gamma_{l'}}.
 	\end{equation}
 	\begin{equation}
@@ -211,13 +218,83 @@
 		\nonumber\\
 		& = & - \frac{J_1}{N_v} \left(\sum_{l=1}^{N_v} N_l\right)^2 + J_2\sum_{l=1}^{N_v}N_l^2
 		\\
-		& = & - \frac{J_1}{N_v} \left(\sum_{l=1}^{N_v} \gamma_l\right)^2 + J_2\sum_{l=1}^{N_v}\abs{\gamma_l}^2
+		& = & - \frac{J_1}{N_v} \left(\sum_{l=1}^{N_v} \abs{\gamma_l}\right)^2 + J_2\sum_{l=1}^{N_v}\abs{\gamma_l}^2
 	\end{eqnarray}
 	
-	To rewrite the integrand in~\eqref{eq:gpf1} in a more convenient form we set
+	To rewrite the integrand in~\eqref{eq:gpf1} in a more convenient form we set (cf.~\cite[eq.~(2.7)]{KKD20})
 	\begin{equation}
-		F_{N_v}(\rho, p, \mu)
+		F_{N_v}(\varrho, p, \mu) = \exp[\frac{p}{2N_v}\left(\sum_{l=1}^{N_v} \varrho_l\right)^2 + \beta\mu\sum_{l=1}^{N_v} \varrho_l - \frac{a p}{2} \sum_{l=1}^{N_v} \varrho_l^2],
 	\end{equation}
+	where $\varrho \in \mathbb{N}_0^N$ is a vector with nonnegative integer components $\varrho_l$, $l=1, 2, \ldots , N_v$, i.e. $\varrho = (\varrho_1, \varrho_2, \ldots, \varrho_{N_{v}})$.
+	
+	For $\varrho$, we substitute the vector $\nu(\gamma) \in \mathbb{N}_0^N$ with components $N_l$ (or $\abs{\gamma_l}$), which have the meaning of the number of points in a cell $\Delta_{l}$ in cofiguration $\gamma$, i.e. $\nu(\gamma)=(N_1, N_2, \ldots, N_{N_v})$ or $\nu(\gamma) = (\abs{\gamma_1}, \abs{\gamma_2}, \ldots, \abs{\gamma_{N_v}})$, and obtain the following expression for the GPF in~\eqref{eq:gpf1}:
+	\begin{equation}
+		\Xi = \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!}\int_{V^N} F_{N_v}(\nu(\gamma),p,\mu) {\rm d} x_1 \dotsc {\rm d} x_N,
+	\end{equation}
+	which can be compared with~\cite[eq.~(2.8)]{KKD20}.
+	
+	The next step is to intorduce the Kronecker $\delta$-symbol for $n, m \in \mathbb{N}_0$ as
+	\begin{equation}
+		\delta_{nm} = \int_0^1 \exp[2\pi {\rm i} t (n-m)] {\rm d}t
+	\end{equation}
+	and rewrite $F_{N_v}$ as
+	\begin{equation}
+		F_{N_v}(\nu(\gamma),p,\mu) = \sum_{\varrho \in \mathbb{N}_0^{N_v}} F_{N_v}(\varrho, p, \mu) 
+		\int\limits_{[0,1]^{N_v}} \exp[2\pi{\rm i} \sum_{l=1}^{N_v} (\varrho_l - N_l)t_l ] {\rm d} t_1 \ldots {\rm d} t_{N_v},
+	\end{equation}
+	to arrive at (cf.~\cite[(2.9)]{KKD20})
+	\begin{eqnarray}
+		\Xi & = &  \sum_{\varrho \in \mathbb{N}_0^{N_v}} F_{N_v}(\varrho, p, \mu) 
+		\sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!} 
+		\nonumber\\
+		&& \times \int\limits_{V^N} \int\limits_{[0,1]^{N_v}} 
+		\exp[2\pi{\rm i} \sum_{l=1}^{N_v} (\varrho_l - N_l)t_l ] {\rm d} t_1 \ldots {\rm d} t_{N_v} {\rm d}x_1 \ldots {\rm d}x_N 
+		\nonumber\\
+		& = & \sum_{\varrho \in \mathbb{N}_0^{N_v}} F_{N_v}(\varrho, p, \mu)
+		\int\limits_{[0,1]^{N_v}} \exp(2\pi{\rm i} \sum_{l=1}^{N_v} \varrho_l t_l) R_{N_v}(t_1, \ldots, t_{N_v}) {\rm d} t_1 \ldots {\rm d} t_{N_v}.
+	\end{eqnarray}
+	The summation over $\varrho$ is understood as
+	\begin{equation}
+		\sum_{\varrho \in \mathbb{N}_0^{N_v}} = \sum_{\varrho_1=0}^{\infty} \ldots \sum_{\varrho_{N_v}=0}^{\infty}.
+	\end{equation}
+	The quantity $R_N$ is expressed as follows (cf.~\cite[(2.10)]{KKD20})
+	\begin{eqnarray}
+		\label{def:RN}
+		R_{N_v}(t_1, \ldots, t_{N_v}) & = & \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!} \int\limits_{V^N} \exp(-2\pi{\rm i} \sum_{l=1}^{N_v} N_l t_l) {\rm d}x_1 \ldots {\rm d}x_N
+		\nonumber\\
+		&=& \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!} \int\limits_{V^N} \exp(-2\pi{\rm i} \sum_{l=1}^{N_v} \sum_{j=1}^{N} \mathbb{I}_{\Delta_{l}}(x_j) t_l) {\rm d}x_1 \ldots {\rm d}x_N,
+	\end{eqnarray}
+	We used~\eqref{eq:1} to get the last line in the above equation.
+	
+	Note that the expression under the integral in the last line of~\eqref{def:RN} is factorized in $j$:
+	\begin{eqnarray}
+		R_{N_v}(t_1, \ldots, t_{N_v}) & = & \sum_{N=0}^{\infty}\frac{1}{N!} 
+		\left\{\frac{1}{\Lambda^{3}} \int\limits_V \exp[-2\pi{\rm i}\sum_{l=1}^{N_v} \mathbb{I}_{\Delta_{l}}(x) t_l] {\rm d}x \right\}^N.
+	\end{eqnarray}
+	Applying the following transformation for the integral over $V$
+	\begin{equation}
+		\int\limits_V \ldots {\rm d}x = \sum_{l=1}^{N_v}\int\limits_{\Delta_l} \ldots {\rm d}x,
+	\end{equation}
+	and taking into account the definition of $\mathbb{I}_{\Delta_l}$~\eqref{def:I}, one gets for $R_{N_v}$
+	\begin{eqnarray}
+		R_{N_v}(t_1, \ldots, t_{N_v}) & = & \sum_{N=0}^{\infty}\frac{1}{N!} \left[ \frac{1}{\Lambda^3} \sum_{l=1}^{N_v} \int\limits_{\Delta_l} \exp(-2\pi{\rm i}t_l) {\rm d}x \right]^N
+		\nonumber\\
+		&=& \exp[\frac{v}{\Lambda^3} \sum_{l=1}^{N_v} \exp(-2\pi{\rm i} t_l)].
+	\end{eqnarray}
+	Here we used an obvious result $\int_{\Delta_l} {\rm d}x = v$. It is natural to introduce
+	\begin{equation}
+		v^* = \frac{v}{\Lambda^3},
+	\end{equation}
+	and write down the final expression for $R_{N_v}$
+	\begin{equation}
+		R_{N_v}(t_1, \ldots, t_{N_v}) = \exp[v^* \sum_{l=1}^{N_v} \exp(-2\pi{\rm i} t_l)].
+	\end{equation}
+	Compare this expression with the corresponding one in~\cite[p.~4]{KKD20} 
+	
+	
+	
+	
+	
 	
 	\section{Known results}
 	
