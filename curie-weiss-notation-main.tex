@@ -244,6 +244,7 @@
 	\end{equation}
 	to arrive at (cf.~\cite[(2.9)]{KKD20})
 	\begin{eqnarray}
+		\label{eq:XiR}
 		\Xi & = &  \sum_{\varrho \in \mathbb{N}_0^{N_v}} F_{N_v}(\varrho, p, \mu) 
 		\sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!} 
 		\nonumber\\
@@ -277,6 +278,7 @@
 	\end{equation}
 	and taking into account the definition of $\mathbb{I}_{\Delta_l}$~\eqref{def:I}, one gets for $R_{N_v}$
 	\begin{eqnarray}
+		\label{eq:RNL}
 		R_{N_v}(t_1, \ldots, t_{N_v}) & = & \sum_{N=0}^{\infty}\frac{1}{N!} \left[ \frac{1}{\Lambda^3} \sum_{l=1}^{N_v} \int\limits_{\Delta_l} \exp(-2\pi{\rm i}t_l) {\rm d}x \right]^N
 		\nonumber\\
 		&=& \exp[\frac{v}{\Lambda^3} \sum_{l=1}^{N_v} \exp(-2\pi{\rm i} t_l)].
@@ -287,14 +289,22 @@
 	\end{equation}
 	and write down the final expression for $R_{N_v}$
 	\begin{equation}
+		\label{eq:RNv}
 		R_{N_v}(t_1, \ldots, t_{N_v}) = \exp[v^* \sum_{l=1}^{N_v} \exp(-2\pi{\rm i} t_l)].
 	\end{equation}
 	Compare this expression with the corresponding one in~\cite[p.~4]{KKD20} 
 	
-	
-	
-	
-	
+	Let us substitute~\eqref{eq:RNv} into~\eqref{eq:XiR}
+	\begin{equation}
+		\label{eq:XiInt}
+		\Xi(p,\mu) = \sum_{\varrho \in \mathbb{N}_0^{N_v}} F_{N_v}(\varrho, p, \mu) \prod\limits_{l=1}^{N_v} \int\limits_{0}^{1} \exp[2\pi{\rm i}\varrho_l t_l + v^* \exp(-2\pi{\rm i} t_l)] {\rm d} t_l.
+	\end{equation}
+	Here, the integral gives the following result:
+	\begin{equation}
+		\label{integral1}
+		\int\limits_{0}^{1} \exp[2\pi{\rm i}\varrho_l t_l + v^* \exp(-2\pi{\rm i} t_l)] {\rm d} t_l = \frac{{(v^*)}^{\varrho_l}}{\varrho_l !}.
+	\end{equation}
+	\textbf{\textcolor{Red}{NOTE:}} This integral has not been explicitly written down in any of the papers~\cite{KKD18, KKD20, KD22}, and I do not know how it is calculated. However, I have determined that this result was implicitly substituted into~\cite[(2.11)]{KKD20}. I have verified this using Maple, and it yields the result given in~\eqref{integral1}.
 	
 	\section{Known results}
 	
