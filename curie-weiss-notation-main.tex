@@ -123,7 +123,7 @@
 	$$a = J_2/J_1,$$
 	and thus $a > 1.$
 	
-	\textbf{The grand partition function} is expressed as follows~\cite[eqs.~(2.4.6) and~(2.3.13)]{HansenMcDonald13}
+	\textbf{The grand partition function} (GPF) is expressed as follows~\cite[eqs.~(2.4.6) and~(2.3.13)]{HansenMcDonald13}
 	\begin{equation*}
 		\Xi = \sum_{N=0}^{\infty}\frac{z^N}{N!} \int_{V} \dotsc \int_{V} \exp(-\beta W_{N_v}(\gamma)) {\rm d} x_1 \dotsc {\rm d} x_N
 	\end{equation*}
@@ -131,10 +131,10 @@
 	\begin{equation*}
 		z = \frac{\exp(\beta \mu)}{\Lambda^3},
 	\end{equation*}
-	$\beta = k_{\rm B} T$ the inverse temperature, $k_{\rm B}$ the Boltzmann constant, $T$ the temperature, $\mu$ the chemical potential, $\Lambda = (2\pi\beta\hbar^2/m)^{1/2}$ the de Broglie thermal wavelength, $\hbar$ the Planck constant, $m$ the mass of a particle. In the grand partition function the integration goes over all configurations with $N$ particles and then the summation goes over all positive integer values of $N$.
+	$\beta = k_{\rm B} T$ the inverse temperature, $k_{\rm B}$ the Boltzmann constant, $T$ the temperature, $\mu$ the chemical potential, $\Lambda = (2\pi\beta\hbar^2/m)^{1/2}$ the de Broglie thermal wavelength, $\hbar$ the Planck constant, $m$ the mass of a particle. In GPF the integration goes over all configurations with $N$ particles and then the summation goes over all positive integer values of $N$.
 	
 	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
-		Alternatively, in notation from~\cite{HansenMcDonald13}, the grand partition function is expressed as [cf. eqs.~(2.4.6) and~(2.3.13)]
+		Alternatively, in notation from~\cite{HansenMcDonald13}, the GPF is expressed as [cf. eqs.~(2.4.6) and~(2.3.13)]
 		\begin{equation}
 			\Xi=\sum_{N=0}^{\infty}\frac{z^N}{N!}Z_N,
 		\end{equation}
@@ -163,7 +163,7 @@
 	\begin{equation}
 		\sum_{x,y \in \gamma} 1 = N^2 = \abs{\gamma}^2.
 	\end{equation}
-	The grand partition function is then explicitly written as
+	The GPF is then explicitly written as
 	\begin{equation}
 		\label{eq:gpf1}
 		\Xi = \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!}\int \exp[\beta\mu N + \frac{p}{2N_{v}} N^2 - \frac{ap}{2} \sum_{x,y \in \gamma} \sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(x)\mathbb{I}_{\Delta_l}(y)] {\rm d} x_1 \dotsc {\rm d} x_N.
@@ -305,6 +305,36 @@
 		\int\limits_{0}^{1} \exp[2\pi{\rm i}\varrho_l t_l + v^* \exp(-2\pi{\rm i} t_l)] {\rm d} t_l = \frac{{(v^*)}^{\varrho_l}}{\varrho_l !}.
 	\end{equation}
 	\textbf{\textcolor{Red}{NOTE:}} This integral has not been explicitly written down in any of the papers~\cite{KKD18, KKD20, KD22}, and I do not know how it is calculated. However, I have determined that this result was implicitly substituted into~\cite[(2.11)]{KKD20}. I have verified this using Maple, and it yields the result given in~\eqref{integral1}.
+	
+	The GPF takes on the form (cf.~\cite[2.11]{KKD20}):
+	\begin{eqnarray}
+		\Xi(p,\mu) & = & \sum_{\varrho \in \mathbb{N}_0^{N_v}} F_{N_v}(\varrho, p, \mu) \prod\limits_{l=1}^{N_v} \frac{(v^*)^{\varrho_l}}{\varrho_l !}
+		\nonumber\\
+		& = & \sum_{\varrho \in \mathbb{N}_0^{N_v}} \exp[\frac{p}{2 N_v} \left(\sum_{l=1}^{N_v} \varrho_l\right)^2] \prod\limits_{l=1}^{N_v} \pi(\varrho_l, \mu),
+	\end{eqnarray}
+	where
+	\begin{equation}
+		\label{def:pirho}
+		\pi(\varrho_l, \mu) = \frac{(v^*)^{\varrho_l}}{\varrho_l !} \exp(\beta\mu\varrho_l - \frac{ap}{2}\varrho_l^2), \quad \varrho_l \in \mathbb{N}_0.
+	\end{equation}
+	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
+		In a generic form
+		\begin{equation}
+			\label{def:pin}
+			\pi(n, \mu) = \frac{(v^*)^n}{n!} \exp(\beta\mu n - \frac{ap}{2}n^2), \quad n \in \mathbb{N}_0.
+		\end{equation}
+	\end{mdframed}
+	
+	\textbf{The Poisson distribution} results from~\eqref{def:pin} at $p=0$, i.e. in the high-temperature limit. To see this, rewrite expression for $\pi(n,\mu)|_{p=0}$ as
+	\begin{equation}
+		\pi(n,\mu)|_{p=0} = {\rm e}^{v^* {\rm e}^{\beta\mu}} 
+		\frac{\left(v^* {\rm e}^{\beta\mu}\right)^n}{n!} {\rm e}^{-v^* {\rm e}^{\beta\mu}} 
+		= {\rm e}^{v^* {\rm e}^{\beta\mu}} f(n; \lambda)
+	\end{equation}
+	where the (non-normalized) Poisson distribution $f(n; \lambda)$ is given by
+	\begin{equation}
+		f(n; \lambda) = \frac{\lambda^n {\rm e}^{-\lambda}}{n!}, \quad \lambda = v^* {\rm e}^{\beta\mu}.
+	\end{equation}
 	
 	\section{Known results}
 	
