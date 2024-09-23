@@ -301,7 +301,7 @@
 	
 	Let us substitute~\eqref{eq:RNv} into~\eqref{eq:XiR}
 	\begin{equation}
-		\label{eq:XiInt}
+		\label{eq:XiIntt}
 		\Xi(p,\mu) = \sum_{\varrho \in \mathbb{N}_0^{N_v}} F_{N_v}(\varrho, p, \mu) \prod\limits_{l=1}^{N_v} \int\limits_{0}^{1} \exp[2\pi{\rm i}\varrho_l t_l + v^* \exp(-2\pi{\rm i} t_l)] {\rm d} t_l.
 	\end{equation}
 	Here, the integral gives the following result:
@@ -344,24 +344,27 @@
 	
 	\textbf{Further transformation}. Applying the Gaussian integral
 	\begin{equation}
+		\label{eq:gaussInt}
 		\exp[\frac{p}{2N_v}\left(\sum_{l=1}^{N_v} \varrho_l\right)^2] = \sqrt{\frac{N_v}{2\pi p}}
 		\int\limits_{-\infty}^{\infty} \exp(-N_v \frac{y^2}{2p} + y\sum_{l=1}^{N_v} \varrho_l) {\rm d}y
 	\end{equation}
 	we transform~\eqref{eq:XiPi} into the following expression
 	\begin{equation}
+		\label{eq:XiInty}
 		\Xi (p, \mu) = \sqrt{\frac{N_v}{2\pi p}} \int\limits_{-\infty}^{\infty} \exp[N_v E(y, p, \mu)] {\rm d} y,
 	\end{equation}
 	where 
 	\begin{equation}
+		\label{def:E}
 		E(y,p,\mu) = -\frac{y^2}{2p} + \ln K(y,p,\mu),
 	\end{equation}
 	with
 	\begin{equation}
+		\label{def:K}
 		K(y,p,\mu) = \sum_{n=0}^{\infty} \frac{(v^*)^n}{n!} \exp[(y+\beta\mu)n - \frac{ap}{2}n^2].
 	\end{equation}
 	Explicit derivation of expressions for $E(y,p,\mu)$ and $K(y,p,\mu)$ is given in Appendix~\ref{sec:app1}.
 	
-	\section{Known results}
 
 \section{The special function $K_0$ and its integral representation}
 
@@ -400,6 +403,56 @@ resulting from \eqref{KOR} by deleting one of the last two factors.
 	\appendix
 	
 	\section{\label{sec:app1} Explicit derivation of $E(y,p,\mu)$ and $K(y,p,\mu)$}
+	In this appendix, the explicit transformations through Eqs.~(2.11)--(2.15) is presented. Substituting the Gaussian integral~\eqref{eq:gaussInt} into~\eqref{eq:XiPi}, one proceeds as follows
+	\begin{eqnarray}
+		\Xi 
+		&=& 
+		\sum_{\varrho \in \mathbb{N}_0^{N_v}} \sqrt{\frac{N_v}{2\pi p}} \int\limits_{-\infty}^{\infty} \exp(-N_v \frac{y^2}{2p}) 
+		\prod\limits_{l=1}^{N_v} \frac{(v^*)^{\varrho_l}}{\varrho_l !} 
+		\exp[(y + \beta\mu) \varrho_l - \frac{ap}{2}\varrho_l^2] {\rm d}y
+		\nonumber\\
+		&=&
+		\sqrt{\frac{N_v}{2\pi p}} \sum_{\varrho_1=0}^{\infty} \ldots \sum_{\varrho_{N_v}=0}^{\infty} 
+		\int\limits_{-\infty}^{\infty} {\rm e}^{-N_v \frac{y^2}{2p}} 
+		\prod\limits_{l=1}^{N_v} \frac{(v^*)^{\varrho_l}}{\varrho_l !} 
+		\exp[(y + \beta\mu) \varrho_l - \frac{ap}{2}\varrho_l^2] {\rm d}y
+		\nonumber\\
+		&=&
+		\sqrt{\frac{N_v}{2\pi p}} \int\limits_{-\infty}^{\infty} {\rm e}^{-N_v \frac{y^2}{2p}}
+		\left\{ 
+			\sum_{\varrho_1=0}^{\infty} \frac{(v^*)^{\varrho_1}}{\varrho_1 !} \exp[(y + \beta\mu) \varrho_1 - \frac{ap}{2}\varrho_1^2] 
+		\right\}
+		\nonumber\\
+		&& 
+		\times \ldots \times 
+		\left\{ 
+			\sum_{\varrho_{N_v}=0}^{\infty} \frac{(v^*)^{\varrho_{N_v}}}{\varrho_{N_v} !} \exp[(y + \beta\mu) \varrho_{N_v} - \frac{ap}{2}\varrho_{N_v}^2] 
+		\right\}
+		{\rm d}y
+		\nonumber\\
+		&=&
+		\sqrt{\frac{N_v}{2\pi p}} \int\limits_{-\infty}^{\infty} {\rm e}^{-N_v \frac{y^2}{2p}}
+		\exp( \ln \left\{\sum_{n=0}^{\infty} \frac{(v^*)^{n}}{n!} \exp[(y + \beta\mu)n - \frac{ap}{2}n^2] \right\}^{N_v} )
+		\nonumber\\
+		&=&
+		\sqrt{\frac{N_v}{2\pi p}} \int\limits_{-\infty}^{\infty}
+		\exp 
+		\left\{ N_v 
+			\left[ -\frac{y^2}{2p} + 
+			\ln(\sum_{n=0}^{\infty} \frac{(v^*)^{n}}{n!} {\rm e}^{(y + \beta\mu)n - \frac{ap}{2}n^2}) 
+			\right] 
+		\right\},
+	\end{eqnarray}
+	and arrives at Eqs.~\eqref{eq:XiInty}, \eqref{def:E}, and~\eqref{def:K}
+	\begin{equation}
+		\Xi = \sqrt{\frac{N_v}{2\pi p}} \int\limits_{-\infty}^{\infty}
+		\exp 
+		\left\{ N_v 
+		\left[ -\frac{y^2}{2p} + 
+		\ln K(y,p,\mu) 
+		\right] 
+		\right\}.
+	\end{equation}
 
 	%\bibliographystyle{elsarticle-num}
 	%\bibliography{fluids_cv,books_romanik_bibliography,articles}
