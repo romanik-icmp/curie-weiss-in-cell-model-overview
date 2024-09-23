@@ -128,7 +128,7 @@
 	$$a = J_2/J_1,$$
 	and thus $a > 1.$
 	
-	\textbf{The grand partition function} is expressed as follows~\cite[eqs.~(2.4.6) and~(2.3.13)]{HansenMcDonald13}
+	\textbf{The grand partition function} (GPF) is expressed as follows~\cite[eqs.~(2.4.6) and~(2.3.13)]{HansenMcDonald13}
 	\begin{equation*}
 		\Xi = \sum_{N=0}^{\infty}\frac{z^N}{N!} \int_{V} \dotsc \int_{V} \exp(-\beta W_{N_v}(\gamma)) {\rm d} x_1 \dotsc {\rm d} x_N
 	\end{equation*}
@@ -136,10 +136,10 @@
 	\begin{equation*}
 		z = \frac{\exp(\beta \mu)}{\Lambda^3},
 	\end{equation*}
-	$\beta = k_{\rm B} T$ the inverse temperature, $k_{\rm B}$ the Boltzmann constant, $T$ the temperature, $\mu$ the chemical potential, $\Lambda = (2\pi\beta\hbar^2/m)^{1/2}$ the de Broglie thermal wavelength, $\hbar$ the Planck constant, $m$ the mass of a particle. In the grand partition function the integration goes over all configurations with $N$ particles and then the summation goes over all positive integer values of $N$.
+	$\beta = k_{\rm B} T$ the inverse temperature, $k_{\rm B}$ the Boltzmann constant, $T$ the temperature, $\mu$ the chemical potential, $\Lambda = (2\pi\beta\hbar^2/m)^{1/2}$ the de Broglie thermal wavelength, $\hbar$ the Planck constant, $m$ the mass of a particle. In GPF the integration goes over all configurations with $N$ particles and then the summation goes over all positive integer values of $N$.
 	
 	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
-		Alternatively, in notation from~\cite{HansenMcDonald13}, the grand partition function is expressed as [cf. eqs.~(2.4.6) and~(2.3.13)]
+		Alternatively, in notation from~\cite{HansenMcDonald13}, the GPF is expressed as [cf. eqs.~(2.4.6) and~(2.3.13)]
 		\begin{equation}\label{ZGR}
 			\Xi=\sum_{N=0}^{\infty}\frac{z^N}{N!}Z_N,
 		\end{equation}
@@ -168,7 +168,7 @@
 	\begin{equation}
 		\sum_{x,y \in \gamma} 1 = N^2 = \abs{\gamma}^2.
 	\end{equation}
-	The grand partition function is then explicitly written as
+	The GPF is then explicitly written as
 	\begin{equation}
 		\label{eq:gpf1}
 		\Xi = \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!}\int \exp[\beta\mu N + \frac{p}{2N_{v}} N^2 - \frac{ap}{2} \sum_{x,y \in \gamma} \sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(x)\mathbb{I}_{\Delta_l}(y)] {\rm d} x_1 \dotsc {\rm d} x_N.
@@ -187,7 +187,7 @@
 	
 	For a given $l = 1, \cdots , N_v$ and a configuration $\gamma$, we set $\gamma_l = \gamma \cap \Delta_l,$ that is, $\gamma_l$ is the part of the configuration contained in $\Delta_l$. Then, $N_l$ or $\abs{\gamma_l}$ stands for the number of points (particles) of $\gamma$ contained in $\Delta_l$.
 	
-	Note the following summation results:
+	\textbf{Some useful formulas}. Note the following summation results:
 	\begin{equation}
 		\label{eq:1}
 		N_l \equiv \abs{\gamma_l} = \sum_{x \in \gamma_l} 1 = \sum_{x \in \gamma} \mathbb{I}_{\Delta_l}(x) = \sum_{j=1}^{N} \mathbb{I}_{\Delta_{l}}(x_j),
@@ -226,7 +226,7 @@
 		& = & - \frac{J_1}{N_v} \left(\sum_{l=1}^{N_v} \abs{\gamma_l}\right)^2 + J_2\sum_{l=1}^{N_v}\abs{\gamma_l}^2
 	\end{eqnarray}
 	
-	To rewrite the integrand in~\eqref{eq:gpf1} in a more convenient form we set (cf.~\cite[eq.~(2.7)]{KKD20})
+	\textbf{GPF transformation}. To rewrite the integrand in~\eqref{eq:gpf1} in a more convenient form we set (cf.~\cite[eq.~(2.7)]{KKD20})
 	\begin{equation}
 		F_{N_v}(\varrho, p, \mu) = \exp[\frac{p}{2N_v}\left(\sum_{l=1}^{N_v} \varrho_l\right)^2 + \beta\mu\sum_{l=1}^{N_v} \varrho_l - \frac{a p}{2} \sum_{l=1}^{N_v} \varrho_l^2],
 	\end{equation}
@@ -249,6 +249,7 @@
 	\end{equation}
 	to arrive at (cf.~\cite[(2.9)]{KKD20})
 	\begin{eqnarray}
+		\label{eq:XiR}
 		\Xi & = &  \sum_{\varrho \in \mathbb{N}_0^{N_v}} F_{N_v}(\varrho, p, \mu) 
 		\sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!} 
 		\nonumber\\
@@ -282,6 +283,7 @@
 	\end{equation}
 	and taking into account the definition of $\mathbb{I}_{\Delta_l}$~\eqref{def:I}, one gets for $R_{N_v}$
 	\begin{eqnarray}
+		\label{eq:RNL}
 		R_{N_v}(t_1, \ldots, t_{N_v}) & = & \sum_{N=0}^{\infty}\frac{1}{N!} \left[ \frac{1}{\Lambda^3} \sum_{l=1}^{N_v} \int\limits_{\Delta_l} \exp(-2\pi{\rm i}t_l) {\rm d}x \right]^N
 		\nonumber\\
 		&=& \exp[\frac{v}{\Lambda^3} \sum_{l=1}^{N_v} \exp(-2\pi{\rm i} t_l)].
@@ -292,14 +294,72 @@
 	\end{equation}
 	and write down the final expression for $R_{N_v}$
 	\begin{equation}
+		\label{eq:RNv}
 		R_{N_v}(t_1, \ldots, t_{N_v}) = \exp[v^* \sum_{l=1}^{N_v} \exp(-2\pi{\rm i} t_l)].
 	\end{equation}
 	Compare this expression with the corresponding one in~\cite[p.~4]{KKD20} 
 	
+	Let us substitute~\eqref{eq:RNv} into~\eqref{eq:XiR}
+	\begin{equation}
+		\label{eq:XiInt}
+		\Xi(p,\mu) = \sum_{\varrho \in \mathbb{N}_0^{N_v}} F_{N_v}(\varrho, p, \mu) \prod\limits_{l=1}^{N_v} \int\limits_{0}^{1} \exp[2\pi{\rm i}\varrho_l t_l + v^* \exp(-2\pi{\rm i} t_l)] {\rm d} t_l.
+	\end{equation}
+	Here, the integral gives the following result:
+	\begin{equation}
+		\label{integral1}
+		\int\limits_{0}^{1} \exp[2\pi{\rm i}\varrho_l t_l + v^* \exp(-2\pi{\rm i} t_l)] {\rm d} t_l = \frac{{(v^*)}^{\varrho_l}}{\varrho_l !}.
+	\end{equation}
+	\textbf{\textcolor{Red}{NOTE:}} This integral has not been explicitly written down in any of the papers~\cite{KKD18, KKD20, KD22}, and I do not know how it is calculated. However, I have determined that this result was implicitly substituted into~\cite[(2.11)]{KKD20}. I have verified this using Maple, and it yields the result given in~\eqref{integral1}.
 	
+	The GPF takes on the form (cf.~\cite[2.11]{KKD20}):
+	\begin{eqnarray}
+		\label{eq:XiPi}
+		\Xi(p,\mu) & = & \sum_{\varrho \in \mathbb{N}_0^{N_v}} F_{N_v}(\varrho, p, \mu) \prod\limits_{l=1}^{N_v} \frac{(v^*)^{\varrho_l}}{\varrho_l !}
+		\nonumber\\
+		& = & \sum_{\varrho \in \mathbb{N}_0^{N_v}} \exp[\frac{p}{2 N_v} \left(\sum_{l=1}^{N_v} \varrho_l\right)^2] \prod\limits_{l=1}^{N_v} \pi(\varrho_l, \mu),
+	\end{eqnarray}
+	where
+	\begin{equation}
+		\label{def:pirho}
+		\pi(\varrho_l, \mu) = \frac{(v^*)^{\varrho_l}}{\varrho_l !} \exp(\beta\mu\varrho_l - \frac{ap}{2}\varrho_l^2), \quad \varrho_l \in \mathbb{N}_0.
+	\end{equation}
+	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
+		In a generic form
+		\begin{equation}
+			\label{def:pin}
+			\pi(n, \mu) = \frac{(v^*)^n}{n!} \exp(\beta\mu n - \frac{ap}{2}n^2), \quad n \in \mathbb{N}_0.
+		\end{equation}
+	\end{mdframed}
 	
+	\textbf{The Poisson distribution} results from~\eqref{def:pin} at $p=0$, i.e. in the high-temperature limit. To see this, rewrite expression for $\pi(n,\mu)|_{p=0}$ as
+	\begin{equation}
+		\pi(n,\mu)|_{p=0} = {\rm e}^{v^* {\rm e}^{\beta\mu}} 
+		\frac{\left(v^* {\rm e}^{\beta\mu}\right)^n}{n!} {\rm e}^{-v^* {\rm e}^{\beta\mu}} 
+		= {\rm e}^{v^* {\rm e}^{\beta\mu}} f(n; \lambda)
+	\end{equation}
+	where the (non-normalized) Poisson distribution $f(n; \lambda)$ is given by
+	\begin{equation}
+		f(n; \lambda) = \frac{\lambda^n {\rm e}^{-\lambda}}{n!}, \quad \lambda = v^* {\rm e}^{\beta\mu}.
+	\end{equation}
 	
-	
+	\textbf{Further transformation}. Applying the Gaussian integral
+	\begin{equation}
+		\exp[\frac{p}{2N_v}\left(\sum_{l=1}^{N_v} \varrho_l\right)^2] = \sqrt{\frac{N_v}{2\pi p}}
+		\int\limits_{-\infty}^{\infty} \exp(-N_v \frac{y^2}{2p} + y\sum_{l=1}^{N_v} \varrho_l) {\rm d}y
+	\end{equation}
+	we transform~\eqref{eq:XiPi} into the following expression
+	\begin{equation}
+		\Xi (p, \mu) = \sqrt{\frac{N_v}{2\pi p}} \int\limits_{-\infty}^{\infty} \exp[N_v E(y, p, \mu)] {\rm d} y,
+	\end{equation}
+	where 
+	\begin{equation}
+		E(y,p,\mu) = -\frac{y^2}{2p} + \ln K(y,p,\mu),
+	\end{equation}
+	with
+	\begin{equation}
+		K(y,p,\mu) = \sum_{n=0}^{\infty} \frac{(v^*)^n}{n!} \exp[(y+\beta\mu)n - \frac{ap}{2}n^2].
+	\end{equation}
+	Explicit derivation of expressions for $E(y,p,\mu)$ and $K(y,p,\mu)$ is given in Appendix~\ref{sec:app1}.
 	
 	\section{Known results}
 
@@ -336,6 +396,11 @@ I have succeeded to calculate the leading $z\to+\infty$ asymptotics only for two
 \ee
 resulting from \eqref{KOR} by deleting one of the last two factors.
 	
+
+	\appendix
+	
+	\section{\label{sec:app1} Explicit derivation of $E(y,p,\mu)$ and $K(y,p,\mu)$}
+
 	%\bibliographystyle{elsarticle-num}
 	%\bibliography{fluids_cv,books_romanik_bibliography,articles}
 	
