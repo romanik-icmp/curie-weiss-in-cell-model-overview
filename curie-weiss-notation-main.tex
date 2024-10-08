@@ -344,6 +344,10 @@
 	
 	\textbf{Further transformation}. Applying the Gaussian integral
 	\begin{equation}
+		\int\limits_{-\infty}^{\infty} {\rm e}^{-\alpha y^2 + \beta y} {\rm d}y = \sqrt{\frac{\pi}{\alpha}} {\rm e}^{\frac{\beta^2}{4\alpha}},
+	\end{equation}
+	explicitly to Eq.~\eqref{eq:XiPi}
+	\begin{equation}
 		\label{eq:gaussInt}
 		\exp[\frac{p}{2N_v}\left(\sum_{l=1}^{N_v} \varrho_l\right)^2] = \sqrt{\frac{N_v}{2\pi p}}
 		\int\limits_{-\infty}^{\infty} \exp(-N_v \frac{y^2}{2p} + y\sum_{l=1}^{N_v} \varrho_l) {\rm d}y
@@ -369,11 +373,50 @@
 	
 	Since $v^* = c^3/\Lambda^3$, we may focus on a choice for $c$. One approach to choosing $c$ is in such a way that a classical consideration is justified. For example, it can be taken as the mean nearest-neighbour separation, see~\cite[Sec.~1.1]{HansenMcDonald13}. From the data given in~\cite[Table~1.1]{HansenMcDonald13}, the ratio $c/\Lambda$ may vary between $3.8$ and $59$ (we ignored data for $H_2$, as quantum effects are important for this substance). This defines possible values for $v^*$ as ranging between $57$ and $2 \cdot 10^5$.
 	
+	\textbf{Constraint on $E(y,p,\mu)$}. From inequality
+	\begin{equation}
+		\left(\frac{y+\beta\mu}{ap} - n\right)^2 \geq 0
+	\end{equation}
+	it follows
+	\begin{equation}
+		(y+\beta\mu)n - \frac{ap}{2}n^2 \leq \frac{(y+\beta\mu)^2}{2ap}.
+	\end{equation}
+	The last inequality, in turn, leads to corresponding inequalities for $K(y,p,\mu)$
+	\begin{eqnarray}
+		K(y,p,\mu) & \leq & \sum_{n=0}^{\infty}\frac{(v^*)^n}{n!} \exp[\frac{(y+\beta\mu)^2}{2ap}]
+	\end{eqnarray}
+	or
+	\begin{equation}
+		K(y,p,\mu) \leq \exp[\frac{(y+\beta\mu)^2}{2ap}] \exp(v^*),
+	\end{equation}
+	and for $E(y,p,\mu)$
+	\begin{equation}
+		\label{ineq:E0}
+		E(y,p,\mu) \leq -\frac{a-1}{2ap}y^2 + \frac{\beta\mu}{2ap}(2y+\beta\mu) + v^*.
+	\end{equation}
+	Since $a>1$, \eqref{ineq:E0} implies the following limits for fixed $p$ and $\mu$
+	\begin{equation}
+		\lim_{y \to -\infty} E(y,p,\mu) = -\infty, \quad \lim\limits_{y \to +\infty} E(y,p,\mu) = -\infty.
+	\end{equation}
+	Typical behavior of $E(y,p,\mu)$ as a function of $y$ in the single-phase domain is illustrated in Fig.~\ref{fig:E0_vs_y}
+	\begin{figure}[htbp]
+		\includegraphics[width=0.5\textwidth,angle=0]{E0_vs_y}
+		\centering
+		\captionsetup{width=0.6\textwidth}
+		\caption{Quantity $E(y,p,\mu)$ as a function of $y$ at $p=2.0$ and $\beta\mu=-2.0$ for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}
+		\label{fig:E0_vs_y}
+	\end{figure}
+	
+	\textit{Remark}. The estimate in~\eqref{ineq:E0} implies the following: (a) the integral in~\eqref{eq:XiInty} converges for all $p>0$ and $\mu \in \mathbb{R}$, as $a>1$; (b) for fixed $p$ and $\mu$, since $E(y,p,\mu)$ is bounded above, it has global maxima, each of which is also a local maximum.
+	
+	
 	\section{The equation of state}
 	By the known thermodynamic formula
 	\begin{equation}
-		P V = k_{\rm B} T \ln \Xi(\beta, \mu)
+		%P V = k_{\rm B} T \ln \Xi(\beta, \mu)
+		P V = \beta^{-1} \ln \Xi(\beta, \mu)
 	\end{equation}
+where $P$ is the pressure. To calculate the large $N_v$ limit in~\eqref{eq:XiInty} we first find the global maxima of $E(y,p,\mu)$ as a function of $y \in \mathbb{R}$, and then apply the Laplace's method~\cite{Fedoryuk89}.
 
 \section{The special function $K_0$ and its integral representation}
 
@@ -452,7 +495,7 @@ and
 		\nonumber\\
 		&=&
 		\sqrt{\frac{N_v}{2\pi p}} \int\limits_{-\infty}^{\infty} {\rm e}^{-N_v \frac{y^2}{2p}}
-		\exp( \ln \left\{\sum_{n=0}^{\infty} \frac{(v^*)^{n}}{n!} \exp[(y + \beta\mu)n - \frac{ap}{2}n^2] \right\}^{N_v} )
+		\exp( \ln \left\{\sum_{n=0}^{\infty} \frac{(v^*)^{n}}{n!} \exp[(y + \beta\mu)n - \frac{ap}{2}n^2] \right\}^{N_v} ) {\rm d}y
 		\nonumber\\
 		&=&
 		\sqrt{\frac{N_v}{2\pi p}} \int\limits_{-\infty}^{\infty}
@@ -461,7 +504,7 @@ and
 			\left[ -\frac{y^2}{2p} + 
 			\ln(\sum_{n=0}^{\infty} \frac{(v^*)^{n}}{n!} {\rm e}^{(y + \beta\mu)n - \frac{ap}{2}n^2}) 
 			\right] 
-		\right\},
+		\right\} {\rm d}y,
 	\end{eqnarray}
 	and arrives at Eqs.~\eqref{eq:XiInty}, \eqref{def:E}, and~\eqref{def:K}
 	\begin{equation}
