@@ -1,10 +1,11 @@
 \documentclass[12pt]{article}
 
-\usepackage{orcidlink} % to insert a hyperlinked ORCiD logo
+%\usepackage{orcidlink} % to insert a hyperlinked ORCiD logo
 \usepackage{amssymb}
 \usepackage{physics}
 %\usepackage{cite} % may be useful for different formats of numerical citation
 \usepackage{hyperref} % for hyperlinks in references
+\usepackage{graphicx}
 
 \usepackage{caption} % for \caption*
 \usepackage{mdframed}
@@ -406,12 +407,70 @@
 	
 	
 	\section{The equation of state}
-	By the known thermodynamic formula
+	By the known thermodynamic formula (cf.~\cite[(2.16)]{KKD20})
 	\begin{equation}
+		\label{def:eos}
 		%P V = k_{\rm B} T \ln \Xi(\beta, \mu)
 		P V = \beta^{-1} \ln \Xi(\beta, \mu)
 	\end{equation}
-	where $P$ is the pressure. To calculate the large $N_v$ limit in~\eqref{eq:XiInty} we first find the global maxima of $E(y,p,\mu)$ as a function of $y \in \mathbb{R}$, and then apply the Laplace's method~\cite{Fedoryuk89}.
+	where $P$ is the pressure. To calculate the large $N_v$ limit in~\eqref{eq:XiInty} we first determine the global maxima of $E(y,p,\mu)$ as a function of $y \in \mathbb{R}$, and then apply the Laplace's method~\cite{Fedoryuk89}.
+	
+	Let $\bar{y}$ denote the point of global maximum of $E$. Then it should obey the following equation
+	\begin{equation}
+		E_1(y,p,\mu) := \frac{\partial}{\partial y} E(y,p,\mu) = 0.
+	\end{equation}
+	By~\eqref{def:E} and~\eqref{def:K}, the explicit expression for $E_1$ is
+	\begin{equation}
+		E_1(y,p,\mu) = -\frac{y}{p} + \frac{K_1(y,p,\mu)}{K(y,p,\mu)},
+	\end{equation}	
+	and the equation for the extremum of $E(y,p,\mu)$ can be rewritten in the form~(cf.~\cite[(2.19)]{KKD20})
+	\begin{equation}
+		\label{eq:bar_y}
+		-\frac{y}{p} + \frac{K_1(y,p,\mu)}{K(y,p,\mu)} = 0,
+	\end{equation}
+	where
+	\begin{equation}
+		K_1(y,p,\mu) := \frac{\partial}{\partial y} K(y,p,\mu) = \sum_{n=0}^{\infty} \frac{n (v^*)^n}{n!} \exp[(y+\beta\mu)n - \frac{ap}{2}n^2].
+	\end{equation}
+	As $K$, $K_1$, and $p$ all take on strictly positive values, the solution $\bar{y}$ to equation~\eqref{eq:bar_y} is also strictly positive.
+	Typical behavior of $E_1(y,p,\mu)$ as a function of $y$ in the single-phase domain is illustrated in Fig.~\ref{fig:E1_vs_y}.
+	\begin{figure}[htbp]
+		\includegraphics[width=0.5\textwidth,angle=0]{E1_vs_y}
+		\centering
+		\captionsetup{width=0.6\textwidth}
+		\caption{Quantity $E_1(y,p,\mu)$ as a function of $y$ at $p=2.0$ and $\beta\mu=-2.0$ for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}
+		\label{fig:E1_vs_y}
+	\end{figure}
+	
+	\textbf{Definition}. We say that $(p, \mu)$ belongs to a single-phase domain if $E(y,p,\mu)$ has a unique global maximum $\bar{y} \in \mathbb{R}$ such that
+	\begin{equation}
+		E_2(\bar{y}, p, \mu) := \frac{\partial^2}{\partial y^2} E(y,p,\mu)\big|_{y=\bar{y}} < 0.
+	\end{equation}
+	An explicit expression for $E_2(y,p,\mu)$ reads (cf.~\cite[(20)]{KD22})
+	\begin{equation}
+		E_2(y,p,\mu) = -\frac{1}{p} + \frac{K_2(y,p,\mu) K(y,p,\mu) - [K_1(y,p,\mu)]^2}{[K(y,p,\mu)]^2},
+	\end{equation}
+	where
+	\begin{equation}
+		K_2(y,p,\mu) := \frac{\partial}{\partial y} K_1(y,p,\mu) = \sum_{n=0}^{\infty} \frac{n^2 (v^*)^n}{n!} \exp[(y+\beta\mu)n - \frac{ap}{2}n^2].
+	\end{equation}
+	Typical behavior of $E_2(y,p,\mu)$ as a function of $y$ in the single-phase domain is illustrated in Fig.~\ref{fig:E2_vs_y}.
+	\begin{figure}[htbp]
+		\includegraphics[width=0.5\textwidth,angle=0]{E2_vs_y}
+		\centering
+		\captionsetup{width=0.6\textwidth}
+		\caption{Quantity $E_2(y,p,\mu)$ as a function of $y$ at $p=2.0$ and $\beta\mu=-2.0$ for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}
+		\label{fig:E2_vs_y}
+	\end{figure}
+	
+	\textbf{Laplace's method.} We apply the Laplace's method~\cite[(1.21)]{Fedoryuk89} to~\eqref{eq:XiInty} and arrive at~(cf.~\cite[(19)]{KD22})
+	\begin{equation}
+		\Xi(p,\mu) = [-p E_2(\bar{y},p,\mu)]^{-1/2} \exp[N_v E(\bar{y},p,\mu)].
+	\end{equation}
+	Substituting this into~\eqref{def:eos}, one gets
+	\begin{equation}
+		P V = k_{\rm B}T \left[-\frac{1}{2} \ln(-p E_2(\bar{y},p,\mu)) + N_v E(\bar{y},p,\mu)\right].
+	\end{equation}
 	
 	
 	
