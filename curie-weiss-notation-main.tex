@@ -15,6 +15,8 @@
 \usepackage{mdframed} % for framed text and formulas
 \usepackage[dvipsnames]{xcolor}
 
+\numberwithin{equation}{section}
+
 \newcommand{\be}{\begin{equation}}
 \newcommand{\ee}{\end{equation}}
 \newcommand{\e}{\mbox{e}}
@@ -158,13 +160,15 @@
 	\textbf{Reduced quantities.} Natural units for energy and length in the model are $J_1$ and $c$, respectively. It is standard practice to express thermodynamic results in terms of dimensionless quantities normalized by these natural units. The advantage of using such quantities is that their numerical values are typically of the order of unity, which simplifies analysis. Thus, we introduce the following reduced quantities:
 	%the reduced temperature $T^* = k_{\rm B} T / J_1$, the reduced inverse temperature $p = \beta J_1$, reduced chemical potential $\mu^* = \mu / J_1$, and the reduced pressure $P^* = Pv/J_1$.
 	\begin{eqnarray*}
-		T^* = \frac{k_{\rm B} T}{J_1} & \quad & \text{ -- the reduced temperature;}
+		T^* := \frac{k_{\rm B} T}{J_1} & \quad & \text{ -- the reduced temperature;} 
 		\\
-		p = \beta J_1 = \frac{1}{T^*} & \quad & \text{ -- the reduced inverse temperature;}
+		p := \beta J_1 = \frac{1}{T^*} & \quad & \text{ -- the reduced inverse temperature;}
 		\\
-		\mu^* = \frac{\mu}{J_1} & \quad & \text{ -- the reduced chemical potential;}
+		\mu^* := \frac{\mu}{J_1} & \quad & \text{ -- the reduced chemical potential;}
+		\\ 
+		P^* := \frac{Pv}{J_1} & & \text{ -- the reduced pressure.}
 		\\
-		P^* = \frac{Pv}{J_1} & & \text{ -- the reduced pressure.}
+		S^* := \frac{S}{N_v k_{\rm B}} & & \text{ -- the reduced entropy.}
 	\end{eqnarray*}
 	For any dimensional quantity $Q$, it is convenient to denote its reduced counterpart by $Q^*$. To maintain consistency with other thermodynamic quantities, it may be beneficial to use $\beta^*$ instead of $p$ for the reduced inverse temperature (cf.~\cite{RDGMR13}).
 	
@@ -427,6 +431,7 @@
 	
 	Let $\bar{y}$ denote the point of global maximum of $E$. Then it should obey the following equation
 	\begin{equation}
+		\label{def:E1}
 		E_1(y,p,\mu) := \frac{\partial}{\partial y} E(y,p,\mu) = 0.
 	\end{equation}
 	By~\eqref{def:E} and~\eqref{def:K}, the explicit expression for $E_1$ is
@@ -451,6 +456,13 @@
 		\caption{Quantity $E_1(y,p,\mu)$ as a function of $y$ at $p=2.0$ and $\beta\mu=-2.0$ for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}
 		\label{fig:E1_vs_y}
 	\end{figure}
+	\begin{figure}[htbp]
+		\includegraphics[width=0.5\textwidth,angle=0]{E2_vs_y}
+		\centering
+		\captionsetup{width=0.6\textwidth}
+		\caption{Quantity $E_2(y,p,\mu)$ as a function of $y$ at $p=2.0$ and $\beta\mu=-2.0$ for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}
+		\label{fig:E2_vs_y}
+	\end{figure}
 	
 	\textbf{Definition}. We say that $(p, \mu)$ belongs to a single-phase domain if $E(y,p,\mu)$ has a unique global maximum $\bar{y} \in \mathbb{R}$ such that
 	\begin{equation}
@@ -465,13 +477,6 @@
 		K_2(y,p,\mu) := \frac{\partial}{\partial y} K_1(y,p,\mu) = \sum_{n=0}^{\infty} \frac{n^2 (v^*)^n}{n!} \exp[(y+\beta\mu)n - \frac{ap}{2}n^2].
 	\end{equation}
 	Typical behavior of $E_2(y,p,\mu)$ as a function of $y$ in the single-phase domain is illustrated in Fig.~\ref{fig:E2_vs_y}.
-	\begin{figure}[htbp]
-		\includegraphics[width=0.5\textwidth,angle=0]{E2_vs_y}
-		\centering
-		\captionsetup{width=0.6\textwidth}
-		\caption{Quantity $E_2(y,p,\mu)$ as a function of $y$ at $p=2.0$ and $\beta\mu=-2.0$ for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}
-		\label{fig:E2_vs_y}
-	\end{figure}
 	
 	\textbf{Laplace's method.} We apply the Laplace's method~\cite[(1.21)]{Fedoryuk89} to~\eqref{eq:XiInty} and arrive at~(cf.~\cite[(19)]{KD22})
 	\begin{equation}
@@ -480,6 +485,26 @@
 	Substituting this into~\eqref{def:eos}, one gets
 	\begin{equation}
 		P V = k_{\rm B}T \left[-\frac{1}{2} \ln(-p E_2(\bar{y},p,\mu)) + N_v E(\bar{y},p,\mu)\right].
+	\end{equation}
+	The first term in the square brackets in the right-hand side of the last equation can be neglected in the limit of large $N_v$, and we arrive at (cf.~\cite[(2.27)]{KKD20})
+	\begin{equation}
+		P v \beta = E(\bar{y},p,\mu),
+	\end{equation}
+	or
+	\begin{equation}
+		P^* = T^* E(\bar{y},T^*,\mu^*).
+	\end{equation}
+	We have obtained the equation of state expressing the pressure $P$ as a function of temperature $T$ (through variable $p$) and chemical potential $\mu$, $P = P(T, \mu)$. We accounted that the quantity $\bar{y}$, which is selected from the condition to maximize $E$ at given $T$ and $\mu$, is a function of $T$ and $\mu$, $\bar{y} = \bar{y}(p,\mu)$. The problem here is that we cannot get the solution to~\eqref{eq:bar_y} in an analytic form. Still we can get some results numerically and obtain graphics.
+	
+	
+	\section{Entropy}
+	By thermodynamic formulas for the grand canonical ensemble
+	\begin{equation}
+		S = -\left(\frac{\partial \Omega}{\partial T}\right)_{V,\mu} = V\left(\frac{\partial P}{\partial T}\right)_{\mu}
+	\end{equation}
+	where $\Omega = -k_{\rm B}T \ln \Xi$ is the grand potential. The reduced entropy reads
+	\begin{equation}
+		S^* := \frac{S}{N_v k_{\rm B}} = \frac{v}{k_{\rm B}} \left(\frac{\partial P}{\partial T}\right)_{\mu}
 	\end{equation}
 	
 
