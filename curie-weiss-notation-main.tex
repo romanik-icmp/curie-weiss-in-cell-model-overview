@@ -7,7 +7,7 @@
 
 \usepackage{graphicx}
 \usepackage{caption} % for \caption*
-\usepackage{mdframed}
+\usepackage{mdframed} % for framed text and formulas
 \usepackage[dvipsnames]{xcolor}
 
 \numberwithin{equation}{section}
@@ -25,8 +25,8 @@
 \title{Overview: a cell fluid model with Curie-Weiss interaction}
 
 \author{R.V.~Romanik
-	\\ \small Institute for Condensed Matter Physics, NAS of Ukraine 
-	\\ \small 1~Svientsitskii Street, 79011, Lviv, Ukraine 
+	\\ \small Institute for Condensed Matter Physics, NAS of Ukraine
+	\\ \small 1~Svientsitskii Street, 79011, Lviv, Ukraine
 	\\ \small romanik@icmp.lviv.ua}
 %\author{R.V.~Romanik \\ Institute for Condensed Matter Physics, NAS of Ukraine}
 
@@ -75,7 +75,7 @@
 			0, \quad x \notin \Delta_l.
 		\end{array}
 		\right.
-	\end{equation} 
+	\end{equation}
 	The first term in $\Phi_{N_v}$ describes the pairwise attraction between all particles and is characterized by $J_1 > 0$. The second term in $\Phi_{N_v}$ describes the repulsion between two particles contained within the same cell $\Delta_l$ and is characterized by $J_2 > 0.$ For convenience, in $W_{N_v}$ above the self-interaction term $\Phi_{N_v}(x,x)$ is included, which does not affect the physics of the model. Two cases are possible, either two particles belong to the same cell or to different ones. Explicitly, one has
 	\begin{equation}
 		\Phi_{N_v}(x, y) = \left\{
@@ -125,7 +125,7 @@
 		\int_{V} \Phi_{N_v}(x,y) {\rm d}y & = & \left(-\frac{J_1}{N_v} + J_2\right)v - (N_v - 1) \frac{J_1}{N_v}v
 		\\
 		& = & (J_2 - J_1)v > 0.
-	\end{eqnarray*} 
+	\end{eqnarray*}
 	The ratio of the two energy constants is denoted by
 	$$a = J_2/J_1,$$
 	and thus $a > 1.$
@@ -142,7 +142,7 @@
 	
 	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
 		Alternatively, in notation from~\cite{HansenMcDonald13}, the GPF is expressed as [cf. eqs.~(2.4.6) and~(2.3.13)]
-		\begin{equation}
+		\begin{equation}\label{ZGR}
 			\Xi=\sum_{N=0}^{\infty}\frac{z^N}{N!}Z_N,
 		\end{equation}
 		where $Z_N$ is the configuration integral:
@@ -152,7 +152,7 @@
 		with ${\rm d} \vb{r}^N \equiv {\rm d}{\vb r_1} \dotsc {\rm d}{\vb r_N}$.
 	\end{mdframed}
 	
-	\textbf{Reduced quantities.} Natural units for energy and length in the model are $J_1$ and $c$, respectively. It is standard practice to express thermodynamic results in terms of dimensionless quantities normalized by these natural units. The advantage of using such quantities is that their numerical values are typically of the order of unity, which simplifies analysis. Thus, we introduce the following reduced quantities: 
+	\textbf{Reduced quantities.} Natural units for energy and length in the model are $J_1$ and $c$, respectively. It is standard practice to express thermodynamic results in terms of dimensionless quantities normalized by these natural units. The advantage of using such quantities is that their numerical values are typically of the order of unity, which simplifies analysis. Thus, we introduce the following reduced quantities:
 	%the reduced temperature $T^* = k_{\rm B} T / J_1$, the reduced inverse temperature $p = \beta J_1$, reduced chemical potential $\mu^* = \mu / J_1$, and the reduced pressure $P^* = Pv/J_1$.
 	\begin{eqnarray*}
 		T^* := \frac{k_{\rm B} T}{J_1} & \quad & \text{ -- the reduced temperature;} 
@@ -183,13 +183,13 @@
 		\begin{equation}
 			\label{eq:gpf1_alt}
 			\Xi = \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!}
-			\int 
+			\int
 			\exp[\beta\mu N + \frac{\beta^*}{2N_{v}} N^2 - \frac{a\beta^*}{2} \sum_{\vb{r}_i,\vb{r}_j \in \gamma} \sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(\vb{r}_i)\mathbb{I}_{\Delta_l}(\vb{r}_j)] {\rm d} \vb{r}^N.
 		\end{equation}
 	\end{mdframed}
 	Equations~\eqref{eq:gpf1} and~\eqref{eq:gpf1_alt} can be compared with~\cite[(2.5)]{KKD20}.
 	
-	For a given $l = 1, \cdots , N_v$ and a configuration $\gamma$, we set $\gamma_l = \gamma \cap \Delta_l,$ that is, $\gamma_l$ is the part of the configuration contained in $\Delta_l$. Then, $N_l$ or $\abs{\gamma_l}$ stands for the number of points (particles) of $\gamma$ contained in $\Delta_l$. 
+	For a given $l = 1, \cdots , N_v$ and a configuration $\gamma$, we set $\gamma_l = \gamma \cap \Delta_l,$ that is, $\gamma_l$ is the part of the configuration contained in $\Delta_l$. Then, $N_l$ or $\abs{\gamma_l}$ stands for the number of points (particles) of $\gamma$ contained in $\Delta_l$.
 	
 	\textbf{Some useful formulas}. Note the following summation results:
 	\begin{equation}
@@ -223,7 +223,7 @@
 	\end{equation}
 	Combining these formulas, we get
 	\begin{eqnarray}
-		\sum_{x,y \in \gamma} \Phi_{N_v}(x,y) & = & \sum_{l,l'=1}^{N_v} \sum_{x \in \Delta_l} \sum_{y \in \Delta_{l'}} \Phi_{N_v}(x,y) 
+		\sum_{x,y \in \gamma} \Phi_{N_v}(x,y) & = & \sum_{l,l'=1}^{N_v} \sum_{x \in \Delta_l} \sum_{y \in \Delta_{l'}} \Phi_{N_v}(x,y)
 		\nonumber\\
 		& = & - \frac{J_1}{N_v} \left(\sum_{l=1}^{N_v} N_l\right)^2 + J_2\sum_{l=1}^{N_v}N_l^2
 		\\
@@ -502,7 +502,9 @@
 	\end{equation}
 	
 	
+	
 	\section{The special function $K_0$ and its integral representation}
+	
 	\be\label{KOZ}
 	K_0(z)=\sum_{n\ge0}\frac1{n!}\,\e^{zn-an^2}
 	\ee
@@ -510,6 +512,7 @@
 	\be
 	N\to n,\qquad z\to\e^{-z},\MM{and}Z_n\to\e^{-an^2}.
 	\ee
+	
 	The integral representation of $K_0(z)$ is given by
 	\be
 	K_0(z)=\frac1{2\sqrt\pi}\int_{-\infty}^\infty\e^{-\frac{x^2}4}
@@ -521,7 +524,9 @@
 	\mbox{exp}\left[\e^z\cos(x\sqrt a\,)\right]
 	\cos\left[\e^z\sin(x\sqrt a\,)\right].
 	\ee
+	
 	Can you calculate the asymptotic behavior as $z\to+\infty$ of two last integrals?
+	
 	I have succeeded to calculate the leading $z\to+\infty$ asymptotics only for two integrals
 	\be
 	K_0^{(a)}(z) = \frac1{2\sqrt\pi} \int_{-\infty}^\infty\e^{-\frac{x^2}4}
@@ -532,6 +537,7 @@
 	\cos\left[\e^z\sin(x\sqrt a\,)\right]
 	\ee
 	resulting from \eqref{KOR} by deleting one of the last two factors.
+	
 	The leading asymptotics are the following
 	\begin{equation}
 		K_0^{(a)}(z) \sim \frac{\exp({\rm e}^z)}{\sqrt{2 {\rm e}^z}}, \quad \text{as } z \to +\infty
