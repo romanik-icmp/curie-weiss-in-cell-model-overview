@@ -18,9 +18,10 @@
 \newcommand {\mm}[1]{\quad\mbox{#1}\quad}
 \newcommand {\MM}[1]{\qquad\mbox{#1}\qquad}
 
-\textwidth 170mm
+\textwidth 180mm
 \textheight 230mm
 \voffset = -20mm
+\hoffset = -10mm
 
 \title{Overview: a cell fluid model with Curie-Weiss interaction}
 
@@ -154,17 +155,18 @@
 	
 	\textbf{Reduced quantities.} Natural units for energy and length in the model are $J_1$ and $c$, respectively. It is standard practice to express thermodynamic results in terms of dimensionless quantities normalized by these natural units. The advantage of using such quantities is that their numerical values are typically of the order of unity, which simplifies analysis. Thus, we introduce the following reduced quantities:
 	%the reduced temperature $T^* = k_{\rm B} T / J_1$, the reduced inverse temperature $p = \beta J_1$, reduced chemical potential $\mu^* = \mu / J_1$, and the reduced pressure $P^* = Pv/J_1$.
-	\begin{eqnarray*}
+	\begin{eqnarray}
+		\label{def:reduced}
 		T^* := \frac{k_{\rm B} T}{J_1} & \quad & \text{ -- the reduced temperature;} 
-		\\
+		\nonumber\\
 		p := \beta J_1 = \frac{1}{T^*} & \quad & \text{ -- the reduced inverse temperature;}
-		\\
+		\nonumber\\
 		\mu^* := \frac{\mu}{J_1} & \quad & \text{ -- the reduced chemical potential;}
-		\\ 
+		\nonumber\\ 
 		P^* := \frac{Pv}{J_1} & & \text{ -- the reduced pressure.}
-		\\
+		\nonumber\\
 		S^* := \frac{S}{N_v k_{\rm B}} & & \text{ -- the reduced entropy.}
-	\end{eqnarray*}
+	\end{eqnarray}
 	For any dimensional quantity $Q$, it is convenient to denote its reduced counterpart by $Q^*$. To maintain consistency with other thermodynamic quantities, it may be beneficial to use $\beta^*$ instead of $p$ for the reduced inverse temperature (cf.~\cite{RDGMR13}).
 	
 	\subsection{Partition function transformation}
@@ -373,6 +375,16 @@
 	\end{equation}
 	Explicit derivation of expressions for $E(y,p,\mu)$ and $K(y,p,\mu)$ is given in Appendix~\ref{sec:app1}.
 	
+	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
+	Often, it is convenient to express all the expressions in reduced quantities from~\eqref{def:reduced}, thus we will write the version for important quantities in reduced units as well:
+	\begin{equation}
+		E(y,T^*,\mu^*) = -\frac{1}{2}T^* y^2 + \ln K(y, T^*, \mu^*),
+	\end{equation}
+	\begin{equation}
+		K(y,T^*,\mu^*) = \sum_{n=0}^{\infty} \frac{(v^*)^n}{n!} \exp[\left(y+\frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2].
+	\end{equation}
+	\end{mdframed}
+	
 	\textbf{Some reasoning on numerical value of $v^*$.} During particular calculations, a numerical value for $v^*$ must be chosen. Which value to select may depend on physical reasoning. The dependence of results on $v^*$ may also be investigated.
 	
 	Since $v^* = c^3/\Lambda^3$, we may focus on a choice for $c$. One approach to choosing $c$ is in such a way that a classical consideration is justified. For example, it can be taken as the mean nearest-neighbour separation, see~\cite[Sec.~1.1]{HansenMcDonald13}. From the data given in~\cite[Table~1.1]{HansenMcDonald13}, the ratio $c/\Lambda$ may vary between $3.8$ and $59$ (we ignored data for $H_2$, as quantum effects are important for this substance). This defines possible values for $v^*$ as ranging between $57$ and $2 \cdot 10^5$.
@@ -431,7 +443,7 @@
 	By~\eqref{def:E} and~\eqref{def:K}, the explicit expression for $E_1$ is
 	\begin{equation}
 		E_1(y,p,\mu) = -\frac{y}{p} + \frac{K_1(y,p,\mu)}{K(y,p,\mu)},
-	\end{equation}	
+	\end{equation}
 	and the equation for the extremum of $E(y,p,\mu)$ can be rewritten in the form~(cf.~\cite[(2.19)]{KKD20})
 	\begin{equation}
 		\label{eq:bar_y}
@@ -441,22 +453,36 @@
 	\begin{equation}
 		K_1(y,p,\mu) := \frac{\partial}{\partial y} K(y,p,\mu) = \sum_{n=0}^{\infty} \frac{n (v^*)^n}{n!} \exp[(y+\beta\mu)n - \frac{ap}{2}n^2].
 	\end{equation}
+	
+	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
+		In reduced quantities $E_1$ takes on the form
+		\begin{equation}
+			E_1(y,T^*,\mu^*) = -T^* y + \frac{K_1(y,T^*,\mu^*)}{K(y,T^*,\mu^*)},
+		\end{equation}
+		the equation for the extremum is
+		\begin{equation}
+			-T^* y + \frac{K_1(y,T^*,\mu^*)}{K(y,T^*,\mu^*)} = 0,
+		\end{equation}
+		where
+		\begin{equation}
+			K_1(y,T^*,\mu^*) = \sum_{n=0}^{\infty} \frac{n (v^*)^n}{n!} \exp[\left(y+\frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2].
+		\end{equation}
+	\end{mdframed}
+	
+	\begin{figure}[htbp]
+		\includegraphics[width=0.45\textwidth,angle=0]{E1_vs_y}
+		\hfill
+		\includegraphics[width=0.45\textwidth,angle=0]{E2_vs_y}
+		\\
+		%\captionsetup{width=0.5\textwidth}
+		\parbox{0.45\textwidth}{\caption{\label{fig:E1_vs_y} Quantity $E_1(y,p,\mu)$ as a function of $y$ at $p=2.0$ and $\beta\mu=-2.0$ for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}}
+		\hfill
+		%\captionsetup{width=0.5\textwidth}
+		\parbox{0.45\textwidth}{\caption{\label{fig:E2_vs_y} Quantity $E_2(y,p,\mu)$ as a function of $y$ at $p=2.0$ and $\beta\mu=-2.0$ for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}}
+	\end{figure}
+	
 	As $K$, $K_1$, and $p$ all take on strictly positive values, the solution $\bar{y}$ to equation~\eqref{eq:bar_y} is also strictly positive.
 	Typical behavior of $E_1(y,p,\mu)$ as a function of $y$ in the single-phase domain is illustrated in Fig.~\ref{fig:E1_vs_y}.
-	\begin{figure}[htbp]
-		\includegraphics[width=0.5\textwidth,angle=0]{E1_vs_y}
-		\centering
-		\captionsetup{width=0.6\textwidth}
-		\caption{Quantity $E_1(y,p,\mu)$ as a function of $y$ at $p=2.0$ and $\beta\mu=-2.0$ for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}
-		\label{fig:E1_vs_y}
-	\end{figure}
-	\begin{figure}[htbp]
-		\includegraphics[width=0.5\textwidth,angle=0]{E2_vs_y}
-		\centering
-		\captionsetup{width=0.6\textwidth}
-		\caption{Quantity $E_2(y,p,\mu)$ as a function of $y$ at $p=2.0$ and $\beta\mu=-2.0$ for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}
-		\label{fig:E2_vs_y}
-	\end{figure}
 	
 	\textbf{Definition}. We say that $(p, \mu)$ belongs to a single-phase domain if $E(y,p,\mu)$ has a unique global maximum $\bar{y} \in \mathbb{R}$ such that
 	\begin{equation}
@@ -472,6 +498,17 @@
 	\end{equation}
 	Typical behavior of $E_2(y,p,\mu)$ as a function of $y$ in the single-phase domain is illustrated in Fig.~\ref{fig:E2_vs_y}.
 	
+	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
+		In reduced quantities, $E_2$ takes on the form
+		\begin{equation}
+			E_2(y,T^*,\mu^*) = -T^* + \frac{K_2(y,T^*,\mu^*) K(y,T^*,\mu^*) - [K_1(y,T^*,\mu^*)]^2}{[K(y,T^*,\mu^*)]^2},
+		\end{equation}
+		where
+		\begin{equation}
+			K_2(y,T^*,\mu^*) = \sum_{n=0}^{\infty} \frac{n^2 (v^*)^n}{n!} \exp[\left(y+\frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2].
+		\end{equation}
+	\end{mdframed}
+	
 	\textbf{Laplace's method.} We apply the Laplace's method~\cite[(1.21)]{Fedoryuk89} to~\eqref{eq:XiInty} and arrive at~(cf.~\cite[(19)]{KD22})
 	\begin{equation}
 		\Xi(p,\mu) = [-p E_2(\bar{y},p,\mu)]^{-1/2} \exp[N_v E(\bar{y},p,\mu)].
@@ -486,6 +523,7 @@
 	\end{equation}
 	or
 	\begin{equation}
+		\label{eos:reduced}
 		P^* = T^* E(\bar{y},T^*,\mu^*).
 	\end{equation}
 	We have obtained the equation of state expressing the pressure $P$ as a function of temperature $T$ (through variable $p$) and chemical potential $\mu$, $P = P(T, \mu)$. We accounted that the quantity $\bar{y}$, which is selected from the condition to maximize $E$ at given $T$ and $\mu$, is a function of $T$ and $\mu$, $\bar{y} = \bar{y}(p,\mu)$. The problem here is that we cannot get the solution to~\eqref{eq:bar_y} in an analytic form. Still we can get some results numerically and obtain graphics.
@@ -497,9 +535,27 @@
 		S = -\left(\frac{\partial \Omega}{\partial T}\right)_{V,\mu} = V\left(\frac{\partial P}{\partial T}\right)_{\mu}
 	\end{equation}
 	where $\Omega = -k_{\rm B}T \ln \Xi$ is the grand potential. The reduced entropy reads
+	\begin{eqnarray}
+		S^* & = & \frac{v}{k_{\rm B}} \left(\frac{\partial P}{\partial T}\right)_{\mu}
+		\\
+		& = & \left(\frac{\partial P^*}{\partial T^*}\right)_{\mu}
+	\end{eqnarray}
+	By~\eqref{eos:reduced}
 	\begin{equation}
-		S^* := \frac{S}{N_v k_{\rm B}} = \frac{v}{k_{\rm B}} \left(\frac{\partial P}{\partial T}\right)_{\mu}
+		S^* = E(\bar{y},T^*,\mu^*) + T^* \left(\frac{\partial E(\bar{y},T^*,\mu^*)}{\partial T^*}\right)_{\mu}
 	\end{equation}
+	The result of calculation is
+	\begin{equation}
+		S^* = -\frac{y^2}{p} + \ln K(\bar{y},p,\mu) + \frac{\left[\left(\frac{3}{2} - \beta\mu\right)K_1(\bar{y},p,\mu) + \frac{ap}{2}K_2(\bar{y},p,\mu) \right]}{K(\bar{y},p,\mu)}
+	\end{equation}
+	or in reduced quantities
+	\begin{eqnarray}
+		S^* & = & -T^* \bar{y}^2 + \ln K(\bar{y},T^*,\mu^*) + \left[\left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) K_1(\bar{y},T^*,\mu^*) + \frac{a}{2T^*} K_2(\bar{y},T^*,\mu^*) \right] [K(\bar{y},T^*,\mu^*)]^{-1}
+		\nonumber \\
+		& = & -T^* \bar{y}^2 + \ln K + \frac{1}{K}\left[\left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) K_1 + \frac{a}{2T^*} K_2 \right]
+	\end{eqnarray}
+	Details or calculation are present in Appendix~\ref{sec:app:entropy}.
+	
 	
 
 
@@ -599,6 +655,49 @@
 		\ln K(y,p,\mu) 
 		\right] 
 		\right\}.
+	\end{equation}
+	
+	\section{\label{sec:app:entropy} Calculation of Entropy}
+	This appendix contains explicit calculation of entropy by taking dirivative of pressure with respect to temperature.
+	\begin{equation}
+		S^* = E + T^* \left(\frac{\partial E}{\partial T^*}\right)_{\mu};
+	\end{equation}
+	\begin{equation}
+		E = -\frac{1}{2}T^* \bar{y}^2 + \ln K.
+	\end{equation}
+	\begin{equation}
+		\frac{\partial E}{\partial T^*} = -\frac{1}{2}\bar{y}^2 + \frac{1}{K}\frac{\partial}{\partial T^*} K.
+	\end{equation}
+	\begin{eqnarray}
+		\frac{\partial K}{\partial T^*} & = & \sum_{n=0}^{\infty} \frac{n (v^*)^{n-1}}{n!} \exp(F_n) \frac{\partial v^*}{\partial T^*} 
+		\nonumber\\
+		& + & \sum_{n=0}^{\infty} \frac{(v^*)^n}{n!} \exp(F_n) \frac{\partial}{\partial T^*} F_n,
+	\end{eqnarray}
+	where we temporary introduced
+	\begin{eqnarray*}
+		F_n & = & \left(y + \frac{\mu^*}{T^*} \right)n -\frac{a}{2T^*}n^2
+		\\
+		& = & \left(y + \beta\mu \right)n -\frac{ap}{2}n^2.
+	\end{eqnarray*}
+	The derivatives of $v^*$ is
+	\begin{equation}
+		\frac{\partial v^*}{\partial T^*} = \frac{3}{2} \frac{v^*}{T^*},
+	\end{equation}
+	and that of $F_n$ is
+	\begin{equation}
+		\frac{\partial F_n}{\partial T^*} = -\frac{1}{T^*} \left(\frac{\mu^*}{T^*}n - \frac{a}{2T^*}n^2\right).
+	\end{equation}
+	Substituting the last two results into the derivative for $K$, we get
+	\begin{equation}
+		\frac{\partial K}{\partial T^*} = \frac{1}{T^*} \left(\frac{3}{2} - \frac{\mu^*}{T^*} \right)K_1 + \frac{1}{T^*}\frac{a}{2 T^*} K_2.
+	\end{equation}
+	For the derivative of $E$ with respect to $T^*$ we have
+	\begin{equation}
+		\frac{\partial E}{\partial T^*} = -\frac{1}{2}\bar{y}^2 + \frac{1}{T^* K} \left[\left(\frac{3}{2} - \frac{\mu^*}{T^*} \right)K_1 + \frac{a}{2 T^*} K_2\right].
+	\end{equation}
+	The final result for the entropy is
+	\begin{equation}
+		S^* = -T^* \bar{y}^2 + \ln K + \frac{1}{K} \left[\left(\frac{3}{2} - \frac{\mu^*}{T^*} \right)K_1 + \frac{a}{2 T^*} K_2\right].
 	\end{equation}
 
 	
