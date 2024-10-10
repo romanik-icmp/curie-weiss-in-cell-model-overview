@@ -418,10 +418,10 @@
 	\end{equation}
 	Typical behavior of $E(y,p,\mu)$ as a function of $y$ in the single-phase domain is illustrated in Fig.~\ref{fig:E0_vs_y}
 	\begin{figure}[htbp]
-		\includegraphics[width=0.5\textwidth,angle=0]{E0_vs_y}
+		\includegraphics[width=0.5\textwidth,angle=0]{E0_vs_y2}
 		\centering
 		\captionsetup{width=0.6\textwidth}
-		\caption{Quantity $E(y,p,\mu)$ as a function of $y$ at $p=2.0$ and $\beta\mu=-2.0$ for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}
+		\caption{Quantity $E(y,p,\mu)$ as a function of $y$ at $p=2.0$ ($T^*=0.5$) and $\beta\mu=-2.0$ ($\mu^*=-1.0$) for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}
 		\label{fig:E0_vs_y}
 	\end{figure}
 	
@@ -472,15 +472,15 @@
 	\end{mdframed}
 	
 	\begin{figure}[htbp]
-		\includegraphics[width=0.45\textwidth,angle=0]{E1_vs_y}
+		\includegraphics[width=0.45\textwidth,angle=0]{E1_vs_y2}
 		\hfill
 		\includegraphics[width=0.45\textwidth,angle=0]{E2_vs_y}
 		\\
 		%\captionsetup{width=0.5\textwidth}
-		\parbox{0.45\textwidth}{\caption{\label{fig:E1_vs_y} Quantity $E_1(y,p,\mu)$ as a function of $y$ at $p=2.0$ and $\beta\mu=-2.0$ for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}}
+		\parbox{0.45\textwidth}{\caption{\label{fig:E1_vs_y} Quantity $E_1(y,p,\mu)$ as a function of $y$ at $p=2.0$ ($T^*=0.5$) and $\beta\mu=-2.0$ ($\mu^*=-1.0$) for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}}
 		\hfill
 		%\captionsetup{width=0.5\textwidth}
-		\parbox{0.45\textwidth}{\caption{\label{fig:E2_vs_y} Quantity $E_2(y,p,\mu)$ as a function of $y$ at $p=2.0$ and $\beta\mu=-2.0$ for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}}
+		\parbox{0.45\textwidth}{\caption{\label{fig:E2_vs_y} Quantity $E_2(y,p,\mu)$ as a function of $y$ at $p=2.0$ ($T^*=0.5$) and $\beta\mu=-2.0$ ($\mu^*=-1.0$) for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}}
 	\end{figure}
 	
 	As $K$, $K_1$, and $p$ all take on strictly positive values, the solution $\bar{y}$ to equation~\eqref{eq:bar_y} is also strictly positive.
@@ -558,6 +558,20 @@
 		& = & -T^* \bar{y}^2 + \ln K + \frac{1}{K}\left[\left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) K_1 + \frac{a}{2T^*} K_2 \right]
 	\end{eqnarray}
 	Details or calculation are present in Appendix~\ref{sec:app:entropy}.
+	
+	\begin{figure}[htbp]
+		\includegraphics[width=0.45\textwidth,angle=0]{S_vs_T1}
+		\hfill
+		\includegraphics[width=0.45\textwidth,angle=0]{S_vs_T2}
+		\\
+		%\captionsetup{width=0.5\textwidth}
+		\parbox{0.45\textwidth}{\caption{\label{fig:S_vs_T1} Entropy $S^*(\bar{y},T^*,\mu^*)$ as a function of $T^*$ at $\mu^*=-1.0$ ($v^* = 5$)}}
+		\hfill
+		%\captionsetup{width=0.5\textwidth}
+		\parbox{0.45\textwidth}{\caption{\label{fig:S_vs_T2} Entropy $S^*(\bar{y},T^*,\mu^*)$ as a function of $T^*$ at $\mu^*=-1.0$ ($v^* = 5$)}}
+	\end{figure}
+	
+	Figures~\ref{fig:S_vs_T1} and~\ref{fig:S_vs_T2} illustrate the dependence of entropy $S^*$ on temperature $T^*$ at constant chemical potential. The two figures show the same functional dependency but focus on different temperature ranges.
 	
 	\section{Average number of particles}
 	By thermodynamic formulas for the grand canonical ensemble
