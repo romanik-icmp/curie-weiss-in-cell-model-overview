@@ -165,7 +165,7 @@
 		\nonumber\\ 
 		P^* := \frac{Pv}{J_1} & & \text{ -- the reduced pressure;}
 		\nonumber\\
-		S^* := \frac{S}{N_v k_{\rm B}} & & \text{ -- the reduced entropy.}
+		S^* := \frac{S}{k_{\rm B} \langle N \rangle} & & \text{ -- the reduced entropy;}
 		\nonumber\\
 		\rho^* := \frac{\langle N \rangle}{V} v && \text{ -- the reduced (particle number) density.}
 	\end{eqnarray}
@@ -530,49 +530,6 @@
 	\end{equation}
 	We have obtained an expression for the pressure $P$ as a function of temperature $T$ (through variable $p$) and chemical potential $\mu$, $P = P(T, \mu)$. (We remember that the quantity $\bar{y}$, which is selected from the condition to maximize $E$ at given $T$ and $\mu$, is a function of $T$ and $\mu$, $\bar{y} = \bar{y}(p,\mu)$). The problem here is that we cannot get the solution to~\eqref{eq:bar_y} in an analytic form. Still we can get some results numerically and obtain graphics.
 	
-	
-	\section{Entropy}
-	By thermodynamic formulas for the grand canonical ensemble
-	\begin{equation}
-		S = -\left(\frac{\partial \Omega}{\partial T}\right)_{V,\mu} = V\left(\frac{\partial P}{\partial T}\right)_{\mu}
-	\end{equation}
-	where $\Omega = -k_{\rm B}T \ln \Xi$ is the grand potential. The reduced entropy reads
-	\begin{eqnarray}
-		S^* & = & \frac{v}{k_{\rm B}} \left(\frac{\partial P}{\partial T}\right)_{\mu}
-		\\
-		& = & \left(\frac{\partial P^*}{\partial T^*}\right)_{\mu}
-	\end{eqnarray}
-	By~\eqref{eos:reduced}
-	\begin{equation}
-		S^* = E(\bar{y},T^*,\mu^*) + T^* \left(\frac{\partial E(\bar{y},T^*,\mu^*)}{\partial T^*}\right)_{\mu}
-	\end{equation}
-	The result of calculation is
-	\begin{equation}
-		\label{eq:entropy}
-		S^* = -\frac{y^2}{p} + \ln K(\bar{y},p,\mu) + \frac{\left[\left(\frac{3}{2} - \beta\mu\right)K_1(\bar{y},p,\mu) + \frac{ap}{2}K_2(\bar{y},p,\mu) \right]}{K(\bar{y},p,\mu)}
-	\end{equation}
-	or in reduced quantities
-	\begin{eqnarray}
-		S^* & = & -T^* \bar{y}^2 + \ln K(\bar{y},T^*,\mu^*) + \left[\left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) K_1(\bar{y},T^*,\mu^*) + \frac{a}{2T^*} K_2(\bar{y},T^*,\mu^*) \right] [K(\bar{y},T^*,\mu^*)]^{-1}
-		\nonumber \\
-		& = & -T^* \bar{y}^2 + \ln K + \frac{1}{K}\left[\left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) K_1 + \frac{a}{2T^*} K_2 \right]
-	\end{eqnarray}
-	Details or calculation are present in Appendix~\ref{sec:app:entropy}.
-	
-	\begin{figure}[htbp]
-		\includegraphics[width=0.45\textwidth,angle=0]{S_vs_T1}
-		\hfill
-		\includegraphics[width=0.45\textwidth,angle=0]{S_vs_T2}
-		\\
-		%\captionsetup{width=0.5\textwidth}
-		\parbox{0.45\textwidth}{\caption{\label{fig:S_vs_T1} Entropy $S^*(\bar{y},T^*,\mu^*)$ as a function of $T^*$ at $\mu^*=-1.0$ ($v^* = 5$)}}
-		\hfill
-		%\captionsetup{width=0.5\textwidth}
-		\parbox{0.45\textwidth}{\caption{\label{fig:S_vs_T2} Entropy $S^*(\bar{y},T^*,\mu^*)$ as a function of $T^*$ at $\mu^*=-1.0$ ($v^* = 5$)}}
-	\end{figure}
-	
-	Figures~\ref{fig:S_vs_T1} and~\ref{fig:S_vs_T2} illustrate the dependence of entropy $S^*$ on temperature $T^*$ at constant chemical potential. The two figures show the same functional dependency but focus on different temperature ranges.
-	
 	\section{Average number of particles}
 	By thermodynamic formulas for the grand canonical ensemble
 	\begin{eqnarray}
@@ -587,6 +544,7 @@
 	\end{equation}
 	As a result of the differentiation of pressure with respect to temperature (see Appendix~\ref{sec:app:dens} for details), one gets
 	\begin{eqnarray}
+		\label{eq:densK}
 		\rho^* &=& \frac{K_1(\bar{y}, p,\mu)}{K(\bar{y},p,\mu)} = \frac{K_1(\bar{y},T^*,\mu^*)}{K(\bar{y},T^*,\mu^*)}.
 	\end{eqnarray}
 	
@@ -601,10 +559,119 @@
 	\end{equation}
 	%This enables us to calculate the equation of state.
 	
+	
+	\section{Entropy}
+	By thermodynamic formulas for the grand canonical ensemble
+	\begin{equation}
+		S = -\left(\frac{\partial \Omega}{\partial T}\right)_{V,\mu} = V\left(\frac{\partial P}{\partial T}\right)_{\mu}
+	\end{equation}
+	where $\Omega = -k_{\rm B}T \ln \Xi$ is the grand potential. 
+	
+	Now, there are two possibilities to normalize entropy. One possibility is to normalize it by the average number of particles
+	\begin{equation}
+		S^{*} = \frac{S}{k_{\rm B} \langle N \rangle},
+	\end{equation}
+	and call this quantity the entropy per particle. Another possibility is to normalize it by the number of cells
+	\begin{equation}
+		S^{**} = \frac{S}{k_{\rm B}N_v},
+	\end{equation}
+	and call this quantity the entropy per cell. The usage of the entropy per particle, $S^*$, is more common in the theory of many-particle systems~\cite{HansenMcDonald13}, while the entropy per cell, $S^{**}$, may be useful in cell (or lattice) models. For completeness, we will present results for both quantities. We will also call $S^*$ the reduced entropy.
+	
+	
+	The reduced entropy reads
+	\begin{eqnarray}
+		S^* & = & \frac{v}{k_{\rm B}} \frac{N_v}{\langle N \rangle} \left(\frac{\partial P}{\partial T}\right)_{\mu}
+		\\
+		& = & \frac{1}{\rho^*}\left(\frac{\partial P^*}{\partial T^*}\right)_{\mu}
+		\\
+		& = & \frac{(\partial P^* / \partial T^*)_{\mu}}{(\partial P^* / \partial \mu^*)_T}.
+	\end{eqnarray}
+	By~\eqref{eos:reduced}
+	\begin{equation}
+		\label{eq:entropy}
+		S^* = \frac{1}{\rho^*} 
+		\left[ 
+		E(\bar{y},T^*,\mu^*) + T^* \left(\frac{\partial E(\bar{y},T^*,\mu^*)}{\partial T^*}\right)_{\mu} 
+		\right].
+	\end{equation}
+	The result of calculation is
+	\begin{equation}
+		S^* = \left(\frac{3}{2} - \beta\mu\right) -p \frac{K_1}{K} + \frac{K \ln K}{K_1} + \frac{ap}{2} \frac{K_2}{K_1},
+	\end{equation}
+	or in the reduced quantities
+	\begin{equation}
+		S^* = \left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) - \frac{1}{T^*}\frac{K_1}{K} + \frac{K \ln K}{K_1} + \frac{a}{2T^*} \frac{K_2}{K_1}.
+	\end{equation}
+	The first contribution to the entropy corresponds to the entropy of non-interacting molecules in a lattice, or an ideal lattice gas contribution, see~\cite[Hill (47.4)]{Hill56}, if we account for the ideal-gas chemical potential $\mu_{\rm id} = k_{\rm B}T \ln(N\Lambda^3/V)$. 
+	
+	
+	\textbf{Entropy per cell.} The relation between $S^*$ and $S^{**}$ is
+	\begin{equation}
+		S^* = \frac{1}{\rho^*} S^{**},
+	\end{equation}
+	where
+	\begin{equation}
+		\label{eq:entropy2}
+		S^{**}  = \left(\frac{\partial P^*}{\partial T^*}\right)_{\mu}.
+	\end{equation}
+	The expressions for the entropy per cell is
+	\begin{equation}
+		S^{**} = -\frac{\bar{y}^2}{p} + \ln K(\bar{y},p,\mu) + \frac{\left[\left(\frac{3}{2} - \beta\mu\right)K_1(\bar{y},p,\mu) + \frac{ap}{2}K_2(\bar{y},p,\mu) \right]}{K(\bar{y},p,\mu)}
+	\end{equation}
+	or in reduced quantities
+	\begin{eqnarray}
+		S^{**} & = & -T^* \bar{y}^2 + \ln K(\bar{y},T^*,\mu^*) + \left[\left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) K_1(\bar{y},T^*,\mu^*) + \frac{a}{2T^*} K_2(\bar{y},T^*,\mu^*) \right] [K(\bar{y},T^*,\mu^*)]^{-1}
+		\nonumber \\
+		& = & -T^* \bar{y}^2 + \ln K + \frac{1}{K}\left[\left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) K_1 + \frac{a}{2T^*} K_2 \right]
+	\end{eqnarray}
+	Details or calculation are present in Appendix~\ref{sec:app:entropy}.
+	
+	\begin{figure}[htbp]
+		\includegraphics[width=0.55\textwidth,angle=0]{S_vs_T1}
+		\centering
+		%\hfill
+		%\includegraphics[width=0.45\textwidth,angle=0]{SS_vs_T2}
+		%\\
+		\captionsetup{width=0.5\textwidth}
+		%\parbox{0.45\textwidth}
+		{\caption{\label{fig:S_vs_T1} Entropy $S^{*}(\bar{y},T^*,\mu^*)$ as a function of $T^*$ at $\mu^*=-1.0$ ($v^* = 5$).}}
+		%\hfill
+		%\captionsetup{width=0.5\textwidth}
+		%\parbox{0.45\textwidth}{\caption{\label{fig:S_vs_T2} Entropy $S^{**}(\bar{y},T^*,\mu^*)$ as a function of $T^*$ at $\mu^*=-1.0$ ($v^* = 5$)}}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\includegraphics[width=0.45\textwidth,angle=0]{SS_vs_T1}
+		\hfill
+		\includegraphics[width=0.45\textwidth,angle=0]{SS_vs_T2}
+		\\
+		%\captionsetup{width=0.5\textwidth}
+		\parbox{0.45\textwidth}{\caption{\label{fig:SS_vs_T1} Entropy $S^{**}(\bar{y},T^*,\mu^*)$ as a function of $T^*$ at $\mu^*=-1.0$ ($v^* = 5$).}}
+		\hfill
+		%\captionsetup{width=0.5\textwidth}
+		\parbox{0.45\textwidth}{\caption{\label{fig:SS_vs_T2} Entropy $S^{**}(\bar{y},T^*,\mu^*)$ as a function of $T^*$ at $\mu^*=-1.0$ ($v^* = 5$).}}
+	\end{figure}
+	
+	The dependence of the reduced entropy $S^*$ on temperature $T^*$ at a given chemical potential is illustrated in Fig.~\ref{fig:S_vs_T1}. Figures~\ref{fig:SS_vs_T1} and~\ref{fig:SS_vs_T2} illustrate the dependence of entropy per cell $S^{**}$ on temperature $T^*$ at a constant chemical potential. The two figures for $S^{**}$ show the same functional dependency but focus on different temperature ranges.
+	
+	\begin{figure}[htbp]
+		\includegraphics[width=0.45\textwidth,angle=0]{S_vs_mu}
+		\hfill
+		\includegraphics[width=0.45\textwidth,angle=0]{SS_vs_mu}
+		\\
+		%\captionsetup{width=0.5\textwidth}
+		\parbox{0.45\textwidth}{\caption{\label{fig:S_vs_mu} Entropy per particle $S^{*}(\bar{y},T^*,\mu^*)$ as a function of $\mu^*$ at $T^*=0.5$ ($v^* = 5$).}}
+		\hfill
+		%\captionsetup{width=0.5\textwidth}
+		\parbox{0.45\textwidth}{\caption{\label{fig:SS_vs_mu} Entropy per cell $S^{**}(\bar{y},T^*,\mu^*)$ as a function of $\mu^*$ at $T^*=0.5$ ($v^* = 5$).}}
+	\end{figure}
+	
+	The dependence of the reduced entropy $S^*$ on chemical potential $\mu^*$ at a given temperature is illustrated in Fig.~\ref{fig:S_vs_mu}. That of $S^{**}$ is shown in Fig.~\ref{fig:SS_vs_mu}.
+	
 	\section{Equation of state}
 	
 	
-	
+	\pagebreak
 	\section{The special function $K_0$ and its integral representation}
 	
 	\be\label{KOZ}
@@ -703,10 +770,34 @@
 		\right\}.
 	\end{equation}
 	
+		
+	\section{\label{sec:app:dens} Calculation of Density}
+	This Appendix contains explicit calculation of density from~\eqref{eq:dens}. By~\eqref{eos:reduced}
+	\begin{equation}
+		\rho^* = \frac{\partial P^*}{\partial \mu^*} = T^* \frac{\partial E}{\partial \mu^*}.
+	\end{equation}
+	Then
+	\begin{equation}
+		\frac{\partial E}{\partial \mu^*} = \frac{1}{K} \frac{\partial K}{\partial \mu^*}.
+	\end{equation}
+	By~\eqref{def:K}
+	\begin{equation}
+		\frac{\partial K}{\partial \mu^*} = \frac{1}{T^*}K_1.
+	\end{equation}
+	Substituting these derivatives back into above formulas, we arrive at
+	\begin{equation}
+		\frac{\partial E}{\partial \mu^*} = \frac{1}{T^*} \frac{K_1}{K},
+	\end{equation}
+	and finally
+	\begin{equation}
+		\left(\frac{\partial P^*}{\partial \mu^*} \right)_T = \frac{K_1}{K} = \rho^*.
+	\end{equation}
+	
+	
 	\section{\label{sec:app:entropy} Calculation of Entropy}
 	This Appendix contains explicit calculation of entropy from Eq.~\eqref{eq:entropy} by taking dirivatives of pressure with respect to temperature
 	\begin{equation}
-		S^* = E + T^* \left(\frac{\partial E}{\partial T^*}\right)_{\mu};
+		S^{**} = \frac{1}{\rho^*} \left[E + T^* \left(\frac{\partial E}{\partial T^*}\right)_{\mu}\right];
 	\end{equation}
 	\begin{equation}
 		E = -\frac{1}{2}T^* \bar{y}^2 + \ln K.
@@ -741,34 +832,18 @@
 	\begin{equation}
 		\frac{\partial E}{\partial T^*} = -\frac{1}{2}\bar{y}^2 + \frac{1}{T^* K} \left[\left(\frac{3}{2} - \frac{\mu^*}{T^*} \right)K_1 + \frac{a}{2 T^*} K_2\right].
 	\end{equation}
-	The final result for the entropy is
+	The final result for the entropy per cell is
+	\begin{eqnarray}
+		S^{*} & = & \frac{1}{\rho^*} \left\{ -T^* \bar{y}^2 + \ln K + \frac{1}{K} \left[\left(\frac{3}{2} - \frac{\mu^*}{T^*} \right)K_1 + \frac{a}{2 T^*} K_2\right] \right\}
+		\\
+		& = & \frac{1}{\rho^*} \left\{ -\frac{1}{T^*} \frac{K_1^2}{K^2} + \ln K + \frac{1}{K} \left[\left(\frac{3}{2} - \frac{\mu^*}{T^*} \right)K_1 + \frac{a}{2 T^*} K_2\right] \right\}.
+	\end{eqnarray}
+	Taking into account~\eqref{eq:densK}, we finally get
 	\begin{equation}
-		S^* = -T^* \bar{y}^2 + \ln K + \frac{1}{K} \left[\left(\frac{3}{2} - \frac{\mu^*}{T^*} \right)K_1 + \frac{a}{2 T^*} K_2\right].
+		S^* = \left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) - \frac{1}{T^*}\frac{K_1}{K} + \frac{K \ln K}{K_1} + \frac{a}{2T^*} \frac{K_2}{K_1}.
 	\end{equation}
 	
 	Note that we ignored here the dependence of $\bar{y}$ on temperature, since $\bar{y}$ maximises $E$ and thus the contribution of partial derivative of $E$ with respect to $\bar{y}$ will be zero. However, such dependency must be accounted when calculating higher order derivatives, e.g. when calculating the heat capacity $C_V$.
-	
-	\section{\label{sec:app:dens} Calculation of Density}
-	This Appendix contains explicit calculation of density from~\eqref{eq:dens}. By~\eqref{eos:reduced}
-	\begin{equation}
-		\frac{\partial P^*}{\partial \mu^*} = T^* \frac{\partial E}{\partial \mu^*}.
-	\end{equation}
-	Then
-	\begin{equation}
-		\frac{\partial E}{\partial \mu^*} = \frac{1}{K} \frac{\partial K}{\partial \mu^*}.
-	\end{equation}
-	By~\eqref{def:K}
-	\begin{equation}
-		\frac{\partial K}{\partial \mu^*} = \frac{1}{T^*}K_1.
-	\end{equation}
-	Substituting these derivatives back into above formulas, we arrive at
-	\begin{equation}
-		\frac{\partial E}{\partial \mu^*} = \frac{1}{T^*} \frac{K_1}{K},
-	\end{equation}
-	and finally
-	\begin{equation}
-		\left(\frac{\partial P^*}{\partial \mu^*} \right)_T = \frac{K_1}{K} = \rho^*.
-	\end{equation}
 	
 	
 
