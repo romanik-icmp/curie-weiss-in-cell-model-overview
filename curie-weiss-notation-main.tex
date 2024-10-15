@@ -555,6 +555,7 @@
 	
 	From~\eqref{eq:bar_y} is also follows that
 	\begin{equation}
+		\label{rho_vs_T_mu}
 		\rho^*(T,\mu) = \bar{y}(T,\mu) T^*.
 	\end{equation}
 	%This enables us to calculate the equation of state.
@@ -600,9 +601,10 @@
 	\end{equation}
 	or in the reduced quantities
 	\begin{equation}
+		\label{S_vs_T_mu}
 		S^* = \left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) - \frac{1}{T^*}\frac{K_1}{K} + \frac{K \ln K}{K_1} + \frac{a}{2T^*} \frac{K_2}{K_1}.
 	\end{equation}
-	The first contribution to the entropy corresponds to the entropy of non-interacting molecules in a lattice, or an ideal lattice gas contribution, see~\cite[Hill (47.4)]{Hill56}, if we account for the ideal-gas chemical potential $\mu_{\rm id} = k_{\rm B}T \ln(N\Lambda^3/V)$. 
+	The first contribution to the entropy corresponds to the entropy of non-interacting molecules in a lattice, or an ideal lattice gas contribution, see~\cite[(47.4)]{Hill56}, if we account for the ideal-gas chemical potential $\mu_{\rm id} = k_{\rm B}T \ln(N\Lambda^3/V)$. 
 	
 	
 	\textbf{Entropy per cell.} The relation between $S^*$ and $S^{**}$ is
@@ -668,7 +670,21 @@
 	
 	The dependence of the reduced entropy $S^*$ on chemical potential $\mu^*$ at a given temperature is illustrated in Fig.~\ref{fig:S_vs_mu}. That of $S^{**}$ is shown in Fig.~\ref{fig:SS_vs_mu}.
 	
-	\section{Equation of state}
+	\begin{figure}[htbp]
+		\includegraphics[width=0.45\textwidth,angle=0]{S_vs_rho}
+		\hfill
+		\includegraphics[width=0.45\textwidth,angle=0]{SS_vs_rho}
+		\\
+		%\captionsetup{width=0.5\textwidth}
+		\parbox{0.45\textwidth}{\caption{\label{fig:S_vs_rho} Entropy per particle $S^{*}$ as a function of $\rho^*$, (Dashed black line) at $T^*=0.5$, and (Solid blue line) at $T^*=0.15$.}}
+		\hfill
+		%\captionsetup{width=0.5\textwidth}
+		\parbox{0.45\textwidth}{\caption{\label{fig:SS_vs_rho} Entropy per cell $S^{**}$ as a function of $\rho^*$, (Dashed black line) at $T^*=0.5$, and (Solid blue line) at $T^*=0.15$.}}
+	\end{figure}
+	
+	The equation for entropy~\eqref{S_vs_T_mu} expresses entropy as a function of temperature and chemical potential. If we want to have entropy as a function of temperature and density, we combine equations~\eqref{S_vs_T_mu} and~\eqref{rho_vs_T_mu} into a parametric equation for entropy, with $\mu$ being the parameter. This way we can plot the dependence of entropy on density at a given temperature. Such dependencies are present in Fig.~\ref{fig:S_vs_rho} and~Fig.~\ref{fig:SS_vs_rho}.
+	
+	%\section{Equation of state}
 	
   
 	\pagebreak
