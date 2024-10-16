@@ -560,7 +560,7 @@
 	\end{equation}
 	%This enables us to calculate the equation of state.
 	
-	
+	\pagebreak
 	\section{Entropy}
 	By thermodynamic formulas for the grand canonical ensemble
 	\begin{equation}
@@ -654,7 +654,7 @@
 		\parbox{0.45\textwidth}{\caption{\label{fig:SS_vs_T2} Entropy $S^{**}(\bar{y},T^*,\mu^*)$ as a function of $T^*$ at $\mu^*=-1.0$ ($v^* = 5$).}}
 	\end{figure}
 	
-	The dependence of the reduced entropy $S^*$ on temperature $T^*$ at a given chemical potential is illustrated in Fig.~\ref{fig:S_vs_T1}. Figures~\ref{fig:SS_vs_T1} and~\ref{fig:SS_vs_T2} illustrate the dependence of entropy per cell $S^{**}$ on temperature $T^*$ at a constant chemical potential. The two figures for $S^{**}$ show the same functional dependency but focus on different temperature ranges.
+	\textbf{Graphics for Entropy.} The dependence of the reduced entropy $S^*$ on temperature $T^*$ at a given chemical potential is illustrated in Fig.~\ref{fig:S_vs_T1}. Figures~\ref{fig:SS_vs_T1} and~\ref{fig:SS_vs_T2} illustrate the dependence of entropy per cell $S^{**}$ on temperature $T^*$ at a constant chemical potential. The two figures for $S^{**}$ show the same functional dependency but focus on different temperature ranges.
 	
 	\begin{figure}[htbp]
 		\includegraphics[width=0.45\textwidth,angle=0]{S_vs_mu}
@@ -731,8 +731,11 @@
 	\begin{equation}
 		K_0^{(b)}(z) \sim \sqrt{\frac{2}{\pi {\rm e}^z}} \cos({\rm e}^z - \pi/4), \quad \text{as } z \to +\infty.
 	\end{equation}
-
+	
+	
 	\appendix
+	
+	\pagebreak
 	
 	\section{\label{sec:app1} Explicit derivation of $E(y,p,\mu)$ and $K(y,p,\mu)$}
 	In this appendix, the explicit transformations through Eqs.~(2.11)--(2.15) is presented. Substituting the Gaussian integral~\eqref{eq:gaussInt} into~\eqref{eq:XiPi}, one proceeds as follows
@@ -786,6 +789,7 @@
 		\right\}.
 	\end{equation}
 	
+	\pagebreak	
 		
 	\section{\label{sec:app:dens} Calculation of Density}
 	This Appendix contains explicit calculation of density from~\eqref{eq:dens}. By~\eqref{eos:reduced}
@@ -861,9 +865,55 @@
 	
 	Note that we ignored here the dependence of $\bar{y}$ on temperature, since $\bar{y}$ maximises $E$ and thus the contribution of partial derivative of $E$ with respect to $\bar{y}$ will be zero. However, such dependency must be accounted when calculating higher order derivatives, e.g. when calculating the heat capacity $C_V$.
 	
+	\section{Entropy: qualitative behavior}
+	To understand how entropy should behave qualitatively, we will study two simple cases in this appendix, namely, the van der Waals fluid and the ideal gas.
 	
+	\subsection{Entopy of the van der Waals fluid}
+	The entropy of the van der Waals (vdW) fluid is expressed via density and temperature as~\cite[(55)]{Johnston14}
+	\begin{equation}
+		\label{vdw:S}
+		\frac{S}{N k_{\rm B}} = \ln \left[x_c\hat{\tau}^{3/2}(3-\hat{n})/\hat{n}\right] + \frac{5}{2},
+	\end{equation}
+	where $\hat{\tau} = T/T_c$, $\hat{n} = \rho/\rho_c$, and 
+	\begin{equation}
+		x_c \equiv \frac{k_{\rm B} T_c}{8P_c \Lambda^3_c} = \frac{b}{\Lambda^3_c},
+	\end{equation}
+	where $\Lambda_c$ is the de Broglie wavelength at the critical temperature, and $b$ is the ``excluded volume'' parameter of the van der Waals theory. The meaning of $b/\Lambda^3$ is similar to the meaning of quantity $v^*$ in our cell theory. To get graphical results, we put $x_c = b/\Lambda_c^3 = 5.0$.
+	
+	From~\eqref{vdw:S}, we can get behavior of how entropy per particle depends on density at a given temperature, see Fig.~\ref{fig:vdw_S_vs_t}, and on temperature at a given density, see Fig.~\ref{fig:vdw_S_vs_n}. 
+	
+	\begin{figure}[htbp]
+		\includegraphics[width=0.4\textwidth,angle=0]{vdw_S_vs_t}
+		\hfill
+		\includegraphics[width=0.4\textwidth,angle=0]{vdw_S_vs_n}
+		\\
+		%\captionsetup{width=0.5\textwidth}
+		\parbox{0.45\textwidth}{\caption{\label{fig:vdw_S_vs_t} Entropy per particle $S^{*}$ of the vdW fluid as a function of temperature $\hat{\tau}$ at a given density. (Dashed black line): $\hat{n}=0.5$, (Solid blue line): $\hat{n}=1.0$, and (Dash-dotted green line): $\hat{n}=1.5$.}}
+		\hfill
+		%\captionsetup{width=0.5\textwidth}
+		\parbox{0.45\textwidth}{\caption{\label{fig:vdw_S_vs_n} Entropy per particle $S^{*}$ of the vdW fluid as a function of density $\hat{n}$ at a given temperature. (Dashed black line): $\hat{\tau}=0.5$, (Solid blue line): $\hat{\tau}=1.0$, and (Dash-dotted green line): $\hat{\tau}=2.0$.}}
+	\end{figure}
+	
+	The chemical potential of the vdW fluid is given by~\cite[(70c)]{Johnston14}
+	\begin{equation}
+		\label{vdw:mu}
+		\frac{\mu}{k_{\rm B}T_c} = -\hat{\tau} \ln \left(\frac{3-\hat{n}}{\hat{n}}\right) + \frac{\hat{\tau}\hat{n}}{3-\hat{n}} - \frac{9\hat{n}}{4} - \hat{\tau}\ln(\hat{\tau}^{3/2}) - \hat{\tau}\ln(x_c).
+	\end{equation}
+	Considering Eqs.~\eqref{vdw:mu} and~\eqref{vdw:S} together as parametric equation, we can plot dependence of entropy on chemical potential at a given temperature, see Fig.~\ref{fig:vdw_S_vs_mu}.
+	
+	\begin{figure}[htbp]
+		\includegraphics[width=0.45\textwidth,angle=0]{vdw_S_vs_mu}
+		\hfill
+		\includegraphics[width=0.45\textwidth,angle=0]{vdw_S_vs_t_at_mu}
+		\\
+		%\captionsetup{width=0.5\textwidth}
+		\parbox{0.45\textwidth}{\caption{\label{fig:vdw_S_vs_mu} Entropy per particle $S^{*}$ of the vdW fluid as a function of chemical potential $\mu/(k_{\rm B}T_c)$ at a given temperature, (Dashed black line): $\hat{\tau}=0.5$, (Solid blue line): $\hat{\tau}=1.0$, (Dash-dotted green line): $\hat{\tau}=1.5$.}}
+		\hfill
+		%\captionsetup{width=0.5\textwidth}
+		\parbox{0.45\textwidth}{\caption{\label{fig:vdw_S_vs_t_at_mu} Entropy per particle $S^{*}$ of the vdW fluid as a function of temperature $\hat{\tau}$ at a given chemical potential $\mu/(k_{\rm B}T_c) = -6.0$.}}
+	\end{figure}
 
-	
+	\pagebreak	
 	%\bibliographystyle{elsarticle-num}
 	%\bibliography{books,articles}
 	
