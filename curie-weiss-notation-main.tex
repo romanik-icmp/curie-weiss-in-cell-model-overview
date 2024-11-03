@@ -117,11 +117,11 @@
 	\begin{equation*}
 		J_2 > J_1
 	\end{equation*}
-	to satisfy such inequality~\cite{KKD20,Ruelle70}
+	to satisfy the following inequality~\cite{KKD20,Ruelle70}
 	\begin{equation}
 		\int_{V} \Phi_{N_v}(x,y) {\rm d}y > 0, \quad \text{for all } x \in V.
 	\end{equation}
-	Note that there is one contribution to this integral from a cell containing the coordinate $x$, and $(N_v - 1)$ contributions from other cells:
+	Note that there is one contribution to this integral from a cell containing the coordinate $x$, and $(N_v - 1)$ contributions from the other cells:
 	\begin{eqnarray*}
 		\int_{V} \Phi_{N_v}(x,y) {\rm d}y & = & \left(-\frac{J_1}{N_v} + J_2\right)v - (N_v - 1) \frac{J_1}{N_v}v
 		\\
@@ -368,22 +368,23 @@
 	where 
 	\begin{equation}
 		\label{def:E}
-		E(y,p,\mu) = -\frac{y^2}{2p} + \ln K(y,p,\mu),
+		E(y,p,\mu) = -\frac{y^2}{2p} + \ln K_0(y,p,\mu),
 	\end{equation}
 	with
 	\begin{equation}
 		\label{def:K}
-		K(y,p,\mu) = \sum_{n=0}^{\infty} \frac{(v^*)^n}{n!} \exp[(y+\beta\mu)n - \frac{ap}{2}n^2].
+		K_0(y,p,\mu) = \sum_{n=0}^{\infty} \frac{(v^*)^n}{n!} \exp[(y+\beta\mu)n - \frac{ap}{2}n^2].
 	\end{equation}
-	Explicit derivation of expressions for $E(y,p,\mu)$ and $K(y,p,\mu)$ is given in Appendix~\ref{sec:app1}.
+	Explicit derivation of expressions for $E(y,p,\mu)$ and $K_0(y,p,\mu)$ is given in Appendix~\ref{sec:app1}.
 	
 	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
 	Often, it is convenient to express all the expressions in reduced quantities from~\eqref{def:reduced}, thus we will write the version for important quantities in reduced units as well:
 	\begin{equation}
-		E(y,T^*,\mu^*) = -\frac{1}{2}T^* y^2 + \ln K(y, T^*, \mu^*),
+		\label{def:reducedE}
+		E(y,T^*,\mu^*) = -\frac{1}{2}T^* y^2 + \ln K_0(y, T^*, \mu^*),
 	\end{equation}
 	\begin{equation}
-		K(y,T^*,\mu^*) = \sum_{n=0}^{\infty} \frac{(v^*)^n}{n!} \exp[\left(y+\frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2].
+		K_0(y,T^*,\mu^*) = \sum_{n=0}^{\infty} \frac{(v^*)^n}{n!} \exp[\left(y+\frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2].
 	\end{equation}
 	\end{mdframed}
 	
@@ -401,11 +402,11 @@
 	\end{equation}
 	The last inequality, in turn, leads to corresponding inequalities for $K(y,p,\mu)$
 	\begin{eqnarray}
-		K(y,p,\mu) & \leq & \sum_{n=0}^{\infty}\frac{(v^*)^n}{n!} \exp[\frac{(y+\beta\mu)^2}{2ap}]
+		K_0(y,p,\mu) & \leq & \sum_{n=0}^{\infty}\frac{(v^*)^n}{n!} \exp[\frac{(y+\beta\mu)^2}{2ap}]
 	\end{eqnarray}
 	or
 	\begin{equation}
-		K(y,p,\mu) \leq \exp[\frac{(y+\beta\mu)^2}{2ap}] \exp(v^*),
+		K_0(y,p,\mu) \leq \exp[\frac{(y+\beta\mu)^2}{2ap}] \exp(v^*),
 	\end{equation}
 	and for $E(y,p,\mu)$
 	\begin{equation}
@@ -444,25 +445,27 @@
 	\end{equation}
 	By~\eqref{def:E} and~\eqref{def:K}, the explicit expression for $E_1$ is
 	\begin{equation}
-		E_1(y,p,\mu) = -\frac{y}{p} + \frac{K_1(y,p,\mu)}{K(y,p,\mu)},
+		E_1(y,p,\mu) = -\frac{y}{p} + \frac{K_1(y,p,\mu)}{K_0(y,p,\mu)},
 	\end{equation}
 	and the equation for the extremum of $E(y,p,\mu)$ can be rewritten in the form~(cf.~\cite[(2.19)]{KKD20})
 	\begin{equation}
 		\label{eq:bar_y}
-		-\frac{y}{p} + \frac{K_1(y,p,\mu)}{K(y,p,\mu)} = 0,
+		-\frac{y}{p} + \frac{K_1(y,p,\mu)}{K_0(y,p,\mu)} = 0,
 	\end{equation}
 	where
 	\begin{equation}
-		K_1(y,p,\mu) := \frac{\partial}{\partial y} K(y,p,\mu) = \sum_{n=0}^{\infty} \frac{n (v^*)^n}{n!} \exp[(y+\beta\mu)n - \frac{ap}{2}n^2].
+		K_1(y,p,\mu) := \frac{\partial}{\partial y} K_0(y,p,\mu) = \sum_{n=0}^{\infty} \frac{n (v^*)^n}{n!} \exp[(y+\beta\mu)n - \frac{ap}{2}n^2].
 	\end{equation}
 	
 	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
 		In reduced quantities $E_1$ takes on the form
 		\begin{equation}
+			\label{def:reducedE1}
 			E_1(y,T^*,\mu^*) = -T^* y + \frac{K_1(y,T^*,\mu^*)}{K(y,T^*,\mu^*)},
 		\end{equation}
 		the equation for the extremum is
 		\begin{equation}
+			\label{eq:bary2}
 			-T^* y + \frac{K_1(y,T^*,\mu^*)}{K(y,T^*,\mu^*)} = 0,
 		\end{equation}
 		where
@@ -483,16 +486,17 @@
 		\parbox{0.45\textwidth}{\caption{\label{fig:E2_vs_y} Quantity $E_2(y,p,\mu)$ as a function of $y$ at $p=2.0$ ($T^*=0.5$) and $\beta\mu=-2.0$ ($\mu^*=-1.0$) for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}}
 	\end{figure}
 	
-	As $K$, $K_1$, and $p$ all take on strictly positive values, the solution $\bar{y}$ to equation~\eqref{eq:bar_y} is also strictly positive.
+	As $K_0$, $K_1$, and $p$ all take on strictly positive values, the solution $\bar{y}$ to equation~\eqref{eq:bar_y} is also strictly positive.
 	Typical behavior of $E_1(y,p,\mu)$ as a function of $y$ in the single-phase domain is illustrated in Fig.~\ref{fig:E1_vs_y}.
 	
 	\textbf{Definition}. We say that $(p, \mu)$ belongs to a single-phase domain if $E(y,p,\mu)$ has a unique global maximum $\bar{y} \in \mathbb{R}$ such that
 	\begin{equation}
+		\label{def:E2}
 		E_2(\bar{y}, p, \mu) := \frac{\partial^2}{\partial y^2} E(y,p,\mu)\big|_{y=\bar{y}} < 0.
 	\end{equation}
 	An explicit expression for $E_2(y,p,\mu)$ reads (cf.~\cite[(20)]{KD22})
 	\begin{equation}
-		E_2(y,p,\mu) = -\frac{1}{p} + \frac{K_2(y,p,\mu) K(y,p,\mu) - [K_1(y,p,\mu)]^2}{[K(y,p,\mu)]^2},
+		E_2(y,p,\mu) = -\frac{1}{p} + \frac{K_2(y,p,\mu) K(y,p,\mu) - [K_1(y,p,\mu)]^2}{[K_0(y,p,\mu)]^2},
 	\end{equation}
 	where
 	\begin{equation}
@@ -503,7 +507,8 @@
 	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
 		In reduced quantities, $E_2$ takes on the form
 		\begin{equation}
-			E_2(y,T^*,\mu^*) = -T^* + \frac{K_2(y,T^*,\mu^*) K(y,T^*,\mu^*) - [K_1(y,T^*,\mu^*)]^2}{[K(y,T^*,\mu^*)]^2},
+			\label{def:reducedE2}
+			E_2(y,T^*,\mu^*) = -T^* + \frac{K_2(y,T^*,\mu^*) K(y,T^*,\mu^*) - [K_1(y,T^*,\mu^*)]^2}{[K_0(y,T^*,\mu^*)]^2},
 		\end{equation}
 		where
 		\begin{equation}
@@ -530,6 +535,59 @@
 	\end{equation}
 	We have obtained an expression for the pressure $P$ as a function of temperature $T$ (through variable $p$) and chemical potential $\mu$, $P = P(T, \mu)$. (We remember that the quantity $\bar{y}$, which is selected from the condition to maximize $E$ at given $T$ and $\mu$, is a function of $T$ and $\mu$, $\bar{y} = \bar{y}(p,\mu)$). The problem here is that we cannot get the solution to~\eqref{eq:bar_y} in an analytic form. Still we can get some results numerically and obtain graphics.
 	
+	%\pagebreak
+	\section{Implicit function theorem}
+	The equation~\eqref{eq:bary2} implicitly defines $\bar{y}$ as a function of temperature and chemical potential. We can benefit from the implicit function theorem to get some results for $\bar{y}$ and its derivatives with respect to chemical potential and temperature.
+	
+	First, let us recall that if a line is given by 
+	\begin{equation*}
+		{\cal F}(x,y) = 0,
+	\end{equation*}
+	and if ${\cal F}(x,y)$ is continuously differentiable on some open domain around $(x_0,y_0)$, then
+	\begin{equation}
+		\frac{{\rm d} y}{{\rm d} x} = - \frac{\partial {\cal F} / \partial x}{\partial {\cal F} / \partial y}.
+	\end{equation}
+	Applying this to~\eqref{eq:bary2}, we get
+	\begin{equation}
+		\frac{\partial \bar{y}}{\partial \mu^*} = - \frac{\partial E_1 / \partial \mu^*}{\partial E_1 / \partial \bar{y}}.
+	\end{equation}
+	By definition~\eqref{def:E2}
+	\begin{equation}
+		\frac{\partial E_1}{\partial \bar{y}} = E_2.
+	\end{equation}
+	For $\partial E_1 / \partial \mu^*$ one has
+	\begin{equation}
+		\frac{\partial E_1}{\partial \mu^*} = \frac{1}{T^*} (E_2 + T^*).
+	\end{equation}
+	The quantity $E_2(y,T^*,\mu^*)$ can be rewritten as (cf.~\cite[(2.23)]{KKD20})
+	\begin{eqnarray}
+		E_2(y,T^*,\mu^*) & = & -T^* + \frac{1}{2 [K_0(y,T^*,\mu^*)]^2}
+		\\
+		& \times & \sum_{n_1, n_2 = 0}^{\infty} \frac{(v^*)^{n_1+n_2}}{n_1!n_2!}(n_1 - n_2)^2 \exp[\left(y + \frac{\mu^*}{T^*}\right)(n_1 + n_2) - \frac{a}{2T^*}(n_1^2 + n_2^2)],\nonumber
+	\end{eqnarray}
+	leading to
+	\begin{equation}
+		E_2 + T^* > 0,
+	\end{equation}
+	and thus
+	\begin{equation}
+		\frac{\partial E_1}{\partial \mu^*} > 0.
+	\end{equation}
+	Substituting the results back into $\partial \bar{y}/\partial \mu^*$, one gets
+	\begin{equation}
+		\left(\frac{\partial \bar{y}}{\partial \mu^*} \right)_{T^*} = -\frac{E_2 + T^*}{T^* E_2}.
+	\end{equation}
+	We can also consider $\mu^*$ as a function of $y$ and $T^*$, and get
+	\begin{equation}
+		\left(\frac{\partial \mu^*}{\partial \bar{y}} \right)_{T^*} = -\frac{T^* E_2}{E_2 + T^*}.
+	\end{equation}
+	Since the condition of maximum implies $E_2 < 0$, it follows
+	\begin{equation}
+		\left(\frac{\partial \bar{y}}{\partial \mu^*} \right)_{T^*} > 0.
+	\end{equation}
+	
+	
+	\pagebreak
 	\section{Average number of particles}
 	By thermodynamic formulas for the grand canonical ensemble
 	\begin{eqnarray}
@@ -542,10 +600,10 @@
 		\label{eq:dens}
 		\rho^* = v\left(\frac{\partial P}{\partial \mu}\right)_T = \left(\frac{\partial P^*}{\partial \mu^*}\right)_T.
 	\end{equation}
-	As a result of the differentiation of pressure with respect to temperature (see Appendix~\ref{sec:app:dens} for details), one gets
+	As a result of the differentiation of pressure with respect to chemical potential (see Appendix~\ref{sec:app:dens} for details), one gets
 	\begin{eqnarray}
 		\label{eq:densK}
-		\rho^* &=& \frac{K_1(\bar{y}, p,\mu)}{K(\bar{y},p,\mu)} = \frac{K_1(\bar{y},T^*,\mu^*)}{K(\bar{y},T^*,\mu^*)}.
+		\rho^* &=& \frac{K_1(\bar{y}, p,\mu)}{K_0(\bar{y},p,\mu)} = \frac{K_1(\bar{y},T^*,\mu^*)}{K_0(\bar{y},T^*,\mu^*)}.
 	\end{eqnarray}
 	
 	The quantity $\rho^*$, on the one hand, is the reduced particle number density, which is the notation commonly used in the literature on simple liquids~\cite{HansenMcDonald13}. In the context of the cell model, on the other hand, it also has the meaning of the average number of particles per cell, because
@@ -553,12 +611,19 @@
 		\rho^* = \frac{\langle N \rangle}{V} v = \frac{\langle N \rangle}{N_v}.
 	\end{equation}
 	
-	From~\eqref{eq:bar_y} is also follows that
+	From~\eqref{eq:bar_y} it also follows that
 	\begin{equation}
 		\label{rho_vs_T_mu}
 		\rho^*(T,\mu) = \bar{y}(T,\mu) T^*.
 	\end{equation}
 	%This enables us to calculate the equation of state.
+	
+	\section{Equation of state}
+	We have got relation $P^* = P^*(T^*, \mu^*)$ in~\eqref{eos:reduced}. Now, having found the density $\rho^* = \rho^*(T^*,\mu^*)$ in~\eqref{rho_vs_T_mu}, we can formally solve this equation with respect to $\mu$ to find $\mu^* = \mu^*(T^*,\rho^*)$, and substitute back into~\eqref{eos:reduced} to get pressure as a function of density and temperature (cf.~\cite[(2.28)]{KKD20})
+	\begin{equation}
+		P^* = T^* E\left[\frac{\rho^*}{T^*},T^*, \mu^*(T^*,\rho^*)\right],
+	\end{equation}
+	which will be the equation of state in convenient, (wide-spread, generally accepted) terms. However, such task is not an easy one, and at the moment we can solve~\eqref{rho_vs_T_mu} with respect to $\mu$ only numerically.
 	
 	\pagebreak
 	\section{Entropy}
@@ -597,12 +662,12 @@
 	\end{equation}
 	The result of calculation is
 	\begin{equation}
-		S^* = \left(\frac{3}{2} - \beta\mu\right) -p \frac{K_1}{K} + \frac{K \ln K}{K_1} + \frac{ap}{2} \frac{K_2}{K_1},
+		S^* = \left(\frac{3}{2} - \beta\mu\right) -p \frac{K_1}{K_0} + \frac{K_0 \ln K_0}{K_1} + \frac{ap}{2} \frac{K_2}{K_1},
 	\end{equation}
 	or in the reduced quantities
 	\begin{equation}
 		\label{S_vs_T_mu}
-		S^* = \left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) - \frac{1}{T^*}\frac{K_1}{K} + \frac{K \ln K}{K_1} + \frac{a}{2T^*} \frac{K_2}{K_1}.
+		S^* = \left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) - \frac{1}{T^*}\frac{K_1}{K_0} + \frac{K_0 \ln K_0}{K_1} + \frac{a}{2T^*} \frac{K_2}{K_1}.
 	\end{equation}
 	The first contribution to the entropy corresponds to the entropy of non-interacting molecules in a lattice, or an ideal lattice gas contribution, see~\cite[(47.4)]{Hill56}, if we account for the ideal-gas chemical potential $\mu_{\rm id} = k_{\rm B}T \ln(N\Lambda^3/V)$. 
 	
@@ -618,13 +683,13 @@
 	\end{equation}
 	The expressions for the entropy per cell is
 	\begin{equation}
-		S^{**} = -\frac{\bar{y}^2}{p} + \ln K(\bar{y},p,\mu) + \frac{\left[\left(\frac{3}{2} - \beta\mu\right)K_1(\bar{y},p,\mu) + \frac{ap}{2}K_2(\bar{y},p,\mu) \right]}{K(\bar{y},p,\mu)}
+		S^{**} = -\frac{\bar{y}^2}{p} + \ln K_0(\bar{y},p,\mu) + \frac{\left[\left(\frac{3}{2} - \beta\mu\right)K_1(\bar{y},p,\mu) + \frac{ap}{2}K_2(\bar{y},p,\mu) \right]}{K_0(\bar{y},p,\mu)}
 	\end{equation}
 	or in reduced quantities
 	\begin{eqnarray}
-		S^{**} & = & -T^* \bar{y}^2 + \ln K(\bar{y},T^*,\mu^*) + \left[\left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) K_1(\bar{y},T^*,\mu^*) + \frac{a}{2T^*} K_2(\bar{y},T^*,\mu^*) \right] [K(\bar{y},T^*,\mu^*)]^{-1}
+		S^{**} & = & -T^* \bar{y}^2 + \ln K_0(\bar{y},T^*,\mu^*) + \left[\left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) K_1(\bar{y},T^*,\mu^*) + \frac{a}{2T^*} K_2(\bar{y},T^*,\mu^*) \right] [K_0(\bar{y},T^*,\mu^*)]^{-1}
 		\nonumber \\
-		& = & -T^* \bar{y}^2 + \ln K + \frac{1}{K}\left[\left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) K_1 + \frac{a}{2T^*} K_2 \right]
+		& = & -T^* \bar{y}^2 + \ln K_0 + \frac{1}{K_0}\left[\left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) K_1 + \frac{a}{2T^*} K_2 \right]
 	\end{eqnarray}
 	Details or calculation are present in Appendix~\ref{sec:app:entropy}.
 	
@@ -798,11 +863,11 @@
 	\end{equation}
 	Then
 	\begin{equation}
-		\frac{\partial E}{\partial \mu^*} = \frac{1}{K} \frac{\partial K}{\partial \mu^*}.
+		\frac{\partial E}{\partial \mu^*} = \frac{1}{K_0} \frac{\partial K_0}{\partial \mu^*}.
 	\end{equation}
 	By~\eqref{def:K}
 	\begin{equation}
-		\frac{\partial K}{\partial \mu^*} = \frac{1}{T^*}K_1.
+		\frac{\partial K_0}{\partial \mu^*} = \frac{1}{T^*}K_1.
 	\end{equation}
 	Substituting these derivatives back into above formulas, we arrive at
 	\begin{equation}
@@ -810,7 +875,7 @@
 	\end{equation}
 	and finally
 	\begin{equation}
-		\left(\frac{\partial P^*}{\partial \mu^*} \right)_T = \frac{K_1}{K} = \rho^*.
+		\left(\frac{\partial P^*}{\partial \mu^*} \right)_T = \frac{K_1}{K_0} = \rho^*.
 	\end{equation}
 	
 	
@@ -820,13 +885,13 @@
 		S^{*} = \frac{1}{\rho^*} \left[E + T^* \left(\frac{\partial E}{\partial T^*}\right)_{\mu}\right];
 	\end{equation}
 	\begin{equation}
-		E = -\frac{1}{2}T^* \bar{y}^2 + \ln K.
+		E = -\frac{1}{2}T^* \bar{y}^2 + \ln K_0.
 	\end{equation}
 	\begin{equation}
-		\frac{\partial E}{\partial T^*} = -\frac{1}{2}\bar{y}^2 + \frac{1}{K}\frac{\partial}{\partial T^*} K.
+		\frac{\partial E}{\partial T^*} = -\frac{1}{2}\bar{y}^2 + \frac{1}{K_0}\frac{\partial}{\partial T^*} K_0.
 	\end{equation}
 	\begin{eqnarray}
-		\frac{\partial K}{\partial T^*} & = & \sum_{n=0}^{\infty} \frac{n (v^*)^{n-1}}{n!} \exp(F_n) \frac{\partial v^*}{\partial T^*} 
+		\frac{\partial K_0}{\partial T^*} & = & \sum_{n=0}^{\infty} \frac{n (v^*)^{n-1}}{n!} \exp(F_n) \frac{\partial v^*}{\partial T^*} 
 		\nonumber\\
 		& + & \sum_{n=0}^{\infty} \frac{(v^*)^n}{n!} \exp(F_n) \frac{\partial}{\partial T^*} F_n,
 	\end{eqnarray}
@@ -850,17 +915,17 @@
 	\end{equation}
 	For the derivative of $E$ with respect to $T^*$ we have
 	\begin{equation}
-		\frac{\partial E}{\partial T^*} = -\frac{1}{2}\bar{y}^2 + \frac{1}{T^* K} \left[\left(\frac{3}{2} - \frac{\mu^*}{T^*} \right)K_1 + \frac{a}{2 T^*} K_2\right].
+		\frac{\partial E}{\partial T^*} = -\frac{1}{2}\bar{y}^2 + \frac{1}{T^* K_0} \left[\left(\frac{3}{2} - \frac{\mu^*}{T^*} \right)K_1 + \frac{a}{2 T^*} K_2\right].
 	\end{equation}
 	The final result for the entropy per cell is
 	\begin{eqnarray}
-		S^{*} & = & \frac{1}{\rho^*} \left\{ -T^* \bar{y}^2 + \ln K + \frac{1}{K} \left[\left(\frac{3}{2} - \frac{\mu^*}{T^*} \right)K_1 + \frac{a}{2 T^*} K_2\right] \right\}
+		S^{*} & = & \frac{1}{\rho^*} \left\{ -T^* \bar{y}^2 + \ln K_0 + \frac{1}{K_0} \left[\left(\frac{3}{2} - \frac{\mu^*}{T^*} \right)K_1 + \frac{a}{2 T^*} K_2\right] \right\}
 		\\
-		& = & \frac{1}{\rho^*} \left\{ -\frac{1}{T^*} \frac{K_1^2}{K^2} + \ln K + \frac{1}{K} \left[\left(\frac{3}{2} - \frac{\mu^*}{T^*} \right)K_1 + \frac{a}{2 T^*} K_2\right] \right\}.
+		& = & \frac{1}{\rho^*} \left\{ -\frac{1}{T^*} \frac{K_1^2}{K_0^2} + \ln K + \frac{1}{K_0} \left[\left(\frac{3}{2} - \frac{\mu^*}{T^*} \right)K_1 + \frac{a}{2 T^*} K_2\right] \right\}.
 	\end{eqnarray}
 	Taking into account~\eqref{eq:densK}, we finally get
 	\begin{equation}
-		S^* = \left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) - \frac{1}{T^*}\frac{K_1}{K} + \frac{K \ln K}{K_1} + \frac{a}{2T^*} \frac{K_2}{K_1}.
+		S^* = \left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) - \frac{1}{T^*}\frac{K_1}{K_0} + \frac{K_0 \ln K_0}{K_1} + \frac{a}{2T^*} \frac{K_2}{K_1}.
 	\end{equation}
 	
 	Note that we ignored here the dependence of $\bar{y}$ on temperature, since $\bar{y}$ maximises $E$ and thus the contribution of partial derivative of $E$ with respect to $\bar{y}$ will be zero. However, such dependency must be accounted when calculating higher order derivatives, e.g. when calculating the heat capacity $C_V$.
@@ -912,9 +977,13 @@
 		%\captionsetup{width=0.5\textwidth}
 		\parbox{0.45\textwidth}{\caption{\label{fig:vdw_S_vs_t_at_mu} Entropy per particle $S^{*}$ of the vdW fluid as a function of temperature $\hat{\tau}$ at a given chemical potential $\mu/(k_{\rm B}T_c) = -6.0$.}}
 	\end{figure}
+	
+	\pagebreak
+	\include{./notation}
 
 	\pagebreak	
-	\bibliographystyle{elsarticle-num}
+	%\bibliographystyle{elsarticle-num}
+	\bibliographystyle{gost2008}
 	\bibliography{books,articles}
 	
 \end{document}
