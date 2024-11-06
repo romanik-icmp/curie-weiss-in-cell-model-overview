@@ -41,6 +41,9 @@
 		\\	
 		\textbf{Keywords:} Cell fluid model, Curie-Weiss interaction.
 	}
+	
+	\tableofcontents
+	
 	\section{Introduction}
 	The cell model was introduced and described in~\cite{KKD18,KKD20}. This model possesses an exact solution in the case of Curie-Weiss interaction. The exact asymptotic expression for the grand partition function was obtained in~\cite{KKD20}.
 	The goal of this manuscript is to summarize the notation, properly account for quantity dimensions corresponding to physical problems.
@@ -428,6 +431,11 @@
 	
 	\textit{Remark}. The estimate in~\eqref{ineq:E0} implies the following: (a) the integral in~\eqref{eq:XiInty} converges for all $p>0$ and $\mu \in \mathbb{R}$, as $a>1$; (b) for fixed $p$ and $\mu$, since $E(y,p,\mu)$ is bounded above, it has global maxima, each of which is also a local maximum.
 	
+	\textbf{Note on numerical values for parameters.} If not specified otherwise, the following numerical values for parameters of the model are used for calculations and graphical representation of results:
+	\begin{equation}
+		v^* = 5.0; \quad a = 1.2.
+	\end{equation}
+	
 	
 	\section{Pressure}
 	By the known thermodynamic formula (cf.~\cite[(2.16)]{KKD20})
@@ -508,7 +516,7 @@
 		In reduced quantities, $E_2$ takes on the form
 		\begin{equation}
 			\label{def:reducedE2}
-			E_2(y,T^*,\mu^*) = -T^* + \frac{K_2(y,T^*,\mu^*) K(y,T^*,\mu^*) - [K_1(y,T^*,\mu^*)]^2}{[K_0(y,T^*,\mu^*)]^2},
+			E_2(y,T^*,\mu^*) = -T^* + \frac{K_2(y,T^*,\mu^*) K_0(y,T^*,\mu^*) - [K_1(y,T^*,\mu^*)]^2}{[K_0(y,T^*,\mu^*)]^2},
 		\end{equation}
 		where
 		\begin{equation}
@@ -621,9 +629,76 @@
 	\section{Equation of state}
 	We have got relation $P^* = P^*(T^*, \mu^*)$ in~\eqref{eos:reduced}. Now, having found the density $\rho^* = \rho^*(T^*,\mu^*)$ in~\eqref{rho_vs_T_mu}, we can formally solve this equation with respect to $\mu$ to find $\mu^* = \mu^*(T^*,\rho^*)$, and substitute back into~\eqref{eos:reduced} to get pressure as a function of density and temperature (cf.~\cite[(2.28)]{KKD20})
 	\begin{equation}
+		\label{eos}
 		P^* = T^* E\left[\frac{\rho^*}{T^*},T^*, \mu^*(T^*,\rho^*)\right],
 	\end{equation}
-	which will be the equation of state in convenient, (wide-spread, generally accepted) terms. However, such task is not an easy one, and at the moment we can solve~\eqref{rho_vs_T_mu} with respect to $\mu$ only numerically.
+	which will be the equation of state in convenient, (wide-spread, generally accepted) terms. However, such task is not an easy one, and at the moment we can solve~\eqref{rho_vs_T_mu} with respect to $\mu$ only numerically. Nevertheless, even formal consideration of equation~\eqref{eos} is helpful to determine the critical points coordinates, see the next Section~\ref{sec:CP}.
+	
+	\pagebreak
+	\section{\label{sec:CP} Critical point coordinates}
+	From the general theories of phase transitions and critical phenomena, we have got a recipe to find the coordinates of the critical point from an equation of state in the form $P=P(T,\rho)$. Since the critical point is the inflection point on the critical isotherm, we have two conditions
+	\begin{equation}
+		\begin{split}
+			\left(\frac{\partial P^*}{\partial \rho^*}\right)_{T^*} = 0;
+			\\
+			\left(\frac{\partial^2 P^*}{\partial (\rho^*)^2}\right)_{T^*} = 0.
+		\end{split}		
+	\end{equation}
+	As is shown in Appendix~\ref{sec:app:cp}, these two conditions are equivalent to
+	\begin{equation}
+		\begin{split}
+			E_2 = 0,
+			\\
+			E_3 = 0,
+		\end{split}
+	\end{equation}
+	where
+	\begin{equation}
+		\begin{split}
+			E_3 &:= \frac{\partial^3}{\partial y^3} E(T,\mu; y)\big|_{y=\bar{y}} 
+			\\
+			& = \frac{\partial}{\partial \bar{y}} E(T,\mu; \bar{y})
+			\\
+			& = \frac{K_3}{K_0} - \frac{3 K_2 K_1}{K_0^2} + \frac{2K_1^3}{K_0^3}.
+		\end{split}
+	\end{equation}
+	Together with Eq.~\eqref{eq:bar_y} we have three equations with three unknown values for $T^*$, $\mu^*$, and $\bar{y}$:
+	\begin{equation}
+		\label{eq:system}
+		\begin{cases}
+			E_1(T^*,\mu^*; \bar{y}) = 0,\\
+			E_2(T^*,\mu^*; \bar{y}) = 0,\\
+			E_3(T^*,\mu^*; \bar{y}) = 0.
+		\end{cases}
+	\end{equation}
+	We can resolve this system of equations numerically, and find the critical point coordinates $T^*_c$, $\mu^*_c$, and $\bar{y}_c$.
+	
+	The cell model with Curie-Weiss interaction is known to possess multiple critical points~\cite{KKD18,KKD20,KD22}. Thus the system of equations~\eqref{eq:system} has many sets of solutions. We denote such solutions by natural numbers $n$, starting with $n=1$ for the lowest critical temperature. Table~\ref{tab:cp} contains the found sets of solutions, as well as other physical quantities values at the critical points calculated based on $T^*_c$, $\mu^*_c$, and $\bar{y}_c$.
+	
+	\begin{table}[h]
+		\centering
+		\caption{The critical point values for some quantities. The number $n$ denotes the critical points starting with $n=1$ for the one with the lowest temperature.}
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline
+			$n$ & $T^*_c$ & $\mu^*_c$ & $\bar{y}_c$ & $\beta^*_c$ (or $p_c$) & $\rho^*_c$ & $P^*_c$ \\
+			\hline
+			1 & 0.254567 & -0.313065 & 2.01870 & 3.92823 & 0.513896 & 0.0503397  \\
+			2 & 0.261881 & 0.0587688 & 5.74906 & 3.81852 & 1.50557 & 0.437695  \\
+			3 & 0.265254 & 0.363828 & 9.43632 & 3.76996 & 2.50303 & 1.05817 \\
+			4 & \textcolor{blue}{0.267242} & \textcolor{blue}{0.639949} & \textcolor{blue}{13.1039} & \textcolor{blue}{3.74193} & \textcolor{blue}{3.50191} & \textcolor{blue}{1.89369} \\
+			5 & & & & & & \\
+			\hline
+			$n$ & $\beta_c\mu_c$ & $\beta_c P_c v$ & $\bar{z}_c=\bar{y}_c+\mu^*_c/T^*_c$ & $\bar{y}_c+\mu^*_c/T^*_c + \ln v^*$ & $S^*_c$ & \\
+			\hline
+			1 & -1.22979 & 0.197746 & 0.788910 & 2.39835 & 4.48401 & \\
+			2 & 0.224410 & 1.67135 & 5.97347 & 7.58291 & 3.35912 & \\
+			3 & 1.37162 & 3.98927 & 10.8079 & 12.4174 & 2.90550 & \\
+			4 & \textcolor{blue}{2.39464}  & \textcolor{blue}{7.08603}& \textcolor{blue}{15.4985} & \textcolor{blue}{17.1080} & & \\
+			5 &  & & & & & \\
+			\hline
+		\end{tabular}
+		\label{tab:cp}
+	\end{table}
 	
 	\pagebreak
 	\section{Entropy}
@@ -749,9 +824,7 @@
 	
 	The equation for entropy~\eqref{S_vs_T_mu} expresses entropy as a function of temperature and chemical potential. If we want to have entropy as a function of temperature and density, we combine equations~\eqref{S_vs_T_mu} and~\eqref{rho_vs_T_mu} into a parametric equation for entropy, with $\mu$ being the parameter. This way we can plot the dependence of entropy on density at a given temperature. Such dependencies are present in Fig.~\ref{fig:S_vs_rho} and~Fig.~\ref{fig:SS_vs_rho}.
 	
-	%\section{Equation of state}
-	
-  
+
 	\pagebreak
 	\section{The special function $K_0$ and its integral representation}
 	
@@ -877,6 +950,8 @@
 	\begin{equation}
 		\left(\frac{\partial P^*}{\partial \mu^*} \right)_T = \frac{K_1}{K_0} = \rho^*.
 	\end{equation}
+	
+	\section{\label{sec:app:cp} System of equations for the critical point coordinates}
 	
 	
 	\section{\label{sec:app:entropy} Calculation of Entropy}
