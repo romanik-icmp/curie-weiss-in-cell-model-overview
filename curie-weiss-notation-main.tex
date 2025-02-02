@@ -55,9 +55,9 @@
 	\begin{equation*}
 		V = \bigcup_{l=1}^{N_v}\Delta_l,
 	\end{equation*}
-	and for each pair of $\Delta_l$ and $\Delta_m$
+	and for each pair of $\Delta_l$ and $\Delta_{l'}$
 	\begin{equation*}
-		\Delta_l \cap \Delta_m = \emptyset, \text{ if } l \neq m.
+		\Delta_l \cap \Delta_{l'} = \emptyset, \text{ if } l \neq l'.
 	\end{equation*}
 	
 	\textbf{Interaction.} Consider a configuration of particles $\gamma = \{\vb{r}^N\}$, where $\vb{r}^N \equiv \vb{r}_1, ..., \vb{r}_N$, $\vb{r}_i$ is the space coordinate of the $i$-th particle and $N \equiv \abs{\gamma}$ is the number of points (particles) in the configuration $\gamma$. The potential energy of interaction between particles in $\gamma$ is defined as follows (cf.~\cite[eq.~(2.5.16)]{HansenMcDonald13})
@@ -67,21 +67,21 @@
 		& = & \frac12 {\sum_{i=1}^N \sum_{j=1}^N} \Phi_{N_v} (\vb{r}_i,\vb{r}_j),
 	\end{eqnarray*}
 	where $\Phi_{N_v}$ is given by the Curie-Weiss interaction
-	\begin{equation*}
+	\begin{equation}
 		\label{def:curie-weiss-pot}
-		\Phi_{N_v}(\vb{r}_i, \vb{r}_j) = -\frac{J_1}{N_v} + J_2\sum_{l=1}^{N_v} I_{\Delta_l}(\vb{r}_i) I_{\Delta_l}(\vb{r}_j),
-	\end{equation*}
-	and $I_{\Delta_l}(\vb{r})$ is the indicator of $\Delta_l$
-	\begin{equation*}
+		\Phi_{N_v}(\vb{r}_i, \vb{r}_j) = -\frac{J_1}{N_v} + J_2\sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(\vb{r}_i) \mathbb{I}_{\Delta_l}(\vb{r}_j),
+	\end{equation}
+	and $\mathbb{I}_{\Delta_l}(\vb{r})$ is the indicator of $\Delta_l$
+	\begin{equation}
 		\label{def:I}
-		I_{\Delta_l} (\vb{r}) = \left\{
+		\mathbb{I}_{\Delta_l} (\vb{r}) = \left\{
 		\begin{array}{ll}
 			1, \quad \vb{r} \in \Delta_l,
 			\\
 			0, \quad \vb{r} \notin \Delta_l.
 		\end{array}
 		\right.
-	\end{equation*}
+	\end{equation}
 	The first term in $\Phi_{N_v}$ describes the pairwise attraction between all particles and is characterized by $J_1 > 0$. The second term in $\Phi_{N_v}$ describes the repulsion between two particles contained within the same cell $\Delta_l$ and is characterized by $J_2 > 0.$ For convenience, in $W_{N_v}$ above the self-interaction term $\Phi_{N_v}(\vb{r},\vb{r})$ is included, which does not affect the physics of the model. Two cases are possible for $\Phi_{N_v}(\vb{r}_i, \vb{r}_j)$, either two particles belong to the same cell or to different ones. Explicitly, one has
 	\begin{equation}
 		\Phi_{N_v}(\vb{r}_i, \vb{r}_j) = \left\{
@@ -99,11 +99,11 @@
 	\end{equation*}
 	to satisfy the following inequality~\cite{KKD20,Ruelle70}
 	\begin{equation}
-		\int_{V} \Phi_{N_v}(x,y) {\rm d}y > 0, \quad \text{for all } x \in V.
+		\int_{V} \Phi_{N_v}(\vb{r},\vb{r}') {\rm d} \vb{r}' > 0, \quad \text{for all } \vb{r} \in V.
 	\end{equation}
-	Note that there is one contribution to this integral from a cell containing the coordinate $x$, and $(N_v - 1)$ contributions from the other cells:
+	Note that there is one contribution to this integral from a cell containing the coordinate $\vb{r}$, and $(N_v - 1)$ contributions from the other cells:
 	\begin{eqnarray*}
-		\int_{V} \Phi_{N_v}(x,y) {\rm d}y & = & \left(-\frac{J_1}{N_v} + J_2\right)v - (N_v - 1) \frac{J_1}{N_v}v
+		\int_{V} \Phi_{N_v}(\vb{r},\vb{r}') {\rm d} \vb{r}' & = & \left(-\frac{J_1}{N_v} + J_2\right)v - (N_v - 1) \frac{J_1}{N_v}v
 		\\
 		& = & (J_2 - J_1)v > 0.
 	\end{eqnarray*}
@@ -112,26 +112,19 @@
 	and thus $a > 1.$
 	
 	\textbf{The grand partition function} (GPF) is expressed as follows~\cite[eqs.~(2.4.6) and~(2.3.13)]{HansenMcDonald13}
-	\begin{equation*}
-		\Xi = \sum_{N=0}^{\infty}\frac{z^N}{N!} \int_{V} \dotsc \int_{V} \exp(-\beta W_{N_v}(\gamma)) {\rm d} x_1 \dotsc {\rm d} x_N
-	\end{equation*}
-	where $z$ is the activity
+	\begin{equation}\label{ZGR}
+		\Xi=\sum_{N=0}^{\infty}\frac{z^N}{N!}Z_N,
+	\end{equation}
+		where $z$ is the activity
 	\begin{equation*}
 		z = \frac{\exp(\beta \mu)}{\Lambda^3},
 	\end{equation*}
-	$\beta = 1/(k_{\rm B} T)$ the inverse temperature, $k_{\rm B}$ the Boltzmann constant, $T$ the temperature, $\mu$ the chemical potential, $\Lambda = (2\pi\beta\hbar^2/m)^{1/2}$ the de Broglie thermal wavelength, $\hbar$ the Planck constant, $m$ the mass of a particle. In GPF the integration goes over all configurations with $N$ particles and then the summation goes over all positive integer values of $N$.
-	
-	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
-		Alternatively, in notation from~\cite{HansenMcDonald13}, the GPF is expressed as [cf. eqs.~(2.4.6) and~(2.3.13)]
-		\begin{equation}\label{ZGR}
-			\Xi=\sum_{N=0}^{\infty}\frac{z^N}{N!}Z_N,
-		\end{equation}
-		where $Z_N$ is the configuration integral:
-		\begin{equation}
-			Z_N = \int\exp(-\beta W_{N_v}(\vb{r}^N)){\rm d}\vb{r}^N
-		\end{equation}
-		with ${\rm d} \vb{r}^N \equiv {\rm d}{\vb r_1} \dotsc {\rm d}{\vb r_N}$.
-	\end{mdframed}
+	$\beta = 1/(k_{\rm B} T)$ the inverse temperature, $k_{\rm B}$ the Boltzmann constant, $T$ the temperature, $\mu$ the chemical potential, $\Lambda = (2\pi\beta\hbar^2/m)^{1/2}$ the de Broglie thermal wavelength, $\hbar$ the Planck constant, $m$ the mass of a particle. The configuration integral $Z_N$ is defined as
+	\begin{equation}
+		Z_N = \int\exp(-\beta W_{N_v}(\vb{r}^N)){\rm d}\vb{r}^N
+	\end{equation}
+	with ${\rm d} \vb{r}^N \equiv {\rm d}{\vb r_1} \dotsc {\rm d}{\vb r_N}$.
+	In the GPF the integration goes over all configurations $\gamma$ with $N$ particles and then the summation goes over all positive integer values of $N$.
 	
 	\textbf{Reduced quantities.} Natural units for energy and length in the model are $J_1$ and $c$, respectively. It is standard practice to express thermodynamic results in terms of dimensionless quantities normalized by these natural units. The advantage of using such quantities is that their numerical values are typically of the order of unity, which simplifies analysis. Thus, we introduce the following reduced quantities:
 	%the reduced temperature $T^* = k_{\rm B} T / J_1$, the reduced inverse temperature $p = \beta J_1$, reduced chemical potential $\mu^* = \mu / J_1$, and the reduced pressure $P^* = Pv/J_1$.
@@ -139,7 +132,7 @@
 		\label{def:reduced}
 		T^* := \frac{k_{\rm B} T}{J_1} & \quad & \text{ -- the reduced temperature;} 
 		\nonumber\\
-		p := \beta J_1 = \frac{1}{T^*} & \quad & \text{ -- the reduced inverse temperature;}
+		\beta^* \equiv p := \beta J_1 = \frac{1}{T^*} & \quad & \text{ -- the reduced inverse temperature;}
 		\nonumber\\
 		\mu^* := \frac{\mu}{J_1} & \quad & \text{ -- the reduced chemical potential;}
 		\nonumber\\ 
@@ -152,35 +145,27 @@
 	For any dimensional quantity $Q$, it is convenient to denote its reduced counterpart by $Q^*$. To maintain consistency with other thermodynamic quantities, it may be beneficial to use $\beta^*$ instead of $p$ for the reduced inverse temperature (cf.~\cite{RDGMR13}).
 	
 	\subsection{Partition function transformation}
-	Note the following summation:
+	Note the following summation result:
 	\begin{equation}
-		\sum_{x,y \in \gamma} 1 = N^2 = \abs{\gamma}^2.
+		\sum_{\vb{r}_i,\vb{r}_j \in \gamma} 1 = N^2 = \abs{\gamma}^2.
 	\end{equation}
 	The GPF is then explicitly written as
 	\begin{equation}
 		\label{eq:gpf1}
-		\Xi = \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!}\int \exp[\beta\mu N + \frac{p}{2N_{v}} N^2 - \frac{ap}{2} \sum_{x,y \in \gamma} \sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(x)\mathbb{I}_{\Delta_l}(y)] {\rm d} x_1 \dotsc {\rm d} x_N.
+		\Xi = \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!}
+		\int
+		\exp[\beta\mu N + \frac{\beta^*}{2N_{v}} N^2 - \frac{a\beta^*}{2} \sum_{\vb{r}_i,\vb{r}_j \in \gamma} \sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(\vb{r}_i)\mathbb{I}_{\Delta_l}(\vb{r}_j)] {\rm d} \vb{r}^N.
 	\end{equation}
+	The equation~\eqref{eq:gpf1} can be compared with~\cite[(2.5)]{KKD20}.
 	
-	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
-	Alternatively
-		\begin{equation}
-			\label{eq:gpf1_alt}
-			\Xi = \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!}
-			\int
-			\exp[\beta\mu N + \frac{\beta^*}{2N_{v}} N^2 - \frac{a\beta^*}{2} \sum_{\vb{r}_i,\vb{r}_j \in \gamma} \sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(\vb{r}_i)\mathbb{I}_{\Delta_l}(\vb{r}_j)] {\rm d} \vb{r}^N.
-		\end{equation}
-	\end{mdframed}
-	Equations~\eqref{eq:gpf1} and~\eqref{eq:gpf1_alt} can be compared with~\cite[(2.5)]{KKD20}.
-	
-	For a given $l = 1, \cdots , N_v$ and a configuration $\gamma$, we set $\gamma_l = \gamma \cap \Delta_l,$ that is, $\gamma_l$ is the part of the configuration contained in $\Delta_l$. Then, $N_l$ or $\abs{\gamma_l}$ stands for the number of points (particles) of $\gamma$ contained in $\Delta_l$.
+	For a given $l = 1, \cdots , N_v$ and a configuration $\gamma$, we set $\gamma_l = \gamma \cap \Delta_l,$ that is, $\gamma_l$ is the part of the configuration contained in $\Delta_l$. Then, $N_l \equiv \abs{\gamma_l}$ stands for the number of points (particles) of $\gamma$ contained in $\Delta_l$.
 	
 	\textbf{Some useful formulas}. Note the following summation results:
 	\begin{equation}
 		\label{eq:1}
-		N_l \equiv \abs{\gamma_l} = \sum_{x \in \gamma_l} 1 = \sum_{x \in \gamma} \mathbb{I}_{\Delta_l}(x) = \sum_{j=1}^{N} \mathbb{I}_{\Delta_{l}}(x_j),
+		N_l \equiv \abs{\gamma_l} = \sum_{\vb{r} \in \gamma_l} 1 = \sum_{\vb{r} \in \gamma} \mathbb{I}_{\Delta_l}(\vb{r}) = \sum_{j=1}^{N} \mathbb{I}_{\Delta_{l}}(\vb{r}_j),
 	\end{equation}
-	\textbf{\textcolor{Red}{Question:}} Can $x \in \gamma_l$ and $x \in \Delta_l$ be used interchangeably?
+
 	\begin{equation}
 		\label{eq:2}
 		\sum_{l=1}^{N_v} N_l = N, \quad \sum_{l=1}^{N_v} \abs{\gamma_l} = \abs{\gamma},
@@ -191,23 +176,23 @@
 	\end{equation}
 	\begin{equation}
 		\label{eq:4}
-		\sum_{x \in \gamma} \rightarrow \sum_{l=1}^{N_v} \sum_{x \in \Delta_l};
+		\sum_{\vb{r} \in \gamma} \rightarrow \sum_{l=1}^{N_v} \sum_{\vb{r} \in \Delta_l};
 	\end{equation}
 	\begin{equation}
 		\label{eq:5}
-		\sum_{x,y \in \gamma} \rightarrow \sum_{l,l'=1}^{N_v} \sum_{x \in \Delta_l} \sum_{y \in \Delta_{l'}}.
+		\sum_{\vb{r}, \vb{r}' \in \gamma} \rightarrow \sum_{l,l'=1}^{N_v} \sum_{\vb{r} \in \Delta_l} \sum_{\vb{r}' \in \Delta_{l'}}.
 	\end{equation}
 	\begin{equation}
 		\label{eq:6}
-		\sum_{x \in \Delta_l}\sum_{y \in \Delta_l'} 1 = N_l N_{l'} = \abs{\gamma_l} \abs{\gamma_{l'}}.
+		\sum_{\vb{r} \in \Delta_l}\sum_{\vb{r}' \in \Delta_l'} 1 = N_l N_{l'} = \abs{\gamma_l} \abs{\gamma_{l'}}.
 	\end{equation}
 	\begin{equation}
 		\label{eq:sumII}
-		\sum_{x,y \in \gamma}\sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(x) \mathbb{I}_{\Delta_{l}}(y) = \sum_{l=1}^{N_v} N_l^2 \equiv \sum_{l=1}^{N_v} \abs{\gamma_l}^2.
+		\sum_{\vb{r}, \vb{r}' \in \gamma}\sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(\vb{r}) \mathbb{I}_{\Delta_{l}}(\vb{r}') = \sum_{l=1}^{N_v} N_l^2 \equiv \sum_{l=1}^{N_v} \abs{\gamma_l}^2.
 	\end{equation}
 	Combining these formulas, we get
 	\begin{eqnarray}
-		\sum_{x,y \in \gamma} \Phi_{N_v}(x,y) & = & \sum_{l,l'=1}^{N_v} \sum_{x \in \Delta_l} \sum_{y \in \Delta_{l'}} \Phi_{N_v}(x,y)
+		\sum_{\vb{r}, \vb{r}' \in \gamma} \Phi_{N_v}(\vb{r}, \vb{r}') & = & \sum_{l,l'=1}^{N_v} \sum_{\vb{r} \in \Delta_l} \sum_{\vb{r}' \in \Delta_{l'}} \Phi_{N_v}(\vb{r}, \vb{r}')
 		\nonumber\\
 		& = & - \frac{J_1}{N_v} \left(\sum_{l=1}^{N_v} N_l\right)^2 + J_2\sum_{l=1}^{N_v}N_l^2
 		\\

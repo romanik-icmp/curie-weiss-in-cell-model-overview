@@ -53,3 +53,108 @@ In~\cite{KKD20}, the notation $\abs{\gamma}$ was used to denote the number of po
 	\end{equation*}
 	Unlike~\cite[eq.~(2.5.16)]{HansenMcDonald13}, we do not exclude term with $i = j$ in the expression for $W_{N_v}$ due to the self-interaction.
 \end{mdframed}
+
+
+	\textbf{Stability.} For stability of interaction the following condition must hold
+\begin{equation*}
+	J_2 > J_1
+\end{equation*}
+to satisfy the following inequality~\cite{KKD20,Ruelle70}
+\begin{equation}
+	\int_{V} \Phi_{N_v}(x,y) {\rm d}y > 0, \quad \text{for all } x \in V.
+\end{equation}
+Note that there is one contribution to this integral from a cell containing the coordinate $x$, and $(N_v - 1)$ contributions from the other cells:
+\begin{eqnarray*}
+	\int_{V} \Phi_{N_v}(x,y) {\rm d}y & = & \left(-\frac{J_1}{N_v} + J_2\right)v - (N_v - 1) \frac{J_1}{N_v}v
+	\\
+	& = & (J_2 - J_1)v > 0.
+\end{eqnarray*}
+The ratio of the two energy constants is denoted by
+$$a = J_2/J_1,$$
+and thus $a > 1.$
+
+\textbf{The grand partition function} (GPF) is expressed as follows~\cite[eqs.~(2.4.6) and~(2.3.13)]{HansenMcDonald13}
+\begin{equation*}
+	\Xi = \sum_{N=0}^{\infty}\frac{z^N}{N!} \int_{V} \dotsc \int_{V} \exp(-\beta W_{N_v}(\gamma)) {\rm d} x_1 \dotsc {\rm d} x_N
+\end{equation*}
+where $z$ is the activity
+\begin{equation*}
+	z = \frac{\exp(\beta \mu)}{\Lambda^3},
+\end{equation*}
+$\beta = 1/(k_{\rm B} T)$ the inverse temperature, $k_{\rm B}$ the Boltzmann constant, $T$ the temperature, $\mu$ the chemical potential, $\Lambda = (2\pi\beta\hbar^2/m)^{1/2}$ the de Broglie thermal wavelength, $\hbar$ the Planck constant, $m$ the mass of a particle. In GPF the integration goes over all configurations with $N$ particles and then the summation goes over all positive integer values of $N$.
+
+\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
+	Alternatively, in notation from~\cite{HansenMcDonald13}, the GPF is expressed as [cf. eqs.~(2.4.6) and~(2.3.13)]
+	\begin{equation}\label{ZGR}
+		\Xi=\sum_{N=0}^{\infty}\frac{z^N}{N!}Z_N,
+	\end{equation}
+	where $Z_N$ is the configuration integral:
+	\begin{equation}
+		Z_N = \int\exp(-\beta W_{N_v}(\vb{r}^N)){\rm d}\vb{r}^N
+	\end{equation}
+	with ${\rm d} \vb{r}^N \equiv {\rm d}{\vb r_1} \dotsc {\rm d}{\vb r_N}$.
+\end{mdframed}
+
+
+	\subsection{Partition function transformation}
+Note the following summation:
+\begin{equation}
+	\sum_{\vb{r}_i,\vb{r}_j \in \gamma} 1 = N^2 = \abs{\gamma}^2.
+\end{equation}
+The GPF is then explicitly written as
+\begin{equation}
+	\label{eq:gpf1}
+	\Xi = \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!}\int \exp[\beta\mu N + \frac{p}{2N_{v}} N^2 - \frac{ap}{2} \sum_{x,y \in \gamma} \sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(x)\mathbb{I}_{\Delta_l}(y)] {\rm d} x_1 \dotsc {\rm d} x_N.
+\end{equation}
+
+\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
+	Alternatively
+	\begin{equation}
+		\label{eq:gpf1_alt}
+		\Xi = \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!}
+		\int
+		\exp[\beta\mu N + \frac{\beta^*}{2N_{v}} N^2 - \frac{a\beta^*}{2} \sum_{\vb{r}_i,\vb{r}_j \in \gamma} \sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(\vb{r}_i)\mathbb{I}_{\Delta_l}(\vb{r}_j)] {\rm d} \vb{r}^N.
+	\end{equation}
+\end{mdframed}
+Equations~\eqref{eq:gpf1} and~\eqref{eq:gpf1_alt} can be compared with~\cite[(2.5)]{KKD20}.
+
+For a given $l = 1, \cdots , N_v$ and a configuration $\gamma$, we set $\gamma_l = \gamma \cap \Delta_l,$ that is, $\gamma_l$ is the part of the configuration contained in $\Delta_l$. Then, $N_l \equiv \abs{\gamma_l}$ stands for the number of points (particles) of $\gamma$ contained in $\Delta_l$.
+
+	\textbf{Some useful formulas}. Note the following summation results:
+\begin{equation}
+	\label{eq:1}
+	N_l \equiv \abs{\gamma_l} = \sum_{x \in \gamma_l} 1 = \sum_{x \in \gamma} \mathbb{I}_{\Delta_l}(x) = \sum_{j=1}^{N} \mathbb{I}_{\Delta_{l}}(x_j),
+\end{equation}
+\textbf{\textcolor{Red}{Question:}} Can $x \in \gamma_l$ and $x \in \Delta_l$ be used interchangeably?
+\begin{equation}
+	\label{eq:2}
+	\sum_{l=1}^{N_v} N_l = N, \quad \sum_{l=1}^{N_v} \abs{\gamma_l} = \abs{\gamma},
+\end{equation}
+\begin{equation}
+	\label{eq:3}
+	\left(\sum_{l=1}^{N_v} N_l \right)^2 = N^2, \quad \left(\sum_{l=1}^{N_v} \abs{\gamma_l} \right)^2 = \abs{\gamma}^2.
+\end{equation}
+\begin{equation}
+	\label{eq:4}
+	\sum_{x \in \gamma} \rightarrow \sum_{l=1}^{N_v} \sum_{x \in \Delta_l};
+\end{equation}
+\begin{equation}
+	\label{eq:5}
+	\sum_{x,y \in \gamma} \rightarrow \sum_{l,l'=1}^{N_v} \sum_{x \in \Delta_l} \sum_{y \in \Delta_{l'}}.
+\end{equation}
+\begin{equation}
+	\label{eq:6}
+	\sum_{x \in \Delta_l}\sum_{y \in \Delta_l'} 1 = N_l N_{l'} = \abs{\gamma_l} \abs{\gamma_{l'}}.
+\end{equation}
+\begin{equation}
+	\label{eq:sumII}
+	\sum_{x,y \in \gamma}\sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(x) \mathbb{I}_{\Delta_{l}}(y) = \sum_{l=1}^{N_v} N_l^2 \equiv \sum_{l=1}^{N_v} \abs{\gamma_l}^2.
+\end{equation}
+Combining these formulas, we get
+\begin{eqnarray}
+	\sum_{x,y \in \gamma} \Phi_{N_v}(x,y) & = & \sum_{l,l'=1}^{N_v} \sum_{x \in \Delta_l} \sum_{y \in \Delta_{l'}} \Phi_{N_v}(x,y)
+	\nonumber\\
+	& = & - \frac{J_1}{N_v} \left(\sum_{l=1}^{N_v} N_l\right)^2 + J_2\sum_{l=1}^{N_v}N_l^2
+	\\
+	& = & - \frac{J_1}{N_v} \left(\sum_{l=1}^{N_v} \abs{\gamma_l}\right)^2 + J_2\sum_{l=1}^{N_v}\abs{\gamma_l}^2
+\end{eqnarray}
