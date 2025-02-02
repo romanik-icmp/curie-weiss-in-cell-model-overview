@@ -1,0 +1,55 @@
+\textbf{Interaction.} The interaction energy between particles in configuration $\gamma = \{x_1, ..., x_N\}$, where $x_i$ is the space coordinate of the $i$-th particle and $N$ is the number of points (particles) in the configuration $\gamma$, is defined as follows
+\begin{equation*}
+	W_{N_v}(\gamma) = \frac{1}{2} \sum_{x,y \in \gamma} \Phi_{N_v} (x,y)
+\end{equation*}
+where $\Phi_{N_v}$ is given by the Curie-Weiss interaction
+\begin{equation}
+	\label{def:curie-weiss-pot}
+	\Phi_{N_v}(x, y) = -\frac{J_1}{N_v} + J_2\sum_{l=1}^{N_v} I_{\Delta_l}(x) I_{\Delta_l}(y),
+\end{equation}
+and $I_{\Delta_l}(x)$ is the indicator of $\Delta_l$
+\begin{equation}
+	\label{def:I}
+	I_{\Delta_l} (x) = \left\{
+	\begin{array}{ll}
+		1, \quad x \in \Delta_l,
+		\\
+		0, \quad x \notin \Delta_l.
+	\end{array}
+	\right.
+\end{equation}
+The first term in $\Phi_{N_v}$ describes the pairwise attraction between all particles and is characterized by $J_1 > 0$. The second term in $\Phi_{N_v}$ describes the repulsion between two particles contained within the same cell $\Delta_l$ and is characterized by $J_2 > 0.$ For convenience, in $W_{N_v}$ above the self-interaction term $\Phi_{N_v}(x,x)$ is included, which does not affect the physics of the model. Two cases are possible, either two particles belong to the same cell or to different ones. Explicitly, one has
+\begin{equation}
+	\Phi_{N_v}(x, y) = \left\{
+	\begin{array}{ll}
+		-\frac{J_1}{N_v} + J_2, & \text{when particles are in the same cell,}
+		\\
+		-\frac{J_1}{N_v}, & \text{otherwise.}
+	\end{array}
+	\right.
+\end{equation}
+In~\cite{KKD20}, the notation $\abs{\gamma}$ was used to denote the number of points (particles) in configuration $\gamma$, thus $\abs{\gamma} \equiv N$.
+
+\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
+	If the notation from~\cite{HansenMcDonald13} is followed, the previous formulas can be rewritten as follows. The space coordinate of the $i$-th particle is denoted by $\vb{r}_i$, and thus the configuration of $N$ particles is defined by $\gamma = \{\vb{r}^N\}$, where $\vb{r}^N \equiv \vb{r}_1, ..., \vb{r}_N$. The interaction energy is expressed as (cf.~\cite[eq.~(2.5.16)]{HansenMcDonald13})
+	\begin{eqnarray*}
+		W_{N_v}(\vb{r}^N) & = & \frac{1}{2} \sum_{\vb{r}_i,\vb{r}_j \in \gamma} \Phi_{N_v} (\vb{r}_i,\vb{r}_j)
+		\\
+		& = & \frac12 {\sum_{i=1}^N \sum_{j=1}^N} \Phi_{N_v} (\vb{r}_i,\vb{r}_j),
+	\end{eqnarray*}
+	with
+	\begin{equation*}
+		\Phi_{N_v}(\vb{r}_i, \vb{r}_j) = -\frac{J_1}{N_v} + J_2\sum_{l=1}^{N_v} I_{\Delta_l}(\vb{r}_i) I_{\Delta_l}(\vb{r}_j),
+	\end{equation*}
+	and
+	\begin{equation*}
+		I_{\Delta_l} (\vb{r}) = \left\{
+		\begin{array}{ll}
+			1, \quad \vb{r} \in \Delta_l,
+			\\
+			0, \quad \vb{r} \notin \Delta_l.
+		\end{array}
+		\right.
+	\end{equation*}
+	Unlike~\cite[eq.~(2.5.16)]{HansenMcDonald13}, we do not exclude term with $i = j$ in the expression for $W_{N_v}$ due to the self-interaction.
+\end{mdframed}

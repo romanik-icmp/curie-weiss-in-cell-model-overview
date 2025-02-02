@@ -45,11 +45,11 @@
 	\tableofcontents
 	
 	\section{Introduction}
-	The cell model was introduced and described in~\cite{KKD18,KKD20}. This model possesses an exact solution in the case of Curie-Weiss interaction. The exact asymptotic expression for the grand partition function was obtained in~\cite{KKD20}.
-	The goal of this manuscript is to summarize the notation, properly account for quantity dimensions corresponding to physical problems.
+	The cell model was introduced and described in~\cite{KKD18,KKD20}. This model possesses an exact solution in the case of Curie-Weiss interaction. The exact asymptotic (in the thermodynamic limit) expression for the grand partition function was obtained in~\cite{KKD20}.
+	The goals of this manuscript are to (a) summarize the known results; (b) standardize the notation; (c) properly account for quantity dimensions corresponding to physical problems; (d) account for the thermal de Broglie wavelength in the definition of the grand partition function, in order to properly account for temperature dependence while calculating the entropy; and (e) calculate the entropy.
 	
 	\section{\label{sec:model} Model}
-	Let us briefly introduce the model, the notation, and then summarize the known results for the model.
+	Let us briefly introduce the model, the notation, and summarize the known results for the model.
 	
 	The main results are obtained within the formalism of the grand canonical ensemble. An open system of point particles is considered in volume $V$. The total volume $V$ is divided into $N_v$ congruent cubic cells $\Delta_l$ of volume $v=c^3$ each, such that the volume $V$ is the union of all $\Delta_l$
 	\begin{equation*}
@@ -60,51 +60,20 @@
 		\Delta_l \cap \Delta_m = \emptyset, \text{ if } l \neq m.
 	\end{equation*}
 	
-	\textbf{Interaction.} The interaction energy between particles in configuration $\gamma = \{x_1, ..., x_N\}$, where $x_i$ is the space coordinate of the $i$-th particle and $N$ is the number of points (particles) in the configuration $\gamma$, is defined as follows
-	\begin{equation*}
-		W_{N_v}(\gamma) = \frac{1}{2} \sum_{x,y \in \gamma} \Phi_{N_v} (x,y)
-	\end{equation*}
-	where $\Phi_{N_v}$ is given by the Curie-Weiss interaction
-	\begin{equation}
-		\label{def:curie-weiss-pot}
-		\Phi_{N_v}(x, y) = -\frac{J_1}{N_v} + J_2\sum_{l=1}^{N_v} I_{\Delta_l}(x) I_{\Delta_l}(y),
-	\end{equation}
-	and $I_{\Delta_l}(x)$ is the indicator of $\Delta_l$
-	\begin{equation}
-		\label{def:I}
-		I_{\Delta_l} (x) = \left\{
-		\begin{array}{ll}
-			1, \quad x \in \Delta_l,
-			\\
-			0, \quad x \notin \Delta_l.
-		\end{array}
-		\right.
-	\end{equation}
-	The first term in $\Phi_{N_v}$ describes the pairwise attraction between all particles and is characterized by $J_1 > 0$. The second term in $\Phi_{N_v}$ describes the repulsion between two particles contained within the same cell $\Delta_l$ and is characterized by $J_2 > 0.$ For convenience, in $W_{N_v}$ above the self-interaction term $\Phi_{N_v}(x,x)$ is included, which does not affect the physics of the model. Two cases are possible, either two particles belong to the same cell or to different ones. Explicitly, one has
-	\begin{equation}
-		\Phi_{N_v}(x, y) = \left\{
-		\begin{array}{ll}
-			-\frac{J_1}{N_v} + J_2, & \text{when particles are in the same cell,}
-			\\
-			-\frac{J_1}{N_v}, & \text{otherwise.}
-		\end{array}
-		\right.
-	\end{equation}
-	In~\cite{KKD20}, the notation $\abs{\gamma}$ was used to denote the number of points (particles) in configuration $\gamma$, thus $\abs{\gamma} \equiv N$.
-	
-	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
-	If the notation from~\cite{HansenMcDonald13} is followed, the previous formulas can be rewritten as follows. The space coordinate of the $i$-th particle is denoted by $\vb{r}_i$, and thus the configuration of $N$ particles is defined by $\gamma = \{\vb{r}^N\}$, where $\vb{r}^N \equiv \vb{r}_1, ..., \vb{r}_N$. The interaction energy is expressed as (cf.~\cite[eq.~(2.5.16)]{HansenMcDonald13})
+	\textbf{Interaction.} Consider a configuration of particles $\gamma = \{\vb{r}^N\}$, where $\vb{r}^N \equiv \vb{r}_1, ..., \vb{r}_N$, $\vb{r}_i$ is the space coordinate of the $i$-th particle and $N \equiv \abs{\gamma}$ is the number of points (particles) in the configuration $\gamma$. The potential energy of interaction between particles in $\gamma$ is defined as follows (cf.~\cite[eq.~(2.5.16)]{HansenMcDonald13})
 	\begin{eqnarray*}
-		W_{N_v}(\vb{r}^N) & = & \frac{1}{2} \sum_{\vb{r}_i,\vb{r}_j \in \gamma} \Phi_{N_v} (\vb{r}_i,\vb{r}_j).
+		W_{N_v}(\vb{r}^N) & = & \frac{1}{2} \sum_{\vb{r}_i,\vb{r}_j \in \gamma} \Phi_{N_v} (\vb{r}_i,\vb{r}_j)
 		\\
 		& = & \frac12 {\sum_{i=1}^N \sum_{j=1}^N} \Phi_{N_v} (\vb{r}_i,\vb{r}_j),
 	\end{eqnarray*}
-	with
+	where $\Phi_{N_v}$ is given by the Curie-Weiss interaction
 	\begin{equation*}
+		\label{def:curie-weiss-pot}
 		\Phi_{N_v}(\vb{r}_i, \vb{r}_j) = -\frac{J_1}{N_v} + J_2\sum_{l=1}^{N_v} I_{\Delta_l}(\vb{r}_i) I_{\Delta_l}(\vb{r}_j),
 	\end{equation*}
-	and
+	and $I_{\Delta_l}(\vb{r})$ is the indicator of $\Delta_l$
 	\begin{equation*}
+		\label{def:I}
 		I_{\Delta_l} (\vb{r}) = \left\{
 		\begin{array}{ll}
 			1, \quad \vb{r} \in \Delta_l,
@@ -113,8 +82,16 @@
 		\end{array}
 		\right.
 	\end{equation*}
-	Unlike~\cite[eq.~(2.5.16)]{HansenMcDonald13}, we do not exclude term with $i = j$ in the expression for $W_{N_v}$ due to the self-interaction.
-	\end{mdframed}
+	The first term in $\Phi_{N_v}$ describes the pairwise attraction between all particles and is characterized by $J_1 > 0$. The second term in $\Phi_{N_v}$ describes the repulsion between two particles contained within the same cell $\Delta_l$ and is characterized by $J_2 > 0.$ For convenience, in $W_{N_v}$ above the self-interaction term $\Phi_{N_v}(\vb{r},\vb{r})$ is included, which does not affect the physics of the model. Two cases are possible for $\Phi_{N_v}(\vb{r}_i, \vb{r}_j)$, either two particles belong to the same cell or to different ones. Explicitly, one has
+	\begin{equation}
+		\Phi_{N_v}(\vb{r}_i, \vb{r}_j) = \left\{
+		\begin{array}{ll}
+			-\frac{J_1}{N_v} + J_2, & \text{when particles are in the same cell,}
+			\\
+			-\frac{J_1}{N_v}, & \text{otherwise.}
+		\end{array}
+		\right.
+	\end{equation}
 	
 	\textbf{Stability.} For stability of interaction the following condition must hold
 	\begin{equation*}
@@ -241,9 +218,9 @@
 	\begin{equation}
 		F_{N_v}(\varrho, p, \mu) = \exp[\frac{p}{2N_v}\left(\sum_{l=1}^{N_v} \varrho_l\right)^2 + \beta\mu\sum_{l=1}^{N_v} \varrho_l - \frac{a p}{2} \sum_{l=1}^{N_v} \varrho_l^2],
 	\end{equation}
-	where $\varrho \in \mathbb{N}_0^N$ is a vector with nonnegative integer components $\varrho_l$, $l=1, 2, \ldots , N_v$, i.e. $\varrho = (\varrho_1, \varrho_2, \ldots, \varrho_{N_{v}})$.
+	where $\varrho \in \mathbb{N}_0^{N_v}$ is a vector with non-negative integer components $\varrho_l$, $l=1, 2, \ldots , N_v$, i.e. $\varrho = (\varrho_1, \varrho_2, \ldots, \varrho_{N_{v}})$.
 	
-	For $\varrho$, we substitute the vector $\nu(\gamma) \in \mathbb{N}_0^N$ with components $N_l$ (or $\abs{\gamma_l}$), which have the meaning of the number of points in a cell $\Delta_{l}$ in cofiguration $\gamma$, i.e. $\nu(\gamma)=(N_1, N_2, \ldots, N_{N_v})$ or $\nu(\gamma) = (\abs{\gamma_1}, \abs{\gamma_2}, \ldots, \abs{\gamma_{N_v}})$, and obtain the following expression for the GPF in~\eqref{eq:gpf1}:
+	For $\varrho$, we substitute the vector $\nu(\gamma) \in \mathbb{N}_0^N$ with components $N_l$ (or $\abs{\gamma_l}$), which have the meaning of the number of points in a cell $\Delta_{l}$ in configuration $\gamma$, i.e. $\nu(\gamma)=(N_1, N_2, \ldots, N_{N_v})$ or $\nu(\gamma) = (\abs{\gamma_1}, \abs{\gamma_2}, \ldots, \abs{\gamma_{N_v}})$, and obtain the following expression for the GPF in~\eqref{eq:gpf1}:
 	\begin{equation}
 		\Xi = \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!}\int_{V^N} F_{N_v}(\nu(\gamma),p,\mu) {\rm d} x_1 \dotsc {\rm d} x_N,
 	\end{equation}
