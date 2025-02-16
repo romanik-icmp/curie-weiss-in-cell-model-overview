@@ -174,6 +174,7 @@
 	
 	The next step is to introduce the Kronecker $\delta$-symbol for $n, m \in \mathbb{N}_0$ as
 	\begin{equation}
+		\label{def:Kronecker}
 		\delta_{nm} = \int_0^1 \exp[2\pi {\rm i} t (n-m)] {\rm d}t
 	\end{equation}
 	and rewrite $F_{N_v}$ as
@@ -243,12 +244,11 @@
 		\label{eq:XiIntt}
 		\Xi(T^*,\mu^*) = \sum_{\varrho \in \mathbb{N}_0^{N_v}} F_{N_v}(T^*, \mu^*; \varrho) \prod\limits_{l=1}^{N_v} \int\limits_{0}^{1} \exp[2\pi{\rm i}\varrho_l t_l + v^* T^{*3/2} \exp(-2\pi{\rm i} t_l)] {\rm d} t_l.
 	\end{equation}
-	Here, the integral gives the following result:
+	Here, the integral gives the following result (see Appendix~\ref{subsec:int} for details):
 	\begin{equation}
 		\label{integral1}
 		\int\limits_{0}^{1} \exp[2\pi{\rm i}\varrho_l t_l + v^* T^{*3/2} \exp(-2\pi{\rm i} t_l)] {\rm d} t_l = \frac{{(v^* T^{*3/2})}^{\varrho_l}}{\varrho_l !}.
 	\end{equation}
-	\textbf{\textcolor{Red}{NOTE:}} This integral has not been explicitly written down in any of the papers~\cite{KKD18, KKD20, KD22}, and I do not know how it is calculated. However, I have determined that this result was implicitly substituted into~\cite[(2.11)]{KKD20}. I have verified this using Maple, and it yields the result given in~\eqref{integral1}.
 	
 	The GPF takes on the form (cf.~\cite[2.11]{KKD20}):
 	\begin{eqnarray}
@@ -795,6 +795,22 @@
 		\\
 		& = & - \frac{J_1}{N_v} \left(\sum_{l=1}^{N_v} \abs{\gamma_l}\right)^2 + J_2\sum_{l=1}^{N_v}\abs{\gamma_l}^2
 	\end{eqnarray}
+	
+	\subsection{Integration example}
+	\label{subsec:int}
+	In this subsection, explicit integration of the integral in~\eqref{eq:XiIntt} is present.
+	\begin{eqnarray}
+		I & = & \int\limits_{0}^{1} {\rm d} t \exp[2\pi {\rm i} \varrho t + \vartheta\exp(-2\pi {\rm i}t)]
+		\nonumber\\	
+		& = & \frac{1}{2\pi} \int\limits_{0}^{2\pi} {\rm d}x {\rm e}^{{\rm i}\varrho x} \exp(\vartheta {\rm e}^{-{\rm i}x})
+		\nonumber\\
+		& = & \frac{1}{2\pi} \int\limits_{0}^{2\pi} {\rm d}x {\rm e}^{{\rm i}\varrho x} \sum_{n \geq 0} \frac{\vartheta^n}{n!} {\rm e}^{-{\rm i}nx}
+		\nonumber\\
+		& = & \sum_{n \geq 0} \frac{\vartheta^n}{n!} \frac{1}{2\pi} \int\limits_{0}^{2\pi} {\rm d}x {\rm e}^{{\rm i}(\varrho - n)x}
+		\nonumber\\
+		& = & \sum_{n \geq 0} \frac{\vartheta^n}{n!} \delta_{n\varrho} = \frac{\vartheta^{\varrho}}{\varrho!}.
+	\end{eqnarray}
+	In the course of calculation, we have used the change of variables $x = 2\pi t$ and the definition~\eqref{def:Kronecker} for the Kronecker $\delta$-symbol.
 	
 	\pagebreak
 	
