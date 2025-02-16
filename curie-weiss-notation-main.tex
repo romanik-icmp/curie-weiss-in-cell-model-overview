@@ -160,45 +160,6 @@
 	
 	For a given $l = 1, \cdots , N_v$ and a configuration $\gamma$, we set $\gamma_l = \gamma \cap \Delta_l,$ that is, $\gamma_l$ is the part of the configuration contained in $\Delta_l$. Then, $N_l \equiv \abs{\gamma_l}$ stands for the number of points (particles) of $\gamma$ contained in $\Delta_l$.
 	
-	\textbf{Some useful formulas}. Note the following summation results:
-	\begin{equation}
-		\label{eq:1}
-		N_l \equiv \abs{\gamma_l} = \sum_{\vb{r} \in \gamma_l} 1 = \sum_{\vb{r} \in \gamma} \mathbb{I}_{\Delta_l}(\vb{r}) = \sum_{j=1}^{N} \mathbb{I}_{\Delta_{l}}(\vb{r}_j),
-	\end{equation}
-
-	\begin{equation}
-		\label{eq:2}
-		\sum_{l=1}^{N_v} N_l = N, \quad \sum_{l=1}^{N_v} \abs{\gamma_l} = \abs{\gamma},
-	\end{equation}
-	\begin{equation}
-		\label{eq:3}
-		\left(\sum_{l=1}^{N_v} N_l \right)^2 = N^2, \quad \left(\sum_{l=1}^{N_v} \abs{\gamma_l} \right)^2 = \abs{\gamma}^2.
-	\end{equation}
-	\begin{equation}
-		\label{eq:4}
-		\sum_{\vb{r} \in \gamma} \rightarrow \sum_{l=1}^{N_v} \sum_{\vb{r} \in \Delta_l};
-	\end{equation}
-	\begin{equation}
-		\label{eq:5}
-		\sum_{\vb{r}, \vb{r}' \in \gamma} \rightarrow \sum_{l,l'=1}^{N_v} \sum_{\vb{r} \in \Delta_l} \sum_{\vb{r}' \in \Delta_{l'}}.
-	\end{equation}
-	\begin{equation}
-		\label{eq:6}
-		\sum_{\vb{r} \in \Delta_l}\sum_{\vb{r}' \in \Delta_l'} 1 = N_l N_{l'} = \abs{\gamma_l} \abs{\gamma_{l'}}.
-	\end{equation}
-	\begin{equation}
-		\label{eq:sumII}
-		\sum_{\vb{r}, \vb{r}' \in \gamma}\sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(\vb{r}) \mathbb{I}_{\Delta_{l}}(\vb{r}') = \sum_{l=1}^{N_v} N_l^2 \equiv \sum_{l=1}^{N_v} \abs{\gamma_l}^2.
-	\end{equation}
-	Combining these formulas, we get
-	\begin{eqnarray}
-		\sum_{\vb{r}, \vb{r}' \in \gamma} \Phi_{N_v}(\vb{r}, \vb{r}') & = & \sum_{l,l'=1}^{N_v} \sum_{\vb{r} \in \Delta_l} \sum_{\vb{r}' \in \Delta_{l'}} \Phi_{N_v}(\vb{r}, \vb{r}')
-		\nonumber\\
-		& = & - \frac{J_1}{N_v} \left(\sum_{l=1}^{N_v} N_l\right)^2 + J_2\sum_{l=1}^{N_v}N_l^2
-		\\
-		& = & - \frac{J_1}{N_v} \left(\sum_{l=1}^{N_v} \abs{\gamma_l}\right)^2 + J_2\sum_{l=1}^{N_v}\abs{\gamma_l}^2
-	\end{eqnarray}
-	
 	\textbf{GPF transformation}. To rewrite the integrand in~\eqref{eq:gpf1} in a more convenient form we set (cf.~\cite[eq.~(2.7)]{KKD20})
 	\begin{equation}
 		F_{N_v}(T^*, \mu^*; \varrho) = \exp[\frac{1}{2T^*N_v}\left(\sum_{l=1}^{N_v} \varrho_l\right)^2 + \frac{\mu^*}{T^*}\sum_{l=1}^{N_v} \varrho_l - \frac{a}{2T^*} \sum_{l=1}^{N_v} \varrho_l^2],
@@ -207,7 +168,7 @@
 	
 	For $\varrho$, we substitute the vector $\nu(\gamma) \in \mathbb{N}_0^N$ with components $N_l$ (or $\abs{\gamma_l}$), which have the meaning of the number of points in a cell $\Delta_{l}$ in configuration $\gamma$, i.e. $\nu(\gamma)=(N_1, N_2, \ldots, N_{N_v})$ or $\nu(\gamma) = (\abs{\gamma_1}, \abs{\gamma_2}, \ldots, \abs{\gamma_{N_v}})$, and obtain the following expression for the GPF in~\eqref{eq:gpf1}:
 	\begin{equation}
-		\Xi = \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!}\int_{V^N} F_{N_v}(T^*,\mu^*;\nu(\gamma)) {\rm d} x_1 \dotsc {\rm d} x_N,
+		\Xi = \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!}\int_{V^N} F_{N_v}(T^*,\mu^*;\nu(\gamma)) {\rm d} \vb{r}^N,
 	\end{equation}
 	which can be compared with~\cite[eq.~(2.8)]{KKD20}.
 	
@@ -227,7 +188,7 @@
 		\sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!} 
 		\nonumber\\
 		&& \times \int\limits_{V^N} \int\limits_{[0,1]^{N_v}} 
-		\exp[2\pi{\rm i} \sum_{l=1}^{N_v} (\varrho_l - N_l)t_l ] {\rm d} t_1 \ldots {\rm d} t_{N_v} {\rm d}x_1 \ldots {\rm d}x_N 
+		\exp[2\pi{\rm i} \sum_{l=1}^{N_v} (\varrho_l - N_l)t_l ] {\rm d} t_1 \ldots {\rm d} t_{N_v} {\rm d} \vb{r}^N 
 		\nonumber\\
 		& = & \sum_{\varrho \in \mathbb{N}_0^{N_v}} F_{N_v}(T^*, \mu^*; \varrho)
 		\int\limits_{[0,1]^{N_v}} \exp(2\pi{\rm i} \sum_{l=1}^{N_v} \varrho_l t_l) R_{N_v}(t_1, \ldots, t_{N_v}) {\rm d} t_1 \ldots {\rm d} t_{N_v}.
@@ -239,33 +200,38 @@
 	The quantity $R_N$ is expressed as follows (cf.~\cite[(2.10)]{KKD20})
 	\begin{eqnarray}
 		\label{def:RN}
-		R_{N_v}(t_1, \ldots, t_{N_v}) & = & \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!} \int\limits_{V^N} \exp(-2\pi{\rm i} \sum_{l=1}^{N_v} N_l t_l) {\rm d}x_1 \ldots {\rm d}x_N
+		R_{N_v}(t_1, \ldots, t_{N_v}) & = & \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!} \int\limits_{V^N} \exp(-2\pi{\rm i} \sum_{l=1}^{N_v} N_l t_l) {\rm d} \vb{r}^N
 		\nonumber\\
-		&=& \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!} \int\limits_{V^N} \exp(-2\pi{\rm i} \sum_{l=1}^{N_v} \sum_{j=1}^{N} \mathbb{I}_{\Delta_{l}}(x_j) t_l) {\rm d}x_1 \ldots {\rm d}x_N,
+		&=& \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!} \int\limits_{V^N} \exp(-2\pi{\rm i} \sum_{l=1}^{N_v} \sum_{j=1}^{N} \mathbb{I}_{\Delta_{l}}(\vb{r}_j) t_l) {\rm d} \vb{r}^N,
 	\end{eqnarray}
 	We used~\eqref{eq:1} to get the last line in the above equation.
 	
 	Note that the expression under the integral in the last line of~\eqref{def:RN} is factorized in $j$:
 	\begin{eqnarray}
 		R_{N_v}(t_1, \ldots, t_{N_v}) & = & \sum_{N=0}^{\infty}\frac{1}{N!} 
-		\left\{\frac{1}{\Lambda^{3}} \int\limits_V \exp[-2\pi{\rm i}\sum_{l=1}^{N_v} \mathbb{I}_{\Delta_{l}}(x) t_l] {\rm d}x \right\}^N.
+		\left\{\frac{1}{\Lambda^{3}} \int\limits_V \exp[-2\pi{\rm i}\sum_{l=1}^{N_v} \mathbb{I}_{\Delta_{l}}(\vb{r}) t_l] {\rm d} \vb{r} \right\}^N.
 	\end{eqnarray}
 	Applying the following transformation for the integral over $V$
 	\begin{equation}
-		\int\limits_V \ldots {\rm d}x = \sum_{l=1}^{N_v}\int\limits_{\Delta_l} \ldots {\rm d}x,
+		\int\limits_V \ldots {\rm d} \vb{r} = \sum_{l=1}^{N_v}\int\limits_{\Delta_l} \ldots {\rm d} \vb{r},
 	\end{equation}
 	and taking into account the definition of $\mathbb{I}_{\Delta_l}$~\eqref{def:I}, one gets for $R_{N_v}$
 	\begin{eqnarray}
 		\label{eq:RNL}
-		R_{N_v}(t_1, \ldots, t_{N_v}) & = & \sum_{N=0}^{\infty}\frac{1}{N!} \left[ \frac{1}{\Lambda^3} \sum_{l=1}^{N_v} \int\limits_{\Delta_l} \exp(-2\pi{\rm i}t_l) {\rm d}x \right]^N
+		R_{N_v}(t_1, \ldots, t_{N_v}) & = & \sum_{N=0}^{\infty}\frac{1}{N!} \left[ \frac{1}{\Lambda^3} \sum_{l=1}^{N_v} \int\limits_{\Delta_l} \exp(-2\pi{\rm i}t_l) {\rm d} \vb{r} \right]^N
 		\nonumber\\
 		&=& \exp[\frac{v}{\Lambda^3} \sum_{l=1}^{N_v} \exp(-2\pi{\rm i} t_l)].
 	\end{eqnarray}
-	Here we used an obvious result $\int_{\Delta_l} {\rm d}x = v$. It is natural to introduce dimensionless variable
+	Here we used an obvious result $\int_{\Delta_l} {\rm d} \vb{r} = v$. It is natural to introduce dimensionless variable
 	\begin{equation}
+		\label{def:v_star}
 		v^* = \frac{v}{\Lambda^3_J},
 	\end{equation}
-	where $\Lambda_J = (2\pi\hbar^2/mJ_1)^{1/2}$, and, thus, write down the final expression for $R_{N_v}$
+	where we define
+	\begin{equation}
+		\Lambda_J = (2\pi\hbar^2/mJ_1)^{1/2},
+	\end{equation}
+	and, thus, write down the final expression for $R_{N_v}$
 	\begin{equation}
 		\label{eq:RNv}
 		R_{N_v}(t_1, \ldots, t_{N_v}) = \exp[v^* T^{*3/2} \sum_{l=1}^{N_v} \exp(-2\pi{\rm i} t_l)].
@@ -304,16 +270,18 @@
 		\end{equation}
 	\end{mdframed}
 	
-	\textbf{The Poisson distribution} results from~\eqref{def:pin} at $p=0$, i.e. in the high-temperature limit. To see this, rewrite expression for $\pi(n,\mu)|_{p=0}$ as
-	\begin{equation}
-		\pi(n,\mu)|_{p=0} = {\rm e}^{v^* {\rm e}^{\beta\mu}} 
-		\frac{\left(v^* {\rm e}^{\beta\mu}\right)^n}{n!} {\rm e}^{-v^* {\rm e}^{\beta\mu}} 
-		= {\rm e}^{v^* {\rm e}^{\beta\mu}} f(n; \lambda)
-	\end{equation}
+	\textbf{The Poisson distribution} results from~\eqref{def:pin} at $a=0$. To see this, rewrite expression for $\pi(T^*,\mu^*;n)|_{a=0}$ as
+	\begin{eqnarray}
+		\pi(T^*,\mu^*;n)|_{a=0} & = & \exp({v^* T^{*3/2} {\rm e}^{\beta\mu}}) \cdot
+		\frac{\left(v^* T^{*3/2} {\rm e}^{\beta\mu}\right)^n}{n!} \exp({-v^* T^{*3/2} {\rm e}^{\beta\mu}}) 
+		\nonumber\\
+		& = & \exp({v^* T^{*3/2} {\rm e}^{\beta\mu}}) f(n; \lambda)
+	\end{eqnarray}
 	where the (non-normalized) Poisson distribution $f(n; \lambda)$ is given by
 	\begin{equation}
-		f(n; \lambda) = \frac{\lambda^n {\rm e}^{-\lambda}}{n!}, \quad \lambda = v^* {\rm e}^{\beta\mu}.
+		f(n; \lambda) = \frac{\lambda^n {\rm e}^{-\lambda}}{n!}, \quad \lambda = v^* T^{*3/2} {\rm e}^{\beta\mu}.
 	\end{equation}
+	However, the case of $a=0$ corresponds either to the absence of repulsion, $J_2=0$, or to the infinite attraction, $J_1 \to \infty$, and both cases are un-physical for the considered model.
 	
 	\textbf{Further transformation}. Applying the Gaussian integral
 	\begin{equation}
@@ -322,42 +290,36 @@
 	explicitly to Eq.~\eqref{eq:XiPi}
 	\begin{equation}
 		\label{eq:gaussInt}
-		\exp[\frac{p}{2N_v}\left(\sum_{l=1}^{N_v} \varrho_l\right)^2] = \sqrt{\frac{N_v}{2\pi p}}
-		\int\limits_{-\infty}^{\infty} \exp(-N_v \frac{y^2}{2p} + y\sum_{l=1}^{N_v} \varrho_l) {\rm d}y
+		\exp[\frac{\beta J_1}{2N_v}\left(\sum_{l=1}^{N_v} \varrho_l\right)^2] = \sqrt{\frac{N_v}{2\pi \beta J_1}}
+		\int\limits_{-\infty}^{\infty} \exp(-N_v \frac{y^2}{2\beta J_1} + y\sum_{l=1}^{N_v} \varrho_l) {\rm d}y
 	\end{equation}
 	we transform~\eqref{eq:XiPi} into the following expression
 	\begin{equation}
 		\label{eq:XiInty}
-		\Xi (p, \mu) = \sqrt{\frac{N_v}{2\pi p}} \int\limits_{-\infty}^{\infty} \exp[N_v E(y, p, \mu)] {\rm d} y,
+		\Xi (T^*, \mu^*) = \sqrt{\frac{N_v T^*}{2\pi}} \int\limits_{-\infty}^{\infty} \exp[N_v E(T^*, \mu^*; y)] {\rm d} y,
 	\end{equation}
 	where 
 	\begin{equation}
 		\label{def:E}
-		E(y,p,\mu) = -\frac{y^2}{2p} + \ln K_0(y,p,\mu),
+		E(T^*,\mu^*; y) = -\frac12T^*y^2 + \ln K_0(T^*,\mu^*; y),
 	\end{equation}
 	with
 	\begin{equation}
 		\label{def:K}
-		K_0(y,p,\mu) = \sum_{n=0}^{\infty} \frac{(v^*)^n}{n!} \exp[(y+\beta\mu)n - \frac{ap}{2}n^2].
+		K_0(T^*,\mu^*; y) = \sum_{n=0}^{\infty} \frac{\left(v^* T^{*3/2}\right)^n}{n!} \exp[\left(y+\frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2].
 	\end{equation}
-	Explicit derivation of expressions for $E(y,p,\mu)$ and $K_0(y,p,\mu)$ is given in Appendix~\ref{sec:app1}.
+	Explicit derivation of expressions for $E(T^*,\mu^*;y)$ and $K_0(T^*,\mu^*;y)$ is given in Appendix~\ref{sec:app1}.
 	
-	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
-	Often, it is convenient to express all the expressions in reduced quantities from~\eqref{def:reduced}, thus we will write the version for important quantities in reduced units as well:
+	\textbf{Some reasoning on numerical value of $v^*$.} During particular calculations, a numerical value for $v^*$ must be chosen. Which value to select should depend on physical reasoning. The dependence of results on $v^*$ may also be investigated.
+	
+	Since $v^* = c^3/\Lambda_J^3$, we may focus on a choice for $c$. One approach to choosing $c$ is in such a way that a classical consideration is justified. For example, it can be taken as the mean nearest-neighbour separation, see~\cite[Sec.~1.1]{HansenMcDonald13}. From the data given in~\cite[Table~1.1]{HansenMcDonald13} for the triple-point temperature, the ratio $c/\Lambda$ may vary between $3.8$ and $59$ (we ignored data for $H_2$, as quantum effects are important for this substance). This defines a possible interval of values for $c^3/\Lambda^3$ as
 	\begin{equation}
-		\label{def:reducedE}
-		E(y,T^*,\mu^*) = -\frac{1}{2}T^* y^2 + \ln K_0(y, T^*, \mu^*),
+		\label{vrange}
+		57 \leq c^3/\Lambda^3 \leq 2 \cdot 10^5.
 	\end{equation}
-	\begin{equation}
-		K_0(y,T^*,\mu^*) = \sum_{n=0}^{\infty} \frac{(v^*)^n}{n!} \exp[\left(y+\frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2].
-	\end{equation}
-	\end{mdframed}
+	In the definition of $v^*$ instead of $\Lambda$ we use $\Lambda_J$, where $k_{\rm B} T$ in the formula for the de Broglie wavelength is substituted by the constant $J_1$. Based on the critical temperature found in previous works~\cite{KKD18, KKD20, KD22}, $k_{\rm B}T_c \approx J_1/4$, the value of $\Lambda_J$ becomes less than the corresponding value of $\Lambda$ at the critical point, and even more so than that at the triple point. Therefore, the ratios of $c^3/\Lambda_J^3$ will be even grater than estimated in~\eqref{vrange}. 
 	
-	\textbf{Some reasoning on numerical value of $v^*$.} During particular calculations, a numerical value for $v^*$ must be chosen. Which value to select may depend on physical reasoning. The dependence of results on $v^*$ may also be investigated.
-	
-	Since $v^* = c^3/\Lambda^3$, we may focus on a choice for $c$. One approach to choosing $c$ is in such a way that a classical consideration is justified. For example, it can be taken as the mean nearest-neighbour separation, see~\cite[Sec.~1.1]{HansenMcDonald13}. From the data given in~\cite[Table~1.1]{HansenMcDonald13}, the ratio $c/\Lambda$ may vary between $3.8$ and $59$ (we ignored data for $H_2$, as quantum effects are important for this substance). This defines possible values for $v^*$ as ranging between $57$ and $2 \cdot 10^5$.
-	
-	\textbf{Constraint on $E(y,p,\mu)$}. From inequality
+	\textbf{Constraint on $E(T^*,\mu^*;y)$}. From inequality
 	\begin{equation}
 		\left(\frac{y+\beta\mu}{ap} - n\right)^2 \geq 0
 	\end{equation}
@@ -787,53 +749,52 @@
 	The equation for entropy~\eqref{S_vs_T_mu} expresses entropy as a function of temperature and chemical potential. If we want to have entropy as a function of temperature and density, we combine equations~\eqref{S_vs_T_mu} and~\eqref{rho_vs_T_mu} into a parametric equation for entropy, with $\mu$ being the parameter. This way we can plot the dependence of entropy on density at a given temperature. Such dependencies are present in Fig.~\ref{fig:S_vs_rho} and~Fig.~\ref{fig:SS_vs_rho}.
 	
 	
-	\pagebreak
-	\section{The special function $K_0$ and its integral representation}
 	
-	\be\label{KOZ}
-	K_0(z)=\sum_{n\ge0}\frac1{n!}\,\e^{zn-an^2}
-	\ee
-	Note that sum in \eqref{KOZ} is precisely of the same functional form as that in the definition \eqref{ZGR} of the grand partition function up to replacements
-	\be
-	N\to n,\qquad z\to\e^{-z},\MM{and}Z_n\to\e^{-an^2}.
-	\ee
-	
-	The integral representation of $K_0(z)$ is given by
-	\be\label{KOI}
-	K_0(z)=\frac1{2\sqrt\pi}\int_{-\infty}^\infty {\rm d}x \e^{-\frac{x^2}4}
-	\mbox{exp}\left(\e^{z+ix\sqrt a}\right),
-	\ee
-	or, in the form of a manifestly real integral,
-	\be\label{KOR}
-	K_0(z)=\frac1{2\sqrt\pi}\int_{-\infty}^\infty {\rm d}x \e^{-\frac{x^2}4}
-	\mbox{exp}\left[\e^z\cos(x\sqrt a\,)\right]
-	\cos\left[\e^z\sin(x\sqrt a\,)\right].
-	\ee
-	
-	Can you calculate the asymptotic behavior as $z\to+\infty$ of two last integrals?
-	
-	I have succeeded to calculate the leading $z\to+\infty$ asymptotics only for two integrals
-	\be
-	K_0^{(a)}(z) = \frac1{2\sqrt\pi} \int_{-\infty}^\infty {\rm d}x \e^{-\frac{x^2}4}
-	\mbox{exp}\left[\e^z\cos(x\sqrt a\,)\right]\qquad\mbox{and}\qquad
-	\ee
-	\be
-	K_0^{(b)}(z) = \frac1{2\sqrt\pi} \int_{-\infty}^\infty {\rm d}x \e^{-\frac{x^2}4}
-	\cos\left[\e^z\sin(x\sqrt a\,)\right]
-	\ee
-	resulting from \eqref{KOR} by deleting one of the last two factors.
-	
-	The leading asymptotics are the following
-	\begin{equation}
-		K_0^{(a)}(z) \sim \frac{\exp({\rm e}^z)}{\sqrt{2 {\rm e}^z}}, \quad \text{as } z \to +\infty
-	\end{equation}
-	and
-	\begin{equation}
-		K_0^{(b)}(z) \sim \sqrt{\frac{2}{\pi {\rm e}^z}} \cos({\rm e}^z - \pi/4), \quad \text{as } z \to +\infty.
-	\end{equation}
 	
 	
 	\appendix
+	
+	\pagebreak
+	
+	\section{Auxilary equalities}
+	Note the following summation results:
+	\begin{equation}
+		\label{eq:1}
+		N_l \equiv \abs{\gamma_l} = \sum_{\vb{r} \in \gamma_l} 1 = \sum_{\vb{r} \in \gamma} \mathbb{I}_{\Delta_l}(\vb{r}) = \sum_{j=1}^{N} \mathbb{I}_{\Delta_{l}}(\vb{r}_j),
+	\end{equation}
+	
+	\begin{equation}
+		\label{eq:2}
+		\sum_{l=1}^{N_v} N_l = N, \quad \sum_{l=1}^{N_v} \abs{\gamma_l} = \abs{\gamma},
+	\end{equation}
+	\begin{equation}
+		\label{eq:3}
+		\left(\sum_{l=1}^{N_v} N_l \right)^2 = N^2, \quad \left(\sum_{l=1}^{N_v} \abs{\gamma_l} \right)^2 = \abs{\gamma}^2.
+	\end{equation}
+	\begin{equation}
+		\label{eq:4}
+		\sum_{\vb{r} \in \gamma} \rightarrow \sum_{l=1}^{N_v} \sum_{\vb{r} \in \Delta_l};
+	\end{equation}
+	\begin{equation}
+		\label{eq:5}
+		\sum_{\vb{r}, \vb{r}' \in \gamma} \rightarrow \sum_{l,l'=1}^{N_v} \sum_{\vb{r} \in \Delta_l} \sum_{\vb{r}' \in \Delta_{l'}}.
+	\end{equation}
+	\begin{equation}
+		\label{eq:6}
+		\sum_{\vb{r} \in \Delta_l}\sum_{\vb{r}' \in \Delta_l'} 1 = N_l N_{l'} = \abs{\gamma_l} \abs{\gamma_{l'}}.
+	\end{equation}
+	\begin{equation}
+		\label{eq:sumII}
+		\sum_{\vb{r}, \vb{r}' \in \gamma}\sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(\vb{r}) \mathbb{I}_{\Delta_{l}}(\vb{r}') = \sum_{l=1}^{N_v} N_l^2 \equiv \sum_{l=1}^{N_v} \abs{\gamma_l}^2.
+	\end{equation}
+	Combining these formulas, we get
+	\begin{eqnarray}
+		\sum_{\vb{r}, \vb{r}' \in \gamma} \Phi_{N_v}(\vb{r}, \vb{r}') & = & \sum_{l,l'=1}^{N_v} \sum_{\vb{r} \in \Delta_l} \sum_{\vb{r}' \in \Delta_{l'}} \Phi_{N_v}(\vb{r}, \vb{r}')
+		\nonumber\\
+		& = & - \frac{J_1}{N_v} \left(\sum_{l=1}^{N_v} N_l\right)^2 + J_2\sum_{l=1}^{N_v}N_l^2
+		\\
+		& = & - \frac{J_1}{N_v} \left(\sum_{l=1}^{N_v} \abs{\gamma_l}\right)^2 + J_2\sum_{l=1}^{N_v}\abs{\gamma_l}^2
+	\end{eqnarray}
 	
 	\pagebreak
 	
@@ -1017,6 +978,8 @@
 	
 	\pagebreak
 	\include{./notation}
+	
+	%\include{./asymptotics}
 
 	\pagebreak	
 	%\bibliographystyle{elsarticle-num}
