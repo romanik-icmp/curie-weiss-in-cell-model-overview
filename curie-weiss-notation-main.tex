@@ -113,11 +113,11 @@
 	
 	\textbf{The grand partition function} (GPF) is expressed as follows~\cite[see eqs.~(2.4.6) and~(2.3.13)]{HansenMcDonald13}
 	\begin{equation}\label{ZGR}
-		\Xi=\sum_{N=0}^{\infty}\frac{z^N}{N!}Z_N,
+		\Xi=\sum_{N=0}^{\infty}\frac{\zeta^N}{N!}Z_N,
 	\end{equation}
-		where $z$ is the activity
+		where $\zeta$ is the activity
 	\begin{equation*}
-		z = \frac{\exp(\beta \mu)}{\Lambda^3},
+		\zeta = \frac{\exp(\beta \mu)}{\Lambda^3},
 	\end{equation*}
 	$\beta = 1/(k_{\rm B} T)$ the inverse temperature, $k_{\rm B}$ the Boltzmann constant, $T$ the temperature, $\mu$ the chemical potential, $\Lambda = (2\pi\beta\hbar^2/m)^{1/2}$ the de Broglie thermal wavelength, $\hbar$ the Planck constant, $m$ the mass of a particle. The configuration integral $Z_N$ is defined as
 	\begin{equation}
@@ -126,7 +126,7 @@
 	with ${\rm d} \vb{r}^N \equiv {\rm d}{\vb r_1} \dotsc {\rm d}{\vb r_N}$.
 	In the GPF the integration goes over all configurations $\gamma$ with $N$ particles and then the summation goes over all positive integer values of $N$.
 	
-	\textbf{Reduced quantities.} Natural units for energy and length in the model are $J_1$ and $c$, respectively. It is standard practice to express thermodynamic results in terms of dimensionless quantities normalized by these natural units. The advantage of using such quantities is that their numerical values are typically of the order of unity, which simplifies analysis. Thus, we introduce the following reduced quantities:
+	\textbf{Reduced quantities.} Natural units for energy and length in the model are $J_1$ and $c$, respectively. It is standard practice to express thermodynamic results in terms of dimensionless quantities normalized by these natural units. The advantage of using such quantities is that their numerical values are typically of the order of unity, which simplifies analysis. 	For any dimensional quantity $Q$, it is convenient to denote its dimensionless, or so called 'reduced', counterpart by $Q^*$. Thus, we introduce the following reduced quantities:
 	%the reduced temperature $T^* = k_{\rm B} T / J_1$, the reduced inverse temperature $p = \beta J_1$, reduced chemical potential $\mu^* = \mu / J_1$, and the reduced pressure $P^* = Pv/J_1$.
 	\begin{eqnarray}
 		\label{def:reduced}
@@ -142,7 +142,11 @@
 		\nonumber\\
 		\rho^* := \frac{\langle N \rangle}{V} v && \text{ -- the reduced (particle number) density.}
 	\end{eqnarray}
-	For any dimensional quantity $Q$, it is convenient to denote its reduced counterpart by $Q^*$. To maintain consistency with other thermodynamic quantities, it may be beneficial to use $\beta^*$ instead of $p$ for the reduced inverse temperature (cf.~\cite{RDGMR13}).
+	Here, $\langle N \rangle$ denotes the average number of particles in the system, and in general, $\langle \ldots \rangle$ means averaging over the grand canonical ensemble
+	\begin{equation}
+		\langle \ldots \rangle = \frac{1}{\Xi} \sum_{N=0}^{\infty}(\ldots)\frac{\zeta^N}{N!}Z_N
+	\end{equation}
+	\textbf{NOTE}: In previous works~\cite{KKD18,KKD20,KD22}, the following notation was used $p=\beta J_1$. To maintain consistency with other thermodynamic quantities, it may be more conventional to use $\beta^*$ instead of $p$ for the reduced inverse temperature (cf.~\cite{RDGMR13}).
 	
 	\subsection{Partition function transformation}
 	Note the following summation result:
@@ -154,9 +158,21 @@
 		\label{eq:gpf1}
 		\Xi = \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!}
 		\int
-		\exp[\beta\mu N + \frac{\beta^*}{2N_{v}} N^2 - \frac{a\beta^*}{2} \sum_{\vb{r}_i,\vb{r}_j \in \gamma} \sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(\vb{r}_i)\mathbb{I}_{\Delta_l}(\vb{r}_j)] {\rm d} \vb{r}^N.
+		\exp[\beta\mu N + \frac{\beta J_1}{2N_{v}} N^2 - \frac{\beta J_2}{2} \sum_{\vb{r}_i,\vb{r}_j \in \gamma} \sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(\vb{r}_i)\mathbb{I}_{\Delta_l}(\vb{r}_j)] {\rm d} \vb{r}^N.
 	\end{equation}
-	The equation~\eqref{eq:gpf1} can be compared with~\cite[(2.5)]{KKD20}.
+	The equation~\eqref{eq:gpf1} can be compared with~\cite[(2.5)]{KKD20}. Coefficients in the exponent under the integral can be represented in a few different forms using dimensionless quantities. For the coefficient in the first term
+	\begin{equation*}
+		\beta\mu = \beta^*\mu^* = \frac{\mu^*}{T^*},
+	\end{equation*}
+	for the coefficient in the second term
+	\begin{equation*}
+		\beta J_1 = \beta^* = \frac{1}{T^*},
+	\end{equation*}
+	and for the coefficient in the third term
+	\begin{equation*}
+		\beta J_2 = a \beta J_1 = a \beta^* = \frac{a}{T^*}.
+	\end{equation*}
+	Since we work in the framework of the grand canonical ensemble, we consider explicitly expressing physical quantities in terms of temperature $T^*$ and chemical potential $\mu^*$ as the most convenient approach. In what follows, we will do so to maintain consistency in notation.
 	
 	For a given $l = 1, \cdots , N_v$ and a configuration $\gamma$, we set $\gamma_l = \gamma \cap \Delta_l,$ that is, $\gamma_l$ is the part of the configuration contained in $\Delta_l$. Then, $N_l \equiv \abs{\gamma_l}$ stands for the number of points (particles) of $\gamma$ contained in $\Delta_l$.
 	
@@ -164,7 +180,7 @@
 	\begin{equation}
 		F_{N_v}(T^*, \mu^*; \varrho) = \exp[\frac{1}{2T^*N_v}\left(\sum_{l=1}^{N_v} \varrho_l\right)^2 + \frac{\mu^*}{T^*}\sum_{l=1}^{N_v} \varrho_l - \frac{a}{2T^*} \sum_{l=1}^{N_v} \varrho_l^2],
 	\end{equation}
-	where $\varrho \in \mathbb{N}_0^{N_v}$ is a vector with non-negative integer components $\varrho_l$, $l=1, 2, \ldots , N_v$, i.e. $\varrho = (\varrho_1, \varrho_2, \ldots, \varrho_{N_{v}})$. In what follows, to maintain consistency in our notation, we will express physical quantities in terms of temperature $T^*$ and chemical potential $\mu^*$.
+	where $\varrho \in \mathbb{N}_0^{N_v}$ is a vector with non-negative integer components $\varrho_l$, $l=1, 2, \ldots , N_v$, i.e. $\varrho = (\varrho_1, \varrho_2, \ldots, \varrho_{N_{v}})$.
 	
 	For $\varrho$, we substitute the vector $\nu(\gamma) \in \mathbb{N}_0^N$ with components $N_l$ (or $\abs{\gamma_l}$), which have the meaning of the number of points in a cell $\Delta_{l}$ in configuration $\gamma$, i.e. $\nu(\gamma)=(N_1, N_2, \ldots, N_{N_v})$ or $\nu(\gamma) = (\abs{\gamma_1}, \abs{\gamma_2}, \ldots, \abs{\gamma_{N_v}})$, and obtain the following expression for the GPF in~\eqref{eq:gpf1}:
 	\begin{equation}
@@ -283,15 +299,15 @@
 	\end{equation}
 	However, the case of $a=0$ corresponds either to the absence of repulsion, $J_2=0$, or to the infinite attraction, $J_1 \to \infty$, and both cases are un-physical for the considered model.
 	
-	\textbf{Further transformation}. Applying the Gaussian integral
+	\textbf{Further transformation}. Explicitly applying the Gaussian integral (with parameters $\alpha > 0$, and $\beta \in \mathbb{R}$)
 	\begin{equation}
 		\int\limits_{-\infty}^{\infty} {\rm e}^{-\alpha y^2 + \beta y} {\rm d}y = \sqrt{\frac{\pi}{\alpha}} {\rm e}^{\frac{\beta^2}{4\alpha}},
 	\end{equation}
-	explicitly to Eq.~\eqref{eq:XiPi}
+	to Eq.~\eqref{eq:XiPi}
 	\begin{equation}
 		\label{eq:gaussInt}
-		\exp[\frac{\beta J_1}{2N_v}\left(\sum_{l=1}^{N_v} \varrho_l\right)^2] = \sqrt{\frac{N_v}{2\pi \beta J_1}}
-		\int\limits_{-\infty}^{\infty} \exp(-N_v \frac{y^2}{2\beta J_1} + y\sum_{l=1}^{N_v} \varrho_l) {\rm d}y
+		\exp[\frac{1}{2 T^* N_v}\left(\sum_{l=1}^{N_v} \varrho_l\right)^2] = \sqrt{\frac{N_v T^*}{2\pi}}
+		\int\limits_{-\infty}^{\infty} \exp(-\frac{N_v}{2} T^* y^2 + y\sum_{l=1}^{N_v} \varrho_l) {\rm d}y,
 	\end{equation}
 	we transform~\eqref{eq:XiPi} into the following expression
 	\begin{equation}
@@ -814,54 +830,54 @@
 	
 	\pagebreak
 	
-	\section{\label{sec:app1} Explicit derivation of $E(y,p,\mu)$ and $K(y,p,\mu)$}
-	In this appendix, the explicit transformations through Eqs.~(2.11)--(2.15) is presented. Substituting the Gaussian integral~\eqref{eq:gaussInt} into~\eqref{eq:XiPi}, one proceeds as follows
+	\section{\label{sec:app1} Explicit derivation of $E(T^*,\mu^*;y)$ and $K(T^*,\mu^*;y)$}
+	In this appendix, the explicit transformations from Eq.~\eqref{eq:XiPi} through~\eqref{eq:gaussInt} to~Eqs.~\eqref{eq:XiInty}, \eqref{def:E}, and~\eqref{def:K}, is presented. Substituting the Gaussian integral~\eqref{eq:gaussInt} into~\eqref{eq:XiPi}, one proceeds as follows
 	\begin{eqnarray}
 		\Xi 
 		&=& 
-		\sum_{\varrho \in \mathbb{N}_0^{N_v}} \sqrt{\frac{N_v}{2\pi p}} \int\limits_{-\infty}^{\infty} \exp(-N_v \frac{y^2}{2p}) 
-		\prod\limits_{l=1}^{N_v} \frac{(v^*)^{\varrho_l}}{\varrho_l !} 
-		\exp[(y + \beta\mu) \varrho_l - \frac{ap}{2}\varrho_l^2] {\rm d}y
+		\sum_{\varrho \in \mathbb{N}_0^{N_v}} \sqrt{\frac{N_v T^*}{2\pi}} \int\limits_{-\infty}^{\infty} \exp(-\frac{N_v}{2} T^* y^2) 
+		\prod\limits_{l=1}^{N_v} \frac{(v^* T^{*3/2})^{\varrho_l}}{\varrho_l !} 
+		\exp[\left(y + \frac{\mu^*}{T^*}\right) \varrho_l - \frac{a}{2T^*}\varrho_l^2] {\rm d}y
 		\nonumber\\
 		&=&
-		\sqrt{\frac{N_v}{2\pi p}} \sum_{\varrho_1=0}^{\infty} \ldots \sum_{\varrho_{N_v}=0}^{\infty} 
-		\int\limits_{-\infty}^{\infty} {\rm e}^{-N_v \frac{y^2}{2p}} 
-		\prod\limits_{l=1}^{N_v} \frac{(v^*)^{\varrho_l}}{\varrho_l !} 
-		\exp[(y + \beta\mu) \varrho_l - \frac{ap}{2}\varrho_l^2] {\rm d}y
+		\sqrt{\frac{N_v T^*}{2\pi}} \sum_{\varrho_1=0}^{\infty} \ldots \sum_{\varrho_{N_v}=0}^{\infty} 
+		\int\limits_{-\infty}^{\infty} {\rm e}^{-N_v \frac{T^* y^2}{2}} 
+		\prod\limits_{l=1}^{N_v} \frac{(v^* T^{*3/2})^{\varrho_l}}{\varrho_l !} 
+		\exp[\left(y + \frac{\mu^*}{T^*}\right) \varrho_l - \frac{a}{2T^*}\varrho_l^2] {\rm d}y
 		\nonumber\\
 		&=&
-		\sqrt{\frac{N_v}{2\pi p}} \int\limits_{-\infty}^{\infty} {\rm e}^{-N_v \frac{y^2}{2p}}
+		\sqrt{\frac{N_v T^*}{2\pi}} \int\limits_{-\infty}^{\infty} {\rm e}^{-N_v \frac{T^* y^2}{2}}
 		\left\{ 
-			\sum_{\varrho_1=0}^{\infty} \frac{(v^*)^{\varrho_1}}{\varrho_1 !} \exp[(y + \beta\mu) \varrho_1 - \frac{ap}{2}\varrho_1^2] 
+			\sum_{\varrho_1=0}^{\infty} \frac{(v^* T^{*3/2})^{\varrho_1}}{\varrho_1 !} \exp[\left(y + \frac{\mu^*}{T^*}\right) \varrho_1 - \frac{a}{2T^*}\varrho_1^2] 
 		\right\}
 		\nonumber\\
 		&& 
 		\times \ldots \times 
 		\left\{ 
-			\sum_{\varrho_{N_v}=0}^{\infty} \frac{(v^*)^{\varrho_{N_v}}}{\varrho_{N_v} !} \exp[(y + \beta\mu) \varrho_{N_v} - \frac{ap}{2}\varrho_{N_v}^2] 
+			\sum_{\varrho_{N_v}=0}^{\infty} \frac{(v^* T^{*3/2})^{\varrho_{N_v}}}{\varrho_{N_v} !} \exp[\left(y + \frac{\mu^*}{T^*}\right) \varrho_{N_v} - \frac{a}{2T^*}\varrho_{N_v}^2] 
 		\right\}
 		{\rm d}y
 		\nonumber\\
 		&=&
-		\sqrt{\frac{N_v}{2\pi p}} \int\limits_{-\infty}^{\infty} {\rm e}^{-N_v \frac{y^2}{2p}}
-		\exp( \ln \left\{\sum_{n=0}^{\infty} \frac{(v^*)^{n}}{n!} \exp[(y + \beta\mu)n - \frac{ap}{2}n^2] \right\}^{N_v} ) {\rm d}y
+		\sqrt{\frac{N_v T^*}{2\pi}} \int\limits_{-\infty}^{\infty} {\rm e}^{-N_v \frac{T^* y^2}{2}}
+		\exp( \ln \left\{\sum_{n=0}^{\infty} \frac{(v^* T^{*3/2})^{n}}{n!} \exp[\left(y + \frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2] \right\}^{N_v} ) {\rm d}y
 		\nonumber\\
 		&=&
-		\sqrt{\frac{N_v}{2\pi p}} \int\limits_{-\infty}^{\infty}
+		\sqrt{\frac{N_v T^*}{2\pi}} \int\limits_{-\infty}^{\infty}
 		\exp 
 		\left\{ N_v 
-			\left[ -\frac{y^2}{2p} + 
-			\ln(\sum_{n=0}^{\infty} \frac{(v^*)^{n}}{n!} {\rm e}^{(y + \beta\mu)n - \frac{ap}{2}n^2}) 
+			\left[ -\frac{T^* y^2}{2} + 
+			\ln(\sum_{n=0}^{\infty} \frac{(v^* T^{*3/2})^{n}}{n!} {\rm e}^{\left(y + \frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2}) 
 			\right] 
 		\right\} {\rm d}y,
 	\end{eqnarray}
 	and arrives at Eqs.~\eqref{eq:XiInty}, \eqref{def:E}, and~\eqref{def:K}
 	\begin{equation}
-		\Xi = \sqrt{\frac{N_v}{2\pi p}} \int\limits_{-\infty}^{\infty}
+		\Xi = \sqrt{\frac{N_v T^*}{2\pi}} \int\limits_{-\infty}^{\infty}
 		\exp 
 		\left\{ N_v 
-		\left[ -\frac{y^2}{2p} + 
-		\ln K(y,p,\mu) 
+		\left[ -\frac{T^* y^2}{2} + 
+		\ln K(T^*,\mu^*;y) 
 		\right] 
 		\right\}.
 	\end{equation}
