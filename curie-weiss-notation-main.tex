@@ -1,6 +1,7 @@
 \documentclass[12pt]{article}
 
 \usepackage{amssymb}
+\usepackage{amsmath}
 \usepackage{physics}
 \usepackage{hyperref} % for hyperlinks in references
 \usepackage[notref,notcite,color]{showkeyskay}\definecolor{labelkey}{rgb}{1,0,0.5}
@@ -32,6 +33,7 @@
 %\author{R.V.~Romanik \\ Institute for Condensed Matter Physics, NAS of Ukraine}
 
 \begin{document}
+	\allowdisplaybreaks
 	
 	\maketitle
 	
@@ -119,7 +121,7 @@
 	\begin{equation*}
 		\zeta = \frac{\exp(\beta \mu)}{\Lambda^3},
 	\end{equation*}
-	$\beta = 1/(k_{\rm B} T)$ the inverse temperature, $k_{\rm B}$ the Boltzmann constant, $T$ the temperature, $\mu$ the chemical potential, $\Lambda = (2\pi\beta\hbar^2/m)^{1/2}$ the de Broglie thermal wavelength, $\hbar$ the Planck constant, $m$ the mass of a particle. The configuration integral $Z_N$ is defined as
+	$\beta = 1/(k_{\rm B} T)$ the inverse temperature, $k_{\rm B}$ the Boltzmann constant, $T$ the temperature, $\mu$ the chemical potential, $\Lambda = (2\pi\beta\hbar^2/m)^{1/2}$ the de Broglie thermal wavelength~\footnote{The presence of $\Lambda$ in~\eqref{ZGR} arises from (a) the choice of the normalization factor in the definition of the partition function, ensuring consistency between classical and quantum statistical mechanics, and (b) the integration over momenta (see, e.g.,~\cite[Section~2.3]{HansenMcDonald13})}, $\hbar$ the Planck constant, $m$ the mass of a particle. The configuration integral $Z_N$ is defined as
 	\begin{equation}
 		Z_N = \int\exp(-\beta W_{N_v}(\vb{r}^N)){\rm d}\vb{r}^N
 	\end{equation}
@@ -149,11 +151,11 @@
 	\textbf{NOTE}: In previous works~\cite{KKD18,KKD20,KD22}, the following notation was used $p=\beta J_1$. To maintain consistency with other thermodynamic quantities, it may be more conventional to use $\beta^*$ instead of $p$ for the reduced inverse temperature (cf.~\cite{RDGMR13}).
 	
 	\subsection{Partition function transformation}
-	Note the following summation result:
+	Taking into account the following summation result
 	\begin{equation}
-		\sum_{\vb{r}_i,\vb{r}_j \in \gamma} 1 = N^2 = \abs{\gamma}^2.
+		\sum_{\vb{r}_i,\vb{r}_j \in \gamma} 1 = N^2 = \abs{\gamma}^2,
 	\end{equation}
-	The GPF is then explicitly written as
+	the GPF is explicitly written as
 	\begin{equation}
 		\label{eq:gpf1}
 		\Xi = \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!}
@@ -174,15 +176,16 @@
 	\end{equation*}
 	Since we work in the framework of the grand canonical ensemble, we consider explicitly expressing physical quantities in terms of temperature $T^*$ and chemical potential $\mu^*$ as the most convenient approach. In what follows, we will do so to maintain consistency in notation.
 	
-	For a given $l = 1, \cdots , N_v$ and a configuration $\gamma$, we set $\gamma_l = \gamma \cap \Delta_l,$ that is, $\gamma_l$ is the part of the configuration contained in $\Delta_l$. Then, $N_l \equiv \abs{\gamma_l}$ stands for the number of points (particles) of $\gamma$ contained in $\Delta_l$.
-	
 	\textbf{GPF transformation}. To rewrite the integrand in~\eqref{eq:gpf1} in a more convenient form we set (cf.~\cite[eq.~(2.7)]{KKD20})
 	\begin{equation}
+		\label{FNv1}
 		F_{N_v}(T^*, \mu^*; \varrho) = \exp[\frac{1}{2T^*N_v}\left(\sum_{l=1}^{N_v} \varrho_l\right)^2 + \frac{\mu^*}{T^*}\sum_{l=1}^{N_v} \varrho_l - \frac{a}{2T^*} \sum_{l=1}^{N_v} \varrho_l^2],
 	\end{equation}
 	where $\varrho \in \mathbb{N}_0^{N_v}$ is a vector with non-negative integer components $\varrho_l$, $l=1, 2, \ldots , N_v$, i.e. $\varrho = (\varrho_1, \varrho_2, \ldots, \varrho_{N_{v}})$.
 	
-	For $\varrho$, we substitute the vector $\nu(\gamma) \in \mathbb{N}_0^N$ with components $N_l$ (or $\abs{\gamma_l}$), which have the meaning of the number of points in a cell $\Delta_{l}$ in configuration $\gamma$, i.e. $\nu(\gamma)=(N_1, N_2, \ldots, N_{N_v})$ or $\nu(\gamma) = (\abs{\gamma_1}, \abs{\gamma_2}, \ldots, \abs{\gamma_{N_v}})$, and obtain the following expression for the GPF in~\eqref{eq:gpf1}:
+	For a given $l = 1, \cdots , N_v$ and a configuration $\gamma$, we set $\gamma_l = \gamma \cap \Delta_l,$ that is, $\gamma_l$ is the part of the configuration contained in $\Delta_l$. Then, $N_l \equiv \abs{\gamma_l}$ stands for the number of points (particles) of $\gamma$ contained in $\Delta_l$.
+	
+	For $\varrho$~\eqref{FNv1}, we substitute the vector $\nu(\gamma) \in \mathbb{N}_0^N$ with components $N_l$ (or $\abs{\gamma_l}$), i.e. $\nu(\gamma)=(N_1, N_2, \ldots, N_{N_v})$ or $\nu(\gamma) = (\abs{\gamma_1}, \abs{\gamma_2}, \ldots, \abs{\gamma_{N_v}})$, and obtain the following expression for the GPF in~\eqref{eq:gpf1}:
 	\begin{equation}
 		\Xi = \sum_{N=0}^{\infty} \frac{\Lambda^{-3N}}{N!}\int_{V^N} F_{N_v}(T^*,\mu^*;\nu(\gamma)) {\rm d} \vb{r}^N,
 	\end{equation}
@@ -324,7 +327,7 @@
 		\label{def:K}
 		K_0(T^*,\mu^*; y) = \sum_{n=0}^{\infty} \frac{\left(v^* T^{*3/2}\right)^n}{n!} \exp[\left(y+\frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2].
 	\end{equation}
-	Explicit derivation of expressions for $E(T^*,\mu^*;y)$ and $K_0(T^*,\mu^*;y)$ is given in Appendix~\ref{sec:app1}.
+	Explicit derivation of expressions for $E(T^*,\mu^*;y)$ and $K_0(T^*,\mu^*;y)$ is given in Appendix~\ref{sec:app1}. The special function $K_0$ is studied from a more generic, mathematical perspective in~\cite{DS25arxiv}.
 	
 	\textbf{Some reasoning on numerical value of $v^*$.} During particular calculations, a numerical value for $v^*$ must be chosen. Which value to select should depend on physical reasoning. The dependence of results on $v^*$ may also be investigated.
 	
@@ -337,30 +340,30 @@
 	
 	\textbf{Constraint on $E(T^*,\mu^*;y)$}. From inequality
 	\begin{equation}
-		\left(\frac{y+\beta\mu}{ap} - n\right)^2 \geq 0
+		\left(\frac{T^* y + \mu^*}{a} - n \right)^2 \geq 0,
 	\end{equation}
 	it follows
 	\begin{equation}
-		(y+\beta\mu)n - \frac{ap}{2}n^2 \leq \frac{(y+\beta\mu)^2}{2ap}.
+		\left(y + \frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2 \leq \left(y + \frac{\mu^*}{T^*}\right)^2 \frac{T^*}{2a}
 	\end{equation}
-	The last inequality, in turn, leads to corresponding inequalities for $K(y,p,\mu)$
+	The last inequality, in turn, leads to corresponding inequalities for $K(T^*,\mu^*;y)$
 	\begin{eqnarray}
-		K_0(y,p,\mu) & \leq & \sum_{n=0}^{\infty}\frac{(v^*)^n}{n!} \exp[\frac{(y+\beta\mu)^2}{2ap}]
+		K_0(T^*,\mu^*;y) & \leq & \sum_{n=0}^{\infty}\frac{(v^* T^{*3/2})^n}{n!} \exp[\left(y+\frac{\mu^*}{T^*}\right)^2 \frac{T^*}{2a}]
 	\end{eqnarray}
-	or
+	or more concisely
 	\begin{equation}
-		K_0(y,p,\mu) \leq \exp[\frac{(y+\beta\mu)^2}{2ap}] \exp(v^*),
+		K_0(T^*,\mu^*;y) \leq \exp[\left(y+\frac{\mu^*}{T^*}\right)^2 \frac{T^*}{2a}] \exp(v^* T^{*3/2}).
 	\end{equation}
-	and for $E(y,p,\mu)$
+	For the quantity $E(T^*,\mu^*;y)$ we have
 	\begin{equation}
 		\label{ineq:E0}
-		E(y,p,\mu) \leq -\frac{a-1}{2ap}y^2 + \frac{\beta\mu}{2ap}(2y+\beta\mu) + v^*.
+		E(T^*,\mu^*;y) \leq -\frac{a-1}{2a} T^* y^2 + \frac{\mu^*}{2a}\left(2y + \frac{\mu^*}{T^*}\right) + v^* T^{*3/2}.
 	\end{equation}
-	Since $a>1$, \eqref{ineq:E0} implies the following limits for fixed $p$ and $\mu$
+	Since $a>1$, Eq.~\eqref{ineq:E0} implies the following limits for fixed $T^*$ and $\mu^*$
 	\begin{equation}
-		\lim_{y \to -\infty} E(y,p,\mu) = -\infty, \quad \lim\limits_{y \to +\infty} E(y,p,\mu) = -\infty.
+		\lim_{y \to -\infty} E(T^*,\mu^*;y) = -\infty, \quad \lim\limits_{y \to +\infty} E(T^*,\mu^*;y) = -\infty.
 	\end{equation}
-	Typical behavior of $E(y,p,\mu)$ as a function of $y$ in the single-phase domain is illustrated in Fig.~\ref{fig:E0_vs_y}
+	The typical behavior of $E(T^*,\mu^*;y)$ as a function of $y$ in the single-phase domain is illustrated in Fig.~\ref{fig:E0_vs_y}
 	\begin{figure}[htbp]
 		\includegraphics[width=0.5\textwidth,angle=0]{E0_vs_y2}
 		\centering
@@ -369,7 +372,7 @@
 		\label{fig:E0_vs_y}
 	\end{figure}
 	
-	\textit{Remark}. The estimate in~\eqref{ineq:E0} implies the following: (a) the integral in~\eqref{eq:XiInty} converges for all $p>0$ and $\mu \in \mathbb{R}$, as $a>1$; (b) for fixed $p$ and $\mu$, since $E(y,p,\mu)$ is bounded above, it has global maxima, each of which is also a local maximum.
+	\textit{Remark}. The estimate in~\eqref{ineq:E0} implies the following: (a) the integral in~\eqref{eq:XiInty} converges for all $T^*>0$ and $\mu^* \in \mathbb{R}$, as $a>1$; (b) for fixed $T$ and $\mu$, since $E(T^*,\mu^*;y)$ is bounded above, it has global maxima, each of which is also a local maximum.
 	
 	\textbf{Note on numerical values for parameters.} If not specified otherwise, the following numerical values for parameters of the model are used for calculations and graphical representation of results:
 	\begin{equation}
@@ -382,45 +385,32 @@
 	\begin{equation}
 		\label{def:eos}
 		%P V = k_{\rm B} T \ln \Xi(\beta, \mu)
-		P V = \beta^{-1} \ln \Xi(\beta, \mu)
+		P V = \beta^{-1} \ln \Xi
 	\end{equation}
-	where $P$ is the pressure. To calculate the large $N_v$ limit in~\eqref{eq:XiInty} we first determine the global maxima of $E(y,p,\mu)$ as a function of $y \in \mathbb{R}$, and then apply the Laplace's method~\cite{Fedoryuk89}.
+	where $P$ is the pressure. To calculate the large $N_v$ limit in~\eqref{eq:XiInty} we first determine the global maxima of $E(T^*,\mu^*;y)$ as a function of $y \in \mathbb{R}$, and then apply the Laplace's method~\cite{Fedoryuk89}.
 	
-	Let $\bar{y}$ denote the point of global maximum of $E$. Then it should obey the following equation
+	Let $\bar{y}$ denote the point of global maximum of $E(T^*,\mu^*;y)$ with respect to $y$ at given temperature and chemical potential. Then it should obey the following equation
 	\begin{equation}
 		\label{def:E1}
-		E_1(y,p,\mu) := \frac{\partial}{\partial y} E(y,p,\mu) = 0.
+		E_1(T^*,\mu^*;\bar{y}) := \frac{\partial}{\partial y} E(T^*,\mu^*;y)\bigg|_{y=\bar{y}} = 0.
 	\end{equation}
-	By~\eqref{def:E} and~\eqref{def:K}, the explicit expression for $E_1$ is
+	By~\eqref{def:E} and~\eqref{def:K}, the explicit expression for $E_1$ is given by
 	\begin{equation}
-		E_1(y,p,\mu) = -\frac{y}{p} + \frac{K_1(y,p,\mu)}{K_0(y,p,\mu)},
+		\label{def:reducedE1}
+		E_1(T^*,\mu^*;y) = -T^* y + \frac{K_1(T^*,\mu^*;y)}{K_0(T^*,\mu^*;y)}.
 	\end{equation}
-	and the equation for the extremum of $E(y,p,\mu)$ can be rewritten in the form~(cf.~\cite[(2.19)]{KKD20})
+	Thus the equation for $\bar{y}$, resulting from the condition of extremum for $E(T^*,\mu^*;y)$, takes on the form~(cf.~\cite[(2.19)]{KKD20})
 	\begin{equation}
 		\label{eq:bar_y}
-		-\frac{y}{p} + \frac{K_1(y,p,\mu)}{K_0(y,p,\mu)} = 0,
+		-T^* \bar{y} + \frac{K_1(T^*,\mu^*;\bar{y})}{K_0(T^*,\mu^*;\bar{y})} = 0,
 	\end{equation}
-	where
-	\begin{equation}
-		K_1(y,p,\mu) := \frac{\partial}{\partial y} K_0(y,p,\mu) = \sum_{n=0}^{\infty} \frac{n (v^*)^n}{n!} \exp[(y+\beta\mu)n - \frac{ap}{2}n^2].
-	\end{equation}
-	
-	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
-		In reduced quantities $E_1$ takes on the form
-		\begin{equation}
-			\label{def:reducedE1}
-			E_1(y,T^*,\mu^*) = -T^* y + \frac{K_1(y,T^*,\mu^*)}{K(y,T^*,\mu^*)},
-		\end{equation}
-		the equation for the extremum is
-		\begin{equation}
-			\label{eq:bary2}
-			-T^* y + \frac{K_1(y,T^*,\mu^*)}{K(y,T^*,\mu^*)} = 0,
-		\end{equation}
-		where
-		\begin{equation}
-			K_1(y,T^*,\mu^*) = \sum_{n=0}^{\infty} \frac{n (v^*)^n}{n!} \exp[\left(y+\frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2].
-		\end{equation}
-	\end{mdframed}
+	which is an implicit equation defining $\bar{y} = \bar{y}(T^*,\mu^*)$ as a function of $T^*$ and $\mu^*$.
+	The function $K_1$ is given by
+	\begin{eqnarray}
+		K_1(T^*,\mu^*;y) & := & \frac{\partial}{\partial y} K_0(T^*,\mu^*;y)
+		\nonumber\\
+		& = & \sum_{n=0}^{\infty} \frac{n (v^* T^{*3/2})^n}{n!} \exp[\left(y+\frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2].
+	\end{eqnarray}
 	
 	\begin{figure}[htbp]
 		\includegraphics[width=0.45\textwidth,angle=0]{E1_vs_y2}
@@ -434,58 +424,50 @@
 		\parbox{0.45\textwidth}{\caption{\label{fig:E2_vs_y} Quantity $E_2(y,p,\mu)$ as a function of $y$ at $p=2.0$ ($T^*=0.5$) and $\beta\mu=-2.0$ ($\mu^*=-1.0$) for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}}
 	\end{figure}
 	
-	As $K_0$, $K_1$, and $p$ all take on strictly positive values, the solution $\bar{y}$ to equation~\eqref{eq:bar_y} is also strictly positive.
-	Typical behavior of $E_1(y,p,\mu)$ as a function of $y$ in the single-phase domain is illustrated in Fig.~\ref{fig:E1_vs_y}.
+	As $K_0$, $K_1$, and $T^*$ all take on strictly positive values, the solution $\bar{y}$ to equation~\eqref{eq:bar_y} is also strictly positive.
+	Typical behavior of $E_1(T^*,\mu^*;y)$ as a function of $y$ in the single-phase domain is illustrated in Fig.~\ref{fig:E1_vs_y}.
 	
-	\textbf{Definition}. We say that $(p, \mu)$ belongs to a single-phase domain if $E(y,p,\mu)$ has a unique global maximum $\bar{y} \in \mathbb{R}$ such that
+	\textbf{Definition}. We say that $(T^*, \mu^*)$ belongs to a single-phase domain if $E(T^*,\mu^*;y)$ has a unique global maximum $\bar{y} \in \mathbb{R}^{+}$ such that
 	\begin{equation}
 		\label{def:E2}
-		E_2(\bar{y}, p, \mu) := \frac{\partial^2}{\partial y^2} E(y,p,\mu)\big|_{y=\bar{y}} < 0.
+		E_2(T^*, \mu^*;\bar{y}) := \frac{\partial^2}{\partial y^2} E(T^*,\mu^*;y)\bigg|_{y=\bar{y}} < 0.
 	\end{equation}
-	An explicit expression for $E_2(y,p,\mu)$ reads (cf.~\cite[(20)]{KD22})
+	An explicit expression for $E_2(T^*,\mu^*;y)$ reads (cf.~\cite[(20)]{KD22})
 	\begin{equation}
-		E_2(y,p,\mu) = -\frac{1}{p} + \frac{K_2(y,p,\mu) K(y,p,\mu) - [K_1(y,p,\mu)]^2}{[K_0(y,p,\mu)]^2},
+		\label{def:reducedE2}
+		E_2(T^*,\mu^*;y) = -T^* + \frac{K_2(T^*,\mu^*;y) K(T^*,\mu^*;y) - [K_1(T^*,\mu^*;y)]^2}{[K_0(T^*,\mu^*;y)]^2},
 	\end{equation}
 	where
-	\begin{equation}
-		K_2(y,p,\mu) := \frac{\partial}{\partial y} K_1(y,p,\mu) = \sum_{n=0}^{\infty} \frac{n^2 (v^*)^n}{n!} \exp[(y+\beta\mu)n - \frac{ap}{2}n^2].
-	\end{equation}
-	Typical behavior of $E_2(y,p,\mu)$ as a function of $y$ in the single-phase domain is illustrated in Fig.~\ref{fig:E2_vs_y}.
-	
-	\begin{mdframed}[linecolor=black,linewidth=1pt,leftline=true]
-		In reduced quantities, $E_2$ takes on the form
-		\begin{equation}
-			\label{def:reducedE2}
-			E_2(y,T^*,\mu^*) = -T^* + \frac{K_2(y,T^*,\mu^*) K_0(y,T^*,\mu^*) - [K_1(y,T^*,\mu^*)]^2}{[K_0(y,T^*,\mu^*)]^2},
-		\end{equation}
-		where
-		\begin{equation}
-			K_2(y,T^*,\mu^*) = \sum_{n=0}^{\infty} \frac{n^2 (v^*)^n}{n!} \exp[\left(y+\frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2].
-		\end{equation}
-	\end{mdframed}
+	\begin{eqnarray}
+		K_2(T^*,\mu^*;y) & := & \frac{\partial}{\partial y} K_1(T^*,\mu^*;y)
+		\nonumber\\
+		& = & \sum_{n=0}^{\infty} \frac{n^2 (v^* T^{*3/2})^n}{n!} \exp[\left(y+\frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2].
+	\end{eqnarray}
+	Typical behavior of $E_2(T^*,\mu^*;y)$ as a function of $y$ in the single-phase domain is illustrated in~Fig.~\ref{fig:E2_vs_y}.
 	
 	\textbf{Laplace's method.} We apply the Laplace's method~\cite[(1.21)]{Fedoryuk89} to~\eqref{eq:XiInty} and arrive at~(cf.~\cite[(19)]{KD22})
 	\begin{equation}
-		\Xi(p,\mu) = [-p E_2(\bar{y},p,\mu)]^{-1/2} \exp[N_v E(\bar{y},p,\mu)].
+		\Xi(T^*,\mu^*) = [-T^*/ E_2(T^*,\mu^*;\bar{y})]^{1/2} \exp[N_v E(T^*,\mu^*;\bar{y})].
 	\end{equation}
-	Substituting this into~\eqref{def:eos}, one gets
+	Substituting this into~\eqref{def:eos}, one obtains
 	\begin{equation}
-		P V = k_{\rm B}T \left[-\frac{1}{2} \ln(-p E_2(\bar{y},p,\mu)) + N_v E(\bar{y},p,\mu)\right].
+		P V = k_{\rm B}T \left[-\frac{1}{2} \ln(-\frac{E_2(T^*,\mu^*;\bar{y})}{T^*}) + N_v E(T^*,\mu^*;\bar{y})\right].
 	\end{equation}
 	The first term in the square brackets in the right-hand side of the last equation can be neglected in the limit of large $N_v$, and we arrive at (cf.~\cite[(2.27)]{KKD20})
 	\begin{equation}
-		P v \beta = E(\bar{y},p,\mu),
+		\frac{P V}{k_{\rm B}T N_v} = E(T^*,\mu^*;\bar{y}),
 	\end{equation}
 	or
 	\begin{equation}
 		\label{eos:reduced}
-		P^* = T^* E(\bar{y},T^*,\mu^*).
+		P^*(T^*,\mu^*) = T^* E(T^*,\mu^*;\bar{y}).
 	\end{equation}
-	We have obtained an expression for the pressure $P$ as a function of temperature $T$ (through variable $p$) and chemical potential $\mu$, $P = P(T, \mu)$. (We remember that the quantity $\bar{y}$, which is selected from the condition to maximize $E$ at given $T$ and $\mu$, is a function of $T$ and $\mu$, $\bar{y} = \bar{y}(p,\mu)$). The problem here is that we cannot get the solution to~\eqref{eq:bar_y} in an analytic form. Still we can get some results numerically and obtain graphics.
+	We have obtained an expression for the pressure $P^*$ as a function of temperature $T^*$ and chemical potential $\mu^*$, $P = P(T^*, \mu^*)$. We also remember that the quantity $\bar{y}$, which is selected from the condition to maximize $E$ at given $T^*$ and $\mu^*$, is a function of $T^*$ and $\mu^*$ itself, $\bar{y} = \bar{y}(T^*,\mu^*)$. Since we can't obtain an analytic solution to~\eqref{eq:bar_y}, we'll use numerical methods to approximate $\bar{y}$ and then illustrate the results graphically.
+
 	
-	%\pagebreak
+	\pagebreak
 	\section{Implicit function theorem}
-	The equation~\eqref{eq:bary2} implicitly defines $\bar{y}$ as a function of temperature and chemical potential. We can benefit from the implicit function theorem to get some results for $\bar{y}$ and its derivatives with respect to chemical potential and temperature.
+	The equation~\eqref{eq:bar_y} implicitly defines $\bar{y}$ as a function of temperature and chemical potential. We can benefit from the implicit function theorem to get some results for $\bar{y}$ and its derivatives with respect to chemical potential and temperature.
 	
 	First, let us recall that if a line is given by 
 	\begin{equation*}
@@ -495,7 +477,7 @@
 	\begin{equation}
 		\frac{{\rm d} y}{{\rm d} x} = - \frac{\partial {\cal F} / \partial x}{\partial {\cal F} / \partial y}.
 	\end{equation}
-	Applying this to~\eqref{eq:bary2}, we get
+	Applying this to~\eqref{eq:bar_y}, we get
 	\begin{equation}
 		\frac{\partial \bar{y}}{\partial \mu^*} = - \frac{\partial E_1 / \partial \mu^*}{\partial E_1 / \partial \bar{y}}.
 	\end{equation}
@@ -803,7 +785,7 @@
 		\label{eq:sumII}
 		\sum_{\vb{r}, \vb{r}' \in \gamma}\sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(\vb{r}) \mathbb{I}_{\Delta_{l}}(\vb{r}') = \sum_{l=1}^{N_v} N_l^2 \equiv \sum_{l=1}^{N_v} \abs{\gamma_l}^2.
 	\end{equation}
-	Combining these formulas, we get
+	Combining these formulas, we obtain
 	\begin{eqnarray}
 		\sum_{\vb{r}, \vb{r}' \in \gamma} \Phi_{N_v}(\vb{r}, \vb{r}') & = & \sum_{l,l'=1}^{N_v} \sum_{\vb{r} \in \Delta_l} \sum_{\vb{r}' \in \Delta_{l'}} \Phi_{N_v}(\vb{r}, \vb{r}')
 		\nonumber\\
@@ -815,22 +797,21 @@
 	\subsection{Integration example}
 	\label{subsec:int}
 	In this subsection, explicit integration of the integral in~\eqref{eq:XiIntt} is present.
-	\begin{eqnarray}
-		I & = & \int\limits_{0}^{1} {\rm d} t \exp[2\pi {\rm i} \varrho t + \vartheta\exp(-2\pi {\rm i}t)]
+	
+	\begin{align}
+		I = & \int\limits_{0}^{1} {\rm d} t \exp[2\pi {\rm i} \varrho t + \vartheta\exp(-2\pi {\rm i}t)]
 		\nonumber\\	
-		& = & \frac{1}{2\pi} \int\limits_{0}^{2\pi} {\rm d}x {\rm e}^{{\rm i}\varrho x} \exp(\vartheta {\rm e}^{-{\rm i}x})
+		= & \frac{1}{2\pi} \int\limits_{0}^{2\pi} {\rm d}x {\rm e}^{{\rm i}\varrho x} \exp(\vartheta {\rm e}^{-{\rm i}x})
 		\nonumber\\
-		& = & \frac{1}{2\pi} \int\limits_{0}^{2\pi} {\rm d}x {\rm e}^{{\rm i}\varrho x} \sum_{n \geq 0} \frac{\vartheta^n}{n!} {\rm e}^{-{\rm i}nx}
+		= & \frac{1}{2\pi} \int\limits_{0}^{2\pi} {\rm d}x {\rm e}^{{\rm i}\varrho x} \sum_{n \geq 0} \frac{\vartheta^n}{n!} {\rm e}^{-{\rm i}nx}
 		\nonumber\\
-		& = & \sum_{n \geq 0} \frac{\vartheta^n}{n!} \frac{1}{2\pi} \int\limits_{0}^{2\pi} {\rm d}x {\rm e}^{{\rm i}(\varrho - n)x}
+		= & \sum_{n \geq 0} \frac{\vartheta^n}{n!} \frac{1}{2\pi} \int\limits_{0}^{2\pi} {\rm d}x {\rm e}^{{\rm i}(\varrho - n)x}
 		\nonumber\\
-		& = & \sum_{n \geq 0} \frac{\vartheta^n}{n!} \delta_{n\varrho} = \frac{\vartheta^{\varrho}}{\varrho!}.
-	\end{eqnarray}
+		= & \sum_{n \geq 0} \frac{\vartheta^n}{n!} \delta_{n\varrho} = \frac{\vartheta^{\varrho}}{\varrho!}.
+	\end{align}
 	In the course of calculation, we have used the change of variables $x = 2\pi t$ and the definition~\eqref{def:Kronecker} for the Kronecker $\delta$-symbol.
 	
-	\pagebreak
-	
-	\section{\label{sec:app1} Explicit derivation of $E(T^*,\mu^*;y)$ and $K(T^*,\mu^*;y)$}
+	\subsection{\label{sec:app1} Explicit derivation of $E(T^*,\mu^*;y)$ and $K(T^*,\mu^*;y)$}
 	In this appendix, the explicit transformations from Eq.~\eqref{eq:XiPi} through~\eqref{eq:gaussInt} to~Eqs.~\eqref{eq:XiInty}, \eqref{def:E}, and~\eqref{def:K}, is presented. Substituting the Gaussian integral~\eqref{eq:gaussInt} into~\eqref{eq:XiPi}, one proceeds as follows
 	\begin{eqnarray}
 		\Xi 
