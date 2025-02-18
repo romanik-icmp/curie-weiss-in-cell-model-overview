@@ -389,7 +389,7 @@
 	\end{equation}
 	where $P$ is the pressure. To calculate the large $N_v$ limit in~\eqref{eq:XiInty} we first determine the global maxima of $E(T^*,\mu^*;y)$ as a function of $y \in \mathbb{R}$, and then apply the Laplace's method~\cite{Fedoryuk89}.
 	
-	Let $\bar{y}$ denote the point of global maximum of $E(T^*,\mu^*;y)$ with respect to $y$ at given temperature and chemical potential. Then it should obey the following equation
+	Let $\bar{y}$ denote the point of extremum of $E(T^*,\mu^*;y)$ with respect to $y$ at given temperature and chemical potential. Then it should obey the following equation
 	\begin{equation}
 		\label{def:E1}
 		E_1(T^*,\mu^*;\bar{y}) := \frac{\partial}{\partial y} E(T^*,\mu^*;y)\bigg|_{y=\bar{y}} = 0.
@@ -427,10 +427,14 @@
 	As $K_0$, $K_1$, and $T^*$ all take on strictly positive values, the solution $\bar{y}$ to equation~\eqref{eq:bar_y} is also strictly positive.
 	Typical behavior of $E_1(T^*,\mu^*;y)$ as a function of $y$ in the single-phase domain is illustrated in Fig.~\ref{fig:E1_vs_y}.
 	
-	\textbf{Definition}. We say that $(T^*, \mu^*)$ belongs to a single-phase domain if $E(T^*,\mu^*;y)$ has a unique global maximum $\bar{y} \in \mathbb{R}^{+}$ such that
+	\textbf{Definition}. We say that $(T^*, \mu^*)$ belongs to a single-phase domain if $E(T^*,\mu^*;y)$ has a unique global maximum $\bar{y}_{\rm max} \in \mathbb{R}^{+}$ such that~\footnote{It is important to distinguish between $\bar{y}$ and $\bar{y}_{\rm max}$, as $\bar{y}$ can be either a maximum or a minimum of $E$ depending on the specific values of $T^*$ and $\mu^*$, whereas $\bar{y}_{\rm max}$ is strictly a maximum.}
+	\begin{equation}
+		E_1(T^*, \mu^*; \bar{y}_{\rm max}) = 0,
+	\end{equation}
+	and
 	\begin{equation}
 		\label{def:E2}
-		E_2(T^*, \mu^*;\bar{y}) := \frac{\partial^2}{\partial y^2} E(T^*,\mu^*;y)\bigg|_{y=\bar{y}} < 0.
+		E_2(T^*, \mu^*;\bar{y}_{\rm max}) := \frac{\partial^2}{\partial y^2} E(T^*,\mu^*;y)\bigg|_{y=\bar{y}_{\rm max}} < 0.
 	\end{equation}
 	An explicit expression for $E_2(T^*,\mu^*;y)$ reads (cf.~\cite[(20)]{KD22})
 	\begin{equation}
@@ -447,22 +451,22 @@
 	
 	\textbf{Laplace's method.} We apply the Laplace's method~\cite[(1.21)]{Fedoryuk89} to~\eqref{eq:XiInty} and arrive at~(cf.~\cite[(19)]{KD22})
 	\begin{equation}
-		\Xi(T^*,\mu^*) = [-T^*/ E_2(T^*,\mu^*;\bar{y})]^{1/2} \exp[N_v E(T^*,\mu^*;\bar{y})].
+		\Xi(T^*,\mu^*) = \left[-\frac{T^*}{E_2(T^*,\mu^*;\bar{y}_{\rm max})}\right]^{1/2} \exp[N_v E(T^*,\mu^*;\bar{y}_{\rm max})].
 	\end{equation}
 	Substituting this into~\eqref{def:eos}, one obtains
 	\begin{equation}
-		P V = k_{\rm B}T \left[-\frac{1}{2} \ln(-\frac{E_2(T^*,\mu^*;\bar{y})}{T^*}) + N_v E(T^*,\mu^*;\bar{y})\right].
+		P V = k_{\rm B}T \left[-\frac{1}{2} \ln(-\frac{E_2(T^*,\mu^*;\bar{y}_{\rm max})}{T^*}) + N_v E(T^*,\mu^*;\bar{y}_{\rm max})\right].
 	\end{equation}
 	The first term in the square brackets in the right-hand side of the last equation can be neglected in the limit of large $N_v$, and we arrive at (cf.~\cite[(2.27)]{KKD20})
 	\begin{equation}
-		\frac{P V}{k_{\rm B}T N_v} = E(T^*,\mu^*;\bar{y}),
+		\frac{P V}{k_{\rm B}T N_v} = E(T^*,\mu^*;\bar{y}_{\rm max}),
 	\end{equation}
 	or
 	\begin{equation}
 		\label{eos:reduced}
-		P^*(T^*,\mu^*) = T^* E(T^*,\mu^*;\bar{y}).
+		P^*(T^*,\mu^*) = T^* E(T^*,\mu^*;\bar{y}_{\rm max}).
 	\end{equation}
-	We have obtained an expression for the pressure $P^*$ as a function of temperature $T^*$ and chemical potential $\mu^*$, $P = P(T^*, \mu^*)$. We also remember that the quantity $\bar{y}$, which is selected from the condition to maximize $E$ at given $T^*$ and $\mu^*$, is a function of $T^*$ and $\mu^*$ itself, $\bar{y} = \bar{y}(T^*,\mu^*)$. Since we can't obtain an analytic solution to~\eqref{eq:bar_y}, we'll use numerical methods to approximate $\bar{y}$ and then illustrate the results graphically.
+	We have obtained an expression for the pressure $P^*$ as a function of temperature $T^*$ and chemical potential $\mu^*$, $P = P(T^*, \mu^*)$. We also remember that the quantity $\bar{y}_{\rm max}$, which is selected from the condition to maximize $E$ at given $T^*$ and $\mu^*$, is a function of $T^*$ and $\mu^*$ itself, $\bar{y}_{\rm max} = \bar{y}_{\rm max}(T^*,\mu^*)$. Since we can't obtain an analytic solution to~\eqref{eq:bar_y}, we'll use numerical methods to approximate $\bar{y}$ and then illustrate the results graphically.
 
 	
 	\pagebreak
