@@ -385,15 +385,20 @@
 	By the known thermodynamic formula (cf.~\cite[(2.16)]{KKD20})
 	\begin{equation}
 		\label{def:eos}
-		%P V = k_{\rm B} T \ln \Xi(\beta, \mu)
-		P V = \beta^{-1} \ln \Xi
+		P V = k_{\rm B} T \ln \Xi
+		%P V = \beta^{-1} \ln \Xi
 	\end{equation}
 	where $P$ is the pressure. To calculate the large $N_v$ limit in~\eqref{eq:XiInty} we first determine the global maxima of $E(T^*,\mu^*;y)$ as a function of $y \in \mathbb{R}$, and then apply the Laplace's method~\cite{Fedoryuk89}.
 	
 	Let $\bar{y}$ denote the point of extremum of $E(T^*,\mu^*;y)$ with respect to $y$ at given temperature and chemical potential. Then it should obey the following equation
 	\begin{equation}
+		\label{cond:extr}
+		E_1(T^*,\mu^*;\bar{y}) = 0.
+	\end{equation}
+	where we introduced the quantity
+	\begin{equation}
 		\label{def:E1}
-		E_1(T^*,\mu^*;\bar{y}) := \frac{\partial}{\partial y} E(T^*,\mu^*;y)\bigg|_{y=\bar{y}} = 0.
+		E_1(T^*,\mu^*;y) := \frac{\partial}{\partial y} E(T^*,\mu^*;y).
 	\end{equation}
 	By~\eqref{def:E} and~\eqref{def:K}, the explicit expression for $E_1$ is given by
 	\begin{equation}
@@ -414,33 +419,39 @@
 	\end{eqnarray}
 	
 	\begin{figure}[htbp]
-		\includegraphics[width=0.45\textwidth,angle=0]{E1_vs_y2}
+		\includegraphics[width=0.45\textwidth,angle=0]{images/E1_vs_y2}
 		\hfill
-		\includegraphics[width=0.45\textwidth,angle=0]{E2_vs_y}
+		\includegraphics[width=0.45\textwidth,angle=0]{images/E2_vs_y}
 		\\
 		%\captionsetup{width=0.5\textwidth}
-		\parbox{0.45\textwidth}{\caption{\label{fig:E1_vs_y} Quantity $E_1(y,p,\mu)$ as a function of $y$ at $p=2.0$ ($T^*=0.5$) and $\beta\mu=-2.0$ ($\mu^*=-1.0$) for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}}
+		\parbox{0.45\textwidth}{\caption{\label{fig:E1_vs_y} Quantity $E_1(T^*,\mu^*;y)$ as a function of $y$ at $T^*=0.5$ and $\mu^*=-1.0$ for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}}
 		\hfill
 		%\captionsetup{width=0.5\textwidth}
-		\parbox{0.45\textwidth}{\caption{\label{fig:E2_vs_y} Quantity $E_2(y,p,\mu)$ as a function of $y$ at $p=2.0$ ($T^*=0.5$) and $\beta\mu=-2.0$ ($\mu^*=-1.0$) for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}}
+		\parbox{0.45\textwidth}{\caption{\label{fig:E2_vs_y} Quantity $E_2(T^*,\mu^*;y)$ as a function of $y$ at $T^*=0.5$ and $\mu^*=-1.0$ for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}}
 	\end{figure}
 	
 	As $K_0$, $K_1$, and $T^*$ all take on strictly positive values, the solution $\bar{y}$ to equation~\eqref{eq:bar_y} is also strictly positive, i.e. $\bar{y} \in \mathbb{R}^{+}$.
-	Typical behavior of $E_1(T^*,\mu^*;y)$ as a function of $y$ in the single-phase domain is illustrated in Fig.~\ref{fig:E1_vs_y}.
+	Typical behavior of $E_1(T^*,\mu^*;y)$ as a function of $y$ in the single-phase domain is illustrated in Fig.~\ref{fig:E1_vs_y}. More figures for $E_1$ can be found in Subsection~\ref{sec:figE1}.
 	
 	\textbf{Definition}. We say that $(T^*, \mu^*)$ belongs to a single-phase domain if $E(T^*,\mu^*;y)$ has a unique global maximum $\bar{y}_{\rm max} \in \mathbb{R}^{+}$ such that~\footnote{It is important to distinguish between $\bar{y}$ and $\bar{y}_{\rm max}$, as $\bar{y}$ can be either a maximum or a minimum of $E$ depending on the specific values of $T^*$ and $\mu^*$, whereas $\bar{y}_{\rm max}$ is strictly a maximum.}
-	\begin{equation}
-		E_1(T^*, \mu^*; \bar{y}_{\rm max}) = 0,
-	\end{equation}
-	and
-	\begin{equation}
+	\begin{eqnarray}
+		\label{cond:max}
+		E_1(T^*, \mu^*; \bar{y}_{\rm max}) & = & 0,
+		\nonumber\\
+		E_2(T^*, \mu^*;\bar{y}_{\rm max}) & < & 0,
+	\end{eqnarray}
+	where we introduced the quantity
+	\begin{eqnarray}
 		\label{def:E2}
-		E_2(T^*, \mu^*;\bar{y}_{\rm max}) := \frac{\partial^2}{\partial y^2} E(T^*,\mu^*;y)\bigg|_{y=\bar{y}_{\rm max}} < 0.
-	\end{equation}
+		E_2(T^*, \mu^*;y) & := & \frac{\partial^2}{\partial y^2} E(T^*,\mu^*;y)
+		\\
+		& = & \frac{\partial}{\partial y} E_1(T^*,\mu^*;y).
+		\nonumber
+	\end{eqnarray}
 	An explicit expression for $E_2(T^*,\mu^*;y)$ reads (cf.~\cite[(20)]{KD22})
 	\begin{equation}
 		\label{def:reducedE2}
-		E_2(T^*,\mu^*;y) = -T^* + \frac{K_2(T^*,\mu^*;y) K(T^*,\mu^*;y) - [K_1(T^*,\mu^*;y)]^2}{[K_0(T^*,\mu^*;y)]^2},
+		E_2(T^*,\mu^*;y) = -T^* + \frac{K_2(T^*,\mu^*;y) K_0(T^*,\mu^*;y) - [K_1(T^*,\mu^*;y)]^2}{[K_0(T^*,\mu^*;y)]^2},
 	\end{equation}
 	where
 	\begin{eqnarray}
@@ -448,7 +459,7 @@
 		\nonumber\\
 		& = & \sum_{n=0}^{\infty} \frac{n^2 (v^* T^{*3/2})^n}{n!} \exp[\left(y+\frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2].
 	\end{eqnarray}
-	Typical behavior of $E_2(T^*,\mu^*;y)$ as a function of $y$ in the single-phase domain is illustrated in~Fig.~\ref{fig:E2_vs_y}.
+	Typical behavior of $E_2(T^*,\mu^*;y)$ as a function of $y$ in the single-phase domain is illustrated in~Fig.~\ref{fig:E2_vs_y}. More figures for $E_2$ can be found in Subsection~\ref{sec:figE2}.
 	
 	\textbf{Laplace's method.} We apply the Laplace's method~\cite[(1.21)]{Fedoryuk89} to~\eqref{eq:XiInty} and arrive at~(cf.~\cite[(19)]{KD22})
 	\begin{equation}
@@ -482,44 +493,54 @@
 	\begin{equation}
 		\frac{{\rm d} y}{{\rm d} x} = - \frac{\partial {\cal F} / \partial x}{\partial {\cal F} / \partial y}.
 	\end{equation}
-	Applying this to~\eqref{eq:bar_y}, we get
+	Applying this to~\eqref{cond:extr} -- \eqref{eq:bar_y}, we get
 	\begin{equation}
-		\frac{\partial \bar{y}}{\partial \mu^*} = - \frac{\partial E_1 / \partial \mu^*}{\partial E_1 / \partial \bar{y}}.
+		\left(\frac{\partial \bar{y}}{\partial \mu^*}  \right)_{T^*} = - \frac{\partial E_1 / \partial \mu^*}{\partial E_1 / \partial \bar{y}}.
 	\end{equation}
+%	\begin{equation}
+%		\left(\frac{\partial \bar{y}}{\partial \mu^*}  \right)_{T^*} = - \frac{\partial E_1(T^*,\mu^*;y) / \partial \mu^*}{\partial E_1(T^*,\mu^*;y) / \partial y}\bigg|_{y=\bar{y}}.
+%	\end{equation}
+	Here we understand $\partial E_1 / \partial \bar{y} = \partial E_1(T^*,\mu^*;y) / \partial y |_{T^*,\mu^*,y=\bar{y}}$, and $\partial E_1 / \partial\mu^* = \partial E_1(T^*,\mu^*;y) / \partial \mu^* |_{T^*,y=\bar{y}}$.
 	By definition~\eqref{def:E2}
 	\begin{equation}
-		\frac{\partial E_1}{\partial \bar{y}} = E_2.
+		\frac{\partial E_1}{\partial \bar{y}} = E_2(T^*,\mu^*;\bar{y}).
 	\end{equation}
 	For $\partial E_1 / \partial \mu^*$ one has
 	\begin{equation}
-		\frac{\partial E_1}{\partial \mu^*} = \frac{1}{T^*} (E_2 + T^*).
+		\label{dE1dmu1}
+		\frac{\partial E_1}{\partial \mu^*} = \frac{1}{T^*} [E_2(T^*,\mu^*;\bar{y}) + T^*].
 	\end{equation}
-	The quantity $E_2(y,T^*,\mu^*)$ can be rewritten as (cf.~\cite[(2.23)]{KKD20})
+	The quantity $E_2(T^*,\mu^*;\bar{y})$ can be rewritten as (cf.~\cite[(2.23)]{KKD20})
 	\begin{eqnarray}
-		E_2(y,T^*,\mu^*) & = & -T^* + \frac{1}{2 [K_0(y,T^*,\mu^*)]^2}
+		\label{E2a}
+		E_2(T^*,\mu^*;\bar{y}) & = & -T^* + \frac{1}{2 [K_0(T^*,\mu^*;\bar{y})]^2}
 		\\
-		& \times & \sum_{n_1, n_2 = 0}^{\infty} \frac{(v^*)^{n_1+n_2}}{n_1!n_2!}(n_1 - n_2)^2 \exp[\left(y + \frac{\mu^*}{T^*}\right)(n_1 + n_2) - \frac{a}{2T^*}(n_1^2 + n_2^2)],\nonumber
+		& \times & \sum_{n_1, n_2 = 0}^{\infty} \frac{(v^* T^{*3/2})^{n_1+n_2}}{n_1!n_2!}(n_1 - n_2)^2 \exp[\left(\bar{y} + \frac{\mu^*}{T^*}\right)(n_1 + n_2) - \frac{a}{2T^*}(n_1^2 + n_2^2)],\nonumber
 	\end{eqnarray}
 	leading to
 	\begin{equation}
-		E_2 + T^* > 0,
+		\label{E2pT}
+		E_2(T^*,\mu^*;\bar{y}) + T^* > 0,
 	\end{equation}
 	and thus
 	\begin{equation}
+		\label{dE1dmu2}
 		\frac{\partial E_1}{\partial \mu^*} > 0.
 	\end{equation}
 	Substituting the results back into $\partial \bar{y}/\partial \mu^*$, one gets
 	\begin{equation}
-		\left(\frac{\partial \bar{y}}{\partial \mu^*} \right)_{T^*} = -\frac{E_2 + T^*}{T^* E_2}.
+		\left(\frac{\partial \bar{y}}{\partial \mu^*} \right)_{T^*} = -\frac{E_2(T^*,\mu^*;\bar{y}) + T^*}{T^* E_2(T^*,\mu^*;\bar{y})}.
 	\end{equation}
-	We can also consider $\mu^*$ as a function of $y$ and $T^*$, and get
+	We can also consider $\mu^*$ as a function of $\bar{y}$ and $T^*$, and get
 	\begin{equation}
 		\left(\frac{\partial \mu^*}{\partial \bar{y}} \right)_{T^*} = -\frac{T^* E_2}{E_2 + T^*}.
 	\end{equation}
-	Since the condition of maximum implies $E_2 < 0$, it follows
+	Since the condition of maximum~\eqref{cond:max} implies $E_2 < 0$, it follows that
 	\begin{equation}
-		\left(\frac{\partial \bar{y}}{\partial \mu^*} \right)_{T^*} > 0.
+		\left(\frac{\partial \bar{y}_{\rm max}}{\partial \mu^*} \right)_{T^*} > 0.
 	\end{equation}
+	
+	Note that relations~\eqref{dE1dmu1}, \eqref{E2a}, \eqref{E2pT}, and~\eqref{dE1dmu2} are valid for an arbitrary $y$, i.e. we may replace $\bar{y}$ with either $y$ or $\bar{y}_{\rm max}$ there and they will still be valid.
 	
 	
 	\pagebreak
@@ -528,9 +549,13 @@
 	\begin{eqnarray}
 		\langle N \rangle & = & -\left(\frac{\partial \Omega}{\partial \mu}\right)_{T,V}
 		\nonumber\\
-		& = & V \left(\frac{\partial P}{\partial \mu}\right)_T.
+		& = & V \left(\frac{\partial P}{\partial \mu}\right)_T,
 	\end{eqnarray}
-	For reduced density it follows
+	where $\Omega$ is the grand potential
+	\begin{equation}
+		\Omega = -k_{\rm B} T \ln \Xi.
+	\end{equation}
+	For the reduced density it follows
 	\begin{equation}
 		\label{eq:dens}
 		\rho^* = v\left(\frac{\partial P}{\partial \mu}\right)_T = \left(\frac{\partial P^*}{\partial \mu^*}\right)_T.
@@ -538,10 +563,10 @@
 	As a result of the differentiation of pressure with respect to chemical potential (see Appendix~\ref{sec:app:dens} for details), one gets
 	\begin{eqnarray}
 		\label{eq:densK}
-		\rho^* &=& \frac{K_1(\bar{y}, p,\mu)}{K_0(\bar{y},p,\mu)} = \frac{K_1(\bar{y},T^*,\mu^*)}{K_0(\bar{y},T^*,\mu^*)}.
+		\rho^*(T^*,\mu^*) & = & \frac{K_1(T^*,\mu^*;\bar{y}_{\rm max})}{K_0(T^*,\mu^*;\bar{y}_{\rm max})}.
 	\end{eqnarray}
 	
-	The quantity $\rho^*$, on the one hand, is the reduced particle number density, which is the notation commonly used in the literature on simple liquids~\cite{HansenMcDonald13}. In the context of the cell model, on the other hand, it also has the meaning of the average number of particles per cell, because
+	The quantity $\rho^*$, on the one hand, is the reduced particle number density, which is the notation commonly used in the literature on simple liquids~\cite{HansenMcDonald13}. In the context of the cell model, on the other hand, it also has the meaning of the average number of particles per cell, since
 	\begin{equation}
 		\rho^* = \frac{\langle N \rangle}{V} v = \frac{\langle N \rangle}{N_v}.
 	\end{equation}
@@ -549,17 +574,17 @@
 	From~\eqref{eq:bar_y} it also follows that
 	\begin{equation}
 		\label{rho_vs_T_mu}
-		\rho^*(T,\mu) = \bar{y}(T,\mu) T^*.
+		\rho^*(T^*,\mu^*) = T^* \bar{y}_{\rm max}(T^*,\mu^*).
 	\end{equation}
 	%This enables us to calculate the equation of state.
 	
 	\section{Equation of state}
-	We have got relation $P^* = P^*(T^*, \mu^*)$ in~\eqref{eos:reduced}. Now, having found the density $\rho^* = \rho^*(T^*,\mu^*)$ in~\eqref{rho_vs_T_mu}, we can formally solve this equation with respect to $\mu$ to find $\mu^* = \mu^*(T^*,\rho^*)$, and substitute back into~\eqref{eos:reduced} to get pressure as a function of density and temperature (cf.~\cite[(2.28)]{KKD20})
+	We have got relation $P^* = P^*(T^*, \mu^*)$ in~\eqref{eos:reduced}. Now, having found the density $\rho^* = \rho^*(T^*,\mu^*)$ in~\eqref{rho_vs_T_mu}, we can formally solve this equation with respect to $\mu^*$ to find $\mu^* = \mu^*(T^*,\rho^*)$, and substitute back into~\eqref{eos:reduced} to get pressure as a function of density and temperature (cf.~\cite[(2.28)]{KKD20})
 	\begin{equation}
 		\label{eos}
-		P^* = T^* E\left[\frac{\rho^*}{T^*},T^*, \mu^*(T^*,\rho^*)\right],
+		P^*(T^*,\rho^*) = T^* E\left[T^*, \mu^*(T^*,\rho^*); \frac{\rho^*}{T^*}\right],
 	\end{equation}
-	which will be the equation of state in convenient, (wide-spread, generally accepted) terms. However, such task is not an easy one, and at the moment we can solve~\eqref{rho_vs_T_mu} with respect to $\mu$ only numerically. Nevertheless, even formal consideration of equation~\eqref{eos} is helpful to determine the critical points coordinates, see the next Section~\ref{sec:CP}.
+	which will be the equation of state in convenient (wide-spread, generally accepted) terms. However, such task is not an easy one, and at the moment we can solve~\eqref{rho_vs_T_mu} with respect to $\mu^*$ only numerically. Nevertheless, even formal consideration of equation~\eqref{eos} is helpful to determine the critical points coordinates, see the next Section~\ref{sec:CP}.
 	
 	\pagebreak
 	\section{\label{sec:CP} Critical point coordinates}
@@ -582,11 +607,11 @@
 	where
 	\begin{equation}
 		\begin{split}
-			E_3 &:= \frac{\partial^3}{\partial y^3} E(T,\mu; y)\big|_{y=\bar{y}} 
+			E_3(T^*,\mu^*;\bar{y}) &:= \frac{\partial^3}{\partial y^3} E(T^*,\mu^*; y)\big|_{y=\bar{y}} 
 			\\
-			& = \frac{\partial}{\partial \bar{y}} E(T,\mu; \bar{y})
+			& = \frac{\partial}{\partial \bar{y}} E_2(T^*,\mu^*; \bar{y})
 			\\
-			& = \frac{K_3}{K_0} - \frac{3 K_2 K_1}{K_0^2} + \frac{2K_1^3}{K_0^3}.
+			& = \frac{K_3(T^*;\mu^*;\bar{y})}{K_0(T^*;\mu^*;\bar{y})} - \frac{3 K_2(T^*;\mu^*;\bar{y}) K_1(T^*;\mu^*;\bar{y})}{K_0(T^*;\mu^*;\bar{y})^2} + \frac{2K_1(T^*;\mu^*;\bar{y})^3}{K_0(T^*;\mu^*;\bar{y})^3}
 		\end{split}
 	\end{equation}
 	Together with Eq.~\eqref{eq:bar_y} we have three equations with three unknown values for $T^*$, $\mu^*$, and $\bar{y}$:
@@ -600,14 +625,14 @@
 	\end{equation}
 	We can resolve this system of equations numerically, and find the critical point coordinates $T^*_c$, $\mu^*_c$, and $\bar{y}_c$.
 	
-	The cell model with Curie-Weiss interaction is known to possess multiple critical points~\cite{KKD18,KKD20,KD22}. Thus the system of equations~\eqref{eq:system} has many sets of solutions. We denote such solutions by natural numbers $n$, starting with $n=1$ for the lowest critical temperature. Table~\ref{tab:cp} contains the found sets of solutions, as well as other physical quantities values at the critical points calculated based on $T^*_c$, $\mu^*_c$, and $\bar{y}_c$.
+	The cell model with Curie-Weiss interaction is known to possess multiple critical points~\cite{KKD18,KKD20,KD22}. Thus the system of equations~\eqref{eq:system} has many sets of solutions. We denote such solutions by natural numbers $n$, starting with $n=1$ for the lowest critical temperature. Table~\ref{tab:cp} contains the found sets of solutions, as well as the values for other physical quantities at the critical points calculated based on $T^*_c$, $\mu^*_c$, and $\bar{y}_c$.
 	
 	\begin{table}[h]
 		\centering
 		\caption{The critical point values for some quantities. The number $n$ denotes the critical points starting with $n=1$ for the one with the lowest temperature.}
 		\begin{tabular}{|c|c|c|c|c|c|c|}
 			\hline
-			$n$ & $T^*_c$ & $\mu^*_c$ & $\bar{y}_c$ & $\beta^*_c$ (or $p_c$) & $\rho^*_c$ & $P^*_c$ \\
+			$n$ & $T^*_c$ & $\mu^*_c$ & $\bar{y}_c$ & $\beta^*_c$ & $\rho^*_c$ & $P^*_c$ \\
 			\hline
 			1 & 0.254567 & -0.313065 & 2.01870 & 3.92823 & 0.513896 & 0.0503397  \\
 			2 & 0.261881 & 0.0587688 & 5.74906 & 3.81852 & 1.50557 & 0.437695  \\
@@ -615,9 +640,9 @@
 			4 & \textcolor{blue}{0.267242} & \textcolor{blue}{0.639949} & \textcolor{blue}{13.1039} & \textcolor{blue}{3.74193} & \textcolor{blue}{3.50191} & \textcolor{blue}{1.89369} \\
 			5 & & & & & & \\
 			\hline
-			$n$ & $\beta_c\mu_c$ & $\beta_c P_c v$ & $\bar{z}_c=\bar{y}_c+\mu^*_c/T^*_c$ & $\bar{y}_c+\mu^*_c/T^*_c + \ln v^*$ & $S^*_c$ & \\
+			$n$ & $\beta_c\mu_c$ & $\beta_c P_c v$ & $\bar{z}_c=\bar{y}_c+\mu^*_c/T^*_c$ & $\bar{y}_c+\mu^*_c/T^*_c + \ln v^*$ & $S^*_c$ & $T_c(n)/T_c(n=1)$ \\
 			\hline
-			1 & -1.22979 & 0.197746 & 0.788910 & 2.39835 & 4.48401 & \\
+			1 & -1.22979 & 0.197746 & 0.788910 & 2.39835 & 4.48401 & 1.00000 \\
 			2 & 0.224410 & 1.67135 & 5.97347 & 7.58291 & 3.35912 & \\
 			3 & 1.37162 & 3.98927 & 10.8079 & 12.4174 & 2.90550 & \\
 			4 & \textcolor{blue}{2.39464}  & \textcolor{blue}{7.08603}& \textcolor{blue}{15.4985} & \textcolor{blue}{17.1080} & & \\
@@ -629,13 +654,12 @@
 	
 	\pagebreak
 	\section{Entropy}
-	By thermodynamic formulas for the grand canonical ensemble
+	By thermodynamic formulas for the grand canonical ensemble, we have for the entropy
 	\begin{equation}
-		S = -\left(\frac{\partial \Omega}{\partial T}\right)_{V,\mu} = V\left(\frac{\partial P}{\partial T}\right)_{\mu}
-	\end{equation}
-	where $\Omega = -k_{\rm B}T \ln \Xi$ is the grand potential. 
+		S = -\left(\frac{\partial \Omega}{\partial T}\right)_{V,\mu} = V\left(\frac{\partial P}{\partial T}\right)_{\mu}.
+	\end{equation} 
 	
-	Now, there are two possibilities to normalize entropy. One possibility is to normalize it by the average number of particles
+	At this point, there are two possibilities to normalize entropy. One possibility is to normalize it by the average number of particles
 	\begin{equation}
 		S^{*} = \frac{S}{k_{\rm B} \langle N \rangle},
 	\end{equation}
@@ -657,20 +681,17 @@
 	By~\eqref{eos:reduced}
 	\begin{equation}
 		\label{eq:entropy}
-		S^* = \frac{1}{\rho^*} 
+		S^*(T^*,\mu^*) = \frac{1}{\rho^*(T^*,\mu^*)} 
 		\left[ 
-		E(\bar{y},T^*,\mu^*) + T^* \left(\frac{\partial E(\bar{y},T^*,\mu^*)}{\partial T^*}\right)_{\mu} 
+		E(T^*,\mu^*;\bar{y}) + T^* \left(\frac{\partial E(T^*,\mu^*;\bar{y})}{\partial T^*}\right)_{\mu^*} 
 		\right].
 	\end{equation}
 	The result of calculation is
 	\begin{equation}
-		S^* = \left(\frac{3}{2} - \beta\mu\right) -p \frac{K_1}{K_0} + \frac{K_0 \ln K_0}{K_1} + \frac{ap}{2} \frac{K_2}{K_1},
-	\end{equation}
-	or in the reduced quantities
-	\begin{equation}
 		\label{S_vs_T_mu}
-		S^* = \left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) - \frac{1}{T^*}\frac{K_1}{K_0} + \frac{K_0 \ln K_0}{K_1} + \frac{a}{2T^*} \frac{K_2}{K_1}.
+		S^*(T^*,\mu^*) = \left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) - \frac{1}{T^*}\frac{K_1}{K_0} + \frac{K_0 \ln K_0}{K_1} + \frac{a}{2T^*} \frac{K_2}{K_1},
 	\end{equation}
+	where for the special functions we imply $K_i = K_i(T^*,\mu^*;\bar{y})$.
 	The first contribution to the entropy corresponds to the entropy of non-interacting molecules in a lattice, or an ideal lattice gas contribution, see~\cite[(47.4)]{Hill56}, if we account for the ideal-gas chemical potential $\mu_{\rm id} = k_{\rm B}T \ln(N\Lambda^3/V)$. 
 	
 	
@@ -681,17 +702,11 @@
 	where
 	\begin{equation}
 		\label{eq:entropy2}
-		S^{**}  = \left(\frac{\partial P^*}{\partial T^*}\right)_{\mu}.
+		S^{**}  = \left(\frac{\partial P^*}{\partial T^*}\right)_{\mu^*}.
 	\end{equation}
 	The expressions for the entropy per cell is
-	\begin{equation}
-		S^{**} = -\frac{\bar{y}^2}{p} + \ln K_0(\bar{y},p,\mu) + \frac{\left[\left(\frac{3}{2} - \beta\mu\right)K_1(\bar{y},p,\mu) + \frac{ap}{2}K_2(\bar{y},p,\mu) \right]}{K_0(\bar{y},p,\mu)}
-	\end{equation}
-	or in reduced quantities
 	\begin{eqnarray}
-		S^{**} & = & -T^* \bar{y}^2 + \ln K_0(\bar{y},T^*,\mu^*) + \left[\left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) K_1(\bar{y},T^*,\mu^*) + \frac{a}{2T^*} K_2(\bar{y},T^*,\mu^*) \right] [K_0(\bar{y},T^*,\mu^*)]^{-1}
-		\nonumber \\
-		& = & -T^* \bar{y}^2 + \ln K_0 + \frac{1}{K_0}\left[\left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) K_1 + \frac{a}{2T^*} K_2 \right]
+		S^{**}(T^*,\mu^*) & = & -T^* \bar{y}^2 + \ln K_0 + \frac{1}{K_0}\left[\left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) K_1 + \frac{a}{2T^*} K_2 \right]
 	\end{eqnarray}
 	Details or calculation are present in Appendix~\ref{sec:app:entropy}.
 	
@@ -703,7 +718,7 @@
 		%\\
 		\captionsetup{width=0.5\textwidth}
 		%\parbox{0.45\textwidth}
-		{\caption{\label{fig:S_vs_T1} Entropy $S^{*}(\bar{y},T^*,\mu^*)$ as a function of $T^*$ at $\mu^*=-1.0$ ($v^* = 5$).}}
+		{\caption{\label{fig:S_vs_T1} Entropy $S^{*}(T^*,\mu^*)$ as a function of $T^*$ at $\mu^*=-1.0$ ($v^* = 5$).}}
 		%\hfill
 		%\captionsetup{width=0.5\textwidth}
 		%\parbox{0.45\textwidth}{\caption{\label{fig:S_vs_T2} Entropy $S^{**}(\bar{y},T^*,\mu^*)$ as a function of $T^*$ at $\mu^*=-1.0$ ($v^* = 5$)}}
@@ -715,13 +730,13 @@
 		\includegraphics[width=0.45\textwidth,angle=0]{SS_vs_T2}
 		\\
 		%\captionsetup{width=0.5\textwidth}
-		\parbox{0.45\textwidth}{\caption{\label{fig:SS_vs_T1} Entropy $S^{**}(\bar{y},T^*,\mu^*)$ as a function of $T^*$ at $\mu^*=-1.0$ ($v^* = 5$).}}
+		\parbox{0.45\textwidth}{\caption{\label{fig:SS_vs_T1} Entropy $S^{**}(T^*,\mu^*)$ as a function of $T^*$ at $\mu^*=-1.0$ ($v^* = 5$).}}
 		\hfill
 		%\captionsetup{width=0.5\textwidth}
-		\parbox{0.45\textwidth}{\caption{\label{fig:SS_vs_T2} Entropy $S^{**}(\bar{y},T^*,\mu^*)$ as a function of $T^*$ at $\mu^*=-1.0$ ($v^* = 5$).}}
+		\parbox{0.45\textwidth}{\caption{\label{fig:SS_vs_T2} Entropy $S^{**}(T^*,\mu^*)$ as a function of $T^*$ at $\mu^*=-1.0$ ($v^* = 5$).}}
 	\end{figure}
 	
-	\textbf{Graphics for Entropy.} The dependence of the reduced entropy $S^*$ on temperature $T^*$ at a given chemical potential is illustrated in Fig.~\ref{fig:S_vs_T1}. Figures~\ref{fig:SS_vs_T1} and~\ref{fig:SS_vs_T2} illustrate the dependence of entropy per cell $S^{**}$ on temperature $T^*$ at a constant chemical potential. The two figures for $S^{**}$ show the same functional dependency but focus on different temperature ranges.
+	\textbf{Graphics for Entropy.} The dependence of the reduced entropy $S^*$ on temperature $T^*$ at a given chemical potential is illustrated in Fig.~\ref{fig:S_vs_T1}. Figures~\ref{fig:SS_vs_T1} and~\ref{fig:SS_vs_T2} illustrate the dependence of entropy per cell $S^{**}$ on temperature $T^*$ at a constant chemical potential. The two figures for $S^{**}$ show the same functional dependence but focus on different temperature ranges.
 	
 	\begin{figure}[htbp]
 		\includegraphics[width=0.45\textwidth,angle=0]{S_vs_mu}
@@ -729,10 +744,10 @@
 		\includegraphics[width=0.45\textwidth,angle=0]{SS_vs_mu}
 		\\
 		%\captionsetup{width=0.5\textwidth}
-		\parbox{0.45\textwidth}{\caption{\label{fig:S_vs_mu} Entropy per particle $S^{*}(\bar{y},T^*,\mu^*)$ as a function of $\mu^*$ at $T^*=0.5$ ($v^* = 5$).}}
+		\parbox{0.45\textwidth}{\caption{\label{fig:S_vs_mu} Entropy per particle $S^{*}(T^*,\mu^*)$ as a function of $\mu^*$ at $T^*=0.5$ ($v^* = 5$).}}
 		\hfill
 		%\captionsetup{width=0.5\textwidth}
-		\parbox{0.45\textwidth}{\caption{\label{fig:SS_vs_mu} Entropy per cell $S^{**}(\bar{y},T^*,\mu^*)$ as a function of $\mu^*$ at $T^*=0.5$ ($v^* = 5$).}}
+		\parbox{0.45\textwidth}{\caption{\label{fig:SS_vs_mu} Entropy per cell $S^{**}(T^*,\mu^*)$ as a function of $\mu^*$ at $T^*=0.5$ ($v^* = 5$).}}
 	\end{figure}
 	
 	The dependence of the reduced entropy $S^*$ on chemical potential $\mu^*$ at a given temperature is illustrated in Fig.~\ref{fig:S_vs_mu}. That of $S^{**}$ is shown in Fig.~\ref{fig:SS_vs_mu}.
@@ -749,7 +764,7 @@
 		\parbox{0.45\textwidth}{\caption{\label{fig:SS_vs_rho} Entropy per cell $S^{**}$ as a function of $\rho^*$, (Dashed black line) at $T^*=0.5$, and (Solid blue line) at $T^*=0.15$.}}
 	\end{figure}
 	
-	The equation for entropy~\eqref{S_vs_T_mu} expresses entropy as a function of temperature and chemical potential. If we want to have entropy as a function of temperature and density, we combine equations~\eqref{S_vs_T_mu} and~\eqref{rho_vs_T_mu} into a parametric equation for entropy, with $\mu$ being the parameter. This way we can plot the dependence of entropy on density at a given temperature. Such dependencies are present in Fig.~\ref{fig:S_vs_rho} and~Fig.~\ref{fig:SS_vs_rho}.
+	The equation for entropy~\eqref{S_vs_T_mu} expresses entropy as a function of temperature and chemical potential. If we want to have entropy as a function of temperature and density, we combine equations~\eqref{S_vs_T_mu} and~\eqref{rho_vs_T_mu} into a parametric equation for entropy, with $\mu^*$ being the parameter. This way we can plot the dependence of entropy on density at a given temperature. Such dependencies are present in Fig.~\ref{fig:S_vs_rho} and~Fig.~\ref{fig:SS_vs_rho}.
 	
 	
 	\pagebreak
@@ -968,7 +983,7 @@
 		\left[ -\frac{T^* y^2}{2} + 
 		\ln K(T^*,\mu^*;y) 
 		\right] 
-		\right\}.
+		\right\} {\rm d}y.
 	\end{equation}
 	
 	\pagebreak	
@@ -976,21 +991,32 @@
 	\section{\label{sec:app:dens} Calculation of Density}
 	This Appendix contains explicit calculation of density from~\eqref{eq:dens}. By~\eqref{eos:reduced}
 	\begin{equation}
-		\rho^* = \frac{\partial P^*}{\partial \mu^*} = T^* \frac{\partial E}{\partial \mu^*}.
+		\label{B1}
+		\rho^*(T^*,\mu^*) = \frac{\partial P^*}{\partial \mu^*} = T^* \frac{\partial E(T^*,\mu^*;\bar{y}_{\rm max})}{\partial \mu^*}.
 	\end{equation}
 	Then
+%	\begin{equation}
+%		\frac{\partial E}{\partial \mu^*} = \frac{1}{K_0} \frac{\partial K_0}{\partial \mu^*},
+%	\end{equation}
 	\begin{equation}
-		\frac{\partial E}{\partial \mu^*} = \frac{1}{K_0} \frac{\partial K_0}{\partial \mu^*}.
+		\frac{\partial E}{\partial \mu^*} = -T^* \bar{y}_{\rm max} \partial_{\mu^*} \bar{y}_{\rm max} + \frac{1}{K_0} \partial_{\mu^*} K_0,
 	\end{equation}
-	By~\eqref{def:K}
+	and by~\eqref{def:K}
+	%\begin{equation}
+	%	\frac{\partial K_0}{\partial \mu^*} = \frac{1}{T^*}K_1.
+	%\end{equation}
 	\begin{equation}
-		\frac{\partial K_0}{\partial \mu^*} = \frac{1}{T^*}K_1.
+		\partial_{\mu^*} K_0 = K_1\left(\frac{1}{T^*} + \partial_{\mu^*} \bar{y}_{\rm max}\right).
 	\end{equation}
-	Substituting these derivatives back into above formulas, we arrive at
-	\begin{equation}
-		\frac{\partial E}{\partial \mu^*} = \frac{1}{T^*} \frac{K_1}{K},
-	\end{equation}
-	and finally
+	In the two last equations we imply $K_i = K_i(T^*,\mu^*;\bar{y}_{\rm max})$ and use notation $\partial_{\mu^*} \equiv \partial / \partial \mu^*$.
+	Substituting the found derivatives back into Eq.~\eqref{B1}, we arrive at
+	\begin{eqnarray}
+		\frac{\partial E}{\partial \mu^*} & = & \frac{1}{T^*} \frac{K_1}{K_0} + \left(-T^*\bar{y}_{\rm max} + \frac{K_1}{K_0}\right)\partial_{\mu^*}\bar{y}_{\rm max}
+		\nonumber\\
+		& = & \frac{1}{T^*} \frac{K_1}{K_0},
+	\end{eqnarray}
+	where we accounted for~\eqref{eq:bar_y}.
+	Finally
 	\begin{equation}
 		\left(\frac{\partial P^*}{\partial \mu^*} \right)_T = \frac{K_1}{K_0} = \rho^*.
 	\end{equation}
@@ -1047,7 +1073,7 @@
 		S^* = \left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) - \frac{1}{T^*}\frac{K_1}{K_0} + \frac{K_0 \ln K_0}{K_1} + \frac{a}{2T^*} \frac{K_2}{K_1}.
 	\end{equation}
 	
-	Note that we ignored here the dependence of $\bar{y}$ on temperature, since $\bar{y}$ maximises $E$ and thus the contribution of partial derivative of $E$ with respect to $\bar{y}$ will be zero. However, such dependency must be accounted when calculating higher order derivatives, e.g. when calculating the heat capacity $C_V$.
+	Note that we ignored here the dependence of $\bar{y}$ on temperature, since $\bar{y}$ maximizes $E$ and thus the contribution of partial derivative of $E$ with respect to $\bar{y}$ will be zero. However, such dependence must be accounted when calculating higher order derivatives, e.g. when calculating the heat capacity $C_V$.
 	
 	\section{Entropy: qualitative behavior}
 	To understand how entropy should behave qualitatively, we will study two simple cases in this appendix, namely, the van der Waals fluid and the ideal gas.
