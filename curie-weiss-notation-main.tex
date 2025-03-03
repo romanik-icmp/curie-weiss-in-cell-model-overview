@@ -382,6 +382,7 @@
 	
 	
 	\section{Pressure}
+	\label{sec:pres}
 	By the known thermodynamic formula (cf.~\cite[(2.16)]{KKD20})
 	\begin{equation}
 		\label{def:eos}
@@ -529,6 +530,7 @@
 	\end{equation}
 	Substituting the results back into $\partial \bar{y}/\partial \mu^*$, one gets
 	\begin{equation}
+		\label{dydm}
 		\left(\frac{\partial \bar{y}}{\partial \mu^*} \right)_{T^*} = -\frac{E_2(T^*,\mu^*;\bar{y}) + T^*}{T^* E_2(T^*,\mu^*;\bar{y})}.
 	\end{equation}
 	We can also consider $\mu^*$ as a function of $\bar{y}$ and $T^*$, and get
@@ -598,6 +600,7 @@
 	\end{equation}
 	As is shown in Appendix~\ref{sec:app:cp}, these two conditions are equivalent to
 	\begin{equation}
+		\label{E2E3eq0}
 		\begin{split}
 			E_2 = 0,
 			\\
@@ -1024,7 +1027,46 @@
 	\end{equation}
 	
 	\section{\label{sec:app:cp} System of equations for the critical point coordinates}
+	In this Appendix we calculate the first and second derivatives of the pressure with respect to the density and show that setting them equal to zero results in the system of equations~\eqref{E2E3eq0}.
 	
+	The first derivative is derived as follows
+	\begin{eqnarray}
+		\left(\frac{\partial P^*}{\partial \rho^*}\right)_{T^*} & = & 
+		\frac{\left(\partial P^* / \partial \mu^*\right)_{T^*}}{\left(\partial \rho^* / \partial \mu^* \right)_{T^*}}
+		\nonumber\\
+		& = & \frac{\rho^*(T^*,\mu^*)}{T^* \left(\partial \bar{y}_{\rm max} / \partial \mu^*\right)_{T^*}}
+		\nonumber\\
+		& = & - \frac{K_1}{K_0} \frac{E_2}{E_2 + T^*}.
+	\end{eqnarray}
+	Here, we applied Eqs.~\eqref{eq:dens}, \eqref{eq:densK}, \eqref{rho_vs_T_mu}, and~\eqref{dydm}. Since $K_i \neq 0$, and $E_2 + T^* > 0$ (see Eq.~\eqref{E2pT}), we obtain
+	\begin{equation}
+		\label{C2}
+		\left(\frac{\partial P^*}{\partial \rho^*}\right)_{T^*} = 0 \implies E_2 = 0.
+	\end{equation}
+	
+	Let us explicitly write out the derivatives used above and that may be useful later on:
+	\begin{equation}
+		\left( \frac{\partial \bar{y}_{\rm max}}{\partial \mu^*} \right)_{T^*} = -\frac{E_2 + T^*}{T^* E_2};
+	\end{equation}
+	\begin{equation}
+		\left( \frac{\partial \rho^*}{\partial \mu^*} \right)_{T^*} = T^* \left( \frac{\partial \bar{y}_{\rm max}}{\partial \mu^*} \right)_{T^*}
+		= -\frac{E_2 + T^*}{E_2}.
+	\end{equation}
+	
+	The second derivative of the pressure with respect to density is calculated as follows
+	\begin{eqnarray}
+		\left(\frac{\partial^2 P^*}{\partial \rho^{*2}}\right)_{T^*} & = & -\frac{\partial}{\partial \rho^*} \left(\frac{K_1}{K_0} \frac{E_2}{E_2 + T^*} \right)_{T^*}
+		\nonumber\\
+		& = & -\frac{\partial}{\partial \mu^*} \left(\frac{K_1}{K_0} \frac{E_2}{E_2 + T^*} \right)_{T^*} \bigg/ \left(\frac{\partial \rho^*}{\partial \mu^*}\right)_{T^*}
+		\nonumber\\
+		& = & \frac{E_2}{E_2 + T^*} \left[- \frac{K_2K_0 - K_1^2}{K_0^2} \frac{1}{E_2 + T^*} + \frac{K_1}{K_0} \frac{E_3}{(E_2 + T^*)^2}\right]
+		\nonumber\\
+		& & - \frac{K_1}{K_0} \frac{E_3}{(E_2 + T^*)^2}
+	\end{eqnarray}
+	Thus, taking into account Eq.~\eqref{C2}, we conclude
+	\begin{equation}
+		\left(\frac{\partial^2 P^*}{\partial \rho^{*2}}\right)_{T^*} = 0 \implies E_3 = 0.
+	\end{equation} 
 	
 	\section{\label{sec:app:entropy} Calculation of Entropy}
 	This Appendix contains explicit calculation of entropy from Eq.~\eqref{eq:entropy} by taking derivatives of pressure with respect to temperature
@@ -1076,7 +1118,7 @@
 	Note that we may have ignored here the dependence of $\bar{y}_{\rm max}$ on temperature, since $\bar{y}_{\rm max}$ maximizes $E$ and thus the contribution of partial derivative of $E$ with respect to $\bar{y}_{\rm max}$ will be zero. However, such dependence must be accounted when calculating higher order derivatives, e.g. when calculating the heat capacity $C_V$.
 	
 	\pagebreak
-	\section{Special functions $K_n$}
+	\section{Special functions $K_i$}
 	\textbf{Definitions.}
 	
 	Generic definition is as follows
@@ -1119,17 +1161,85 @@
 		\frac{\partial K_n(T^*,\mu^*;y)}{\partial T^*} \bigg|_{(\mu^*,y)} = \frac{1}{T^*} \left(\frac{3}{2} - \frac{\mu^*}{T^*}\right) K_{n+1}(T^*,\mu^*;y).
 	\end{equation}
 	
-	If we do not consider $y$ as an independent variable, but rather as a function of other two variables - $T^*$ and $\mu^*$, we rewrite the derivatives as follows.
+	If we do not consider $y$ as an independent variable, but rather as a function of other two variables, $T^*$ and $\mu^*$, we rewrite the derivatives as follows. We use notation $\bar{y}$ here by analogy with the point of extremum for $E$, see Section~\ref{sec:pres}
 	
 	Partial derivatives with respect to $\mu^*$ become
-	\begin{equation}
-		\frac{\partial K_n(T^*,\mu^*;y)}{\partial \mu^*} \bigg|_{T^*} = \left(\frac{1}{T^*} + \frac{\partial y}{\partial \mu^*}\bigg|_{T^*} \right)K_{n+1}(T^*,\mu^*;y).
-	\end{equation}
+	\begin{eqnarray}
+		\frac{\partial K_n(T^*,\mu^*;\bar{y})}{\partial \mu^*} \bigg|_{T^*} & = & \left(\frac{1}{T^*} + \frac{\partial \bar{y}}{\partial \mu^*}\bigg|_{T^*} \right)K_{n+1}(T^*,\mu^*;\bar{y})
+		\nonumber\\
+		& = & 
+		-\frac{1}{E_2} K_{n+1}(T^*,\mu^*;\bar{y}).
+	\end{eqnarray}
 	
 	Partial derivatives with respect to $T^*$ become
 		\begin{equation}
-		\frac{\partial K_n(T^*,\mu^*;y)}{\partial T^*} \bigg|_{\mu^*} = \frac{1}{T^*} \left(\frac{3}{2} - \frac{\mu^*}{T^*} + T^* \frac{\partial y}{\partial T^*}\bigg|_{\mu^*}\right) K_{n+1}(T^*,\mu^*;y).
+		\frac{\partial K_n(T^*,\mu^*;\bar{y})}{\partial T^*} \bigg|_{\mu^*} = \frac{1}{T^*} \left(\frac{3}{2} - \frac{\mu^*}{T^*} + T^* \frac{\partial \bar{y}}{\partial T^*}\bigg|_{\mu^*}\right) K_{n+1}(T^*,\mu^*;\bar{y}).
 	\end{equation}
+	
+	\subsection{Quantities $E_i$}
+	It is useful to summarize similar relations for quantities $E$, $E_1$, $E_2$, and $E_3$.
+	\linebreak
+	\textbf{Definitions.}
+	\begin{equation}
+		E(T^*,\mu^*;y) = -\frac12T^*y^2 + \ln K_0;
+	\end{equation}
+	\begin{equation}
+		E_1(T^*,\mu^*;y) = -T^* y + \frac{K_1}{K_0};
+	\end{equation}
+	
+	\begin{equation}
+		E_2(T^*,\mu^*;y) = -T^* + \frac{K_2 K_0 - K_1^2}{K_0^2};
+	\end{equation}
+	
+	\begin{equation}
+		E_3(T^*,\mu^*;y) = \frac{K_3}{K_0} - \frac{3 K_2 K_1}{K_0^2} + \frac{2K_1^3}{K_0^3}.
+	\end{equation}
+	
+	\textbf{Partial derivatives with respect to $\mu^*$.}
+	\begin{equation}
+		\frac{\partial E(T^*,\mu^*;y)}{\partial \mu^*} \bigg|_{(T^*,y)} = \frac{1}{T^*}\frac{K_1}{K_0};
+	\end{equation}
+	
+	\begin{eqnarray}
+		\frac{\partial E_1(T^*,\mu^*;y)}{\partial \mu^*} \bigg|_{(T^*,y)} & = & \frac{1}{T^*} \frac{K_2 K_0 - K_1^2}{K_0^2}
+		\nonumber\\
+		& = & \frac{1}{T^*} \left(E_2 + T^*\right).
+	\end{eqnarray}
+	
+	\begin{equation}
+		\frac{\partial E_2(T^*,\mu^*;y)}{\partial \mu^*} \bigg|_{(T^*,y)} = \frac{1}{T^*} E_3.
+	\end{equation}
+	
+	In the case when $y$ is not an independent variable, but a function of $T^*$ and $\mu^*$ (e.g. the one that gives an extremum to $E$), we can rewrite the quantity $E$ taking into account Eq.~\eqref{eq:bar_y}:
+	\begin{equation}
+		E(T^*,\mu^*;\bar{y}) = -\frac{1}{2T^*}\frac{K_1^2}{K_0^2} + \ln K_0.
+	\end{equation}
+	The partial derivative of $E$ with respect to $\mu^*$ becomes
+	\begin{eqnarray}
+		\frac{\partial E(T^*,\mu^*;\bar{y})}{\partial \mu^*} \bigg|_{T^*}
+		& = & \frac{1}{T^*} \frac{K_1}{K_0} + \left( -T^*\bar{y} + \frac{K_1}{K_0} \right) \left(\frac{\partial\bar{y}}{\partial \mu^*}\right)_{T^*} 
+		\nonumber\\
+		& = & \frac{1}{T^*} \frac{K_1}{K_0},
+	\end{eqnarray}
+	where the last line simplification is valid if $\bar{y}$ is the point of extremum for $E$, see Eqs.~\eqref{cond:extr}--\eqref{eq:bar_y}.
+	
+	The partial derivative of $E_1$ with respect to $\mu^*$ becomes
+	\begin{eqnarray}
+		\frac{\partial E_1(T^*,\mu^*;\bar{y})}{\partial \mu^*} \bigg|_{T^*} & = & \frac{1}{T^*} \frac{K_2 K_0 - K_1^2}{K_0^2} + \left(-T^* + \frac{K_2 K_0 - K_1^2}{K_0^2}\right) \left(\frac{\partial\bar{y}}{\partial \mu^*}\right)_{T^*}
+		\nonumber\\
+		& = & \frac{E_2 + T^*}{T^*} - E_2 \frac{E_2 + T^*}{T^* E_2} = 0,
+	\end{eqnarray}
+	where, again, the last line simplification is valid if $\bar{y}$ is the point of extremum for $E$, see Eqs.~\eqref{cond:extr}--\eqref{eq:bar_y}.
+	
+	The partial derivative of $E_2$ with respect to $\mu^*$ becomes
+	\begin{eqnarray}
+		\frac{\partial E_2(T^*,\mu^*;\bar{y})}{\partial \mu^*} \bigg|_{T^*} & = &
+		\left[\frac{1}{T^*} + \left(\frac{\partial\bar{y}}{\partial \mu^*}\right)_{T^*}\right] E_3
+		\nonumber\\
+		& = & \left(\frac{1}{T^*} - \frac{E_2 + T^*}{T^* E_2}\right) E_3
+		\nonumber\\
+		& = & -\frac{E_3}{E_2}
+	\end{eqnarray}
 	
 	\section{Entropy: qualitative behavior}
 	To understand how entropy should behave qualitatively, we will study two simple cases in this appendix, namely, the van der Waals fluid and the ideal gas.
