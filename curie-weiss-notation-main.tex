@@ -389,7 +389,7 @@
 		P V = k_{\rm B} T \ln \Xi
 		%P V = \beta^{-1} \ln \Xi
 	\end{equation}
-	where $P$ is the pressure. To calculate the large $N_v$ limit in~\eqref{eq:XiInty} we first determine the global maxima of $E(T^*,\mu^*;y)$ as a function of $y \in \mathbb{R}$, and then apply the Laplace's method~\cite{Fedoryuk89}.
+	where $P$ is the pressure. To calculate the large $N_v$ limit in~\eqref{eq:XiInty} we first determine the global maxima of $E(T^*,\mu^*;y)$ as a function of $y \in \mathbb{R}$, and then apply the Laplace's method~\cite{Fedoryuk89,BenderOrszag99}.
 	
 	Let $\bar{y}$ denote the point of extremum of $E(T^*,\mu^*;y)$ with respect to $y$ at given temperature and chemical potential. Then it should obey the following equation
 	\begin{equation}
@@ -419,20 +419,20 @@
 		& = & \sum_{n=0}^{\infty} \frac{n (v^* T^{*3/2})^n}{n!} \exp[\left(y+\frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2].
 	\end{eqnarray}
 	
+	As $K_0$, $K_1$, and $T^*$ all take on strictly positive values, the solution $\bar{y}$ to equation~\eqref{eq:bar_y} is also strictly positive, i.e. $\bar{y} \in \mathbb{R}^{+}$.
+	Figure~\ref{fig:YvsMu_a1} illustrates dependence of $\bar{y}$ on $\mu^*$ at some values of temperature $T^*$. We can see that at high temperature value, $T^*=0.4$, $\bar{y}$ is a one-valued function of $\mu^*$. At low temperature, $T^*=0.2$, there are some intervals in $\mu^*$ where $\bar{y}$ is a multi-valued function of $\mu^*$. The intermediate range of temperatures, where $\bar{y}$ changes its nature from a singe-valued to a multi-valued function of $\mu^*$ is of particular interest and will be investigated more closely in Section~\ref{sec:CP}. Figure~\ref{fig:YvsT_a2} illustrates dependence of $\bar{y}$ on $T^*$ for a few values of $\mu^*$. We can see that in the presented temperature range, $\bar{y}$ increases with $T^*$ for small values of $\mu^*$ and decreases for $\mu^*=0.5$. It is also interesting to study how the crossover from one type of behavior to another occurs in the region of intermediate values for $\mu^*$.
+	
 	\begin{figure}[htbp]
-		\includegraphics[width=0.45\textwidth,angle=0]{images/E1_vs_y2}
+		\includegraphics[width=0.45\textwidth,angle=0]{images/YvsMu_a1}
 		\hfill
-		\includegraphics[width=0.45\textwidth,angle=0]{images/E2_vs_y}
+		\includegraphics[width=0.45\textwidth,angle=0]{images/YvsT_a2}
 		\\
 		%\captionsetup{width=0.5\textwidth}
-		\parbox{0.45\textwidth}{\caption{\label{fig:E1_vs_y} Quantity $E_1(T^*,\mu^*;y)$ as a function of $y$ at $T^*=0.5$ and $\mu^*=-1.0$ for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}}
+		\parbox{0.45\textwidth}{\caption{\label{fig:YvsMu_a1} Solution $\bar{y}$ to the equation $E_1(T^*,\mu^*;\bar{y})=0$ as a function of $\mu^*$ for a few values of $T^*$. Dash line (black): $T^* = 0.4$; Dash-dotted line (red): $T^* = 0.25$; Solid line: $T^*=0.2$.}}
 		\hfill
 		%\captionsetup{width=0.5\textwidth}
-		\parbox{0.45\textwidth}{\caption{\label{fig:E2_vs_y} Quantity $E_2(T^*,\mu^*;y)$ as a function of $y$ at $T^*=0.5$ and $\mu^*=-1.0$ for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}}
+		\parbox{0.45\textwidth}{\caption{\label{fig:YvsT_a2} Solution $\bar{y}$ to the equation $E_1(T^*,\mu^*;\bar{y})=0$ as a function of $T^*$ for a few values of $\mu^*$. Dash line (red): $\mu^* = -1.0$, Dash-dotted line (blue): $\mu^* = 0.0$, Solid line (black): $\mu^* = 0.5$.}}
 	\end{figure}
-	
-	As $K_0$, $K_1$, and $T^*$ all take on strictly positive values, the solution $\bar{y}$ to equation~\eqref{eq:bar_y} is also strictly positive, i.e. $\bar{y} \in \mathbb{R}^{+}$.
-	Typical behavior of $E_1(T^*,\mu^*;y)$ as a function of $y$ in the single-phase domain is illustrated in Fig.~\ref{fig:E1_vs_y}. More figures for $E_1$ can be found in Subsection~\ref{sec:figE1}.
 	
 	\textbf{Definition}. We say that $(T^*, \mu^*)$ belongs to a single-phase domain if $E(T^*,\mu^*;y)$ has a unique global maximum $\bar{y}_{\rm max} \in \mathbb{R}^{+}$ such that~\footnote{It is important to distinguish between $\bar{y}$ and $\bar{y}_{\rm max}$, as $\bar{y}$ can be either a maximum or a minimum of $E$ depending on the specific values of $T^*$ and $\mu^*$, whereas $\bar{y}_{\rm max}$ is strictly a maximum.}
 	\begin{eqnarray}
@@ -460,10 +460,26 @@
 		\nonumber\\
 		& = & \sum_{n=0}^{\infty} \frac{n^2 (v^* T^{*3/2})^n}{n!} \exp[\left(y+\frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2].
 	\end{eqnarray}
+	
+	Typical behavior of $E_1(T^*,\mu^*;y)$ as a function of $y$ in the single-phase domain is illustrated in Fig.~\ref{fig:E1_vs_y}. More figures for $E_1$ can be found in Subsection~\ref{sec:figE1}.	
 	Typical behavior of $E_2(T^*,\mu^*;y)$ as a function of $y$ in the single-phase domain is illustrated in~Fig.~\ref{fig:E2_vs_y}. More figures for $E_2$ can be found in Subsection~\ref{sec:figE2}.
 	
-	\textbf{Laplace's method.} We apply the Laplace's method~\cite[(1.21)]{Fedoryuk89} to~\eqref{eq:XiInty} and arrive at~(cf.~\cite[(19)]{KD22})
+		
+	\begin{figure}[htbp]
+		\includegraphics[width=0.45\textwidth,angle=0]{images/E1_vs_y2}
+		\hfill
+		\includegraphics[width=0.45\textwidth,angle=0]{images/E2_vs_y}
+		\\
+		%\captionsetup{width=0.5\textwidth}
+		\parbox{0.45\textwidth}{\caption{\label{fig:E1_vs_y} Quantity $E_1(T^*,\mu^*;y)$ as a function of $y$ at $T^*=0.5$ and $\mu^*=-1.0$ for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}}
+		\hfill
+		%\captionsetup{width=0.5\textwidth}
+		\parbox{0.45\textwidth}{\caption{\label{fig:E2_vs_y} Quantity $E_2(T^*,\mu^*;y)$ as a function of $y$ at $T^*=0.5$ and $\mu^*=-1.0$ for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}}
+	\end{figure}
+	
+	\textbf{Laplace's method.} We apply the Laplace's method~(\cite[(1.21)]{Fedoryuk89}, \cite[(6.4.19c)]{BenderOrszag99}) to~\eqref{eq:XiInty} and arrive at~(cf.~\cite[(19)]{KD22})
 	\begin{equation}
+		\label{laplace1}
 		\Xi(T^*,\mu^*) = \left[-\frac{T^*}{E_2(T^*,\mu^*;\bar{y}_{\rm max})}\right]^{1/2} \exp[N_v E(T^*,\mu^*;\bar{y}_{\rm max})].
 	\end{equation}
 	Substituting this into~\eqref{def:eos}, one obtains
@@ -479,7 +495,7 @@
 		\label{eos:reduced}
 		P^*(T^*,\mu^*) = T^* E(T^*,\mu^*;\bar{y}_{\rm max}).
 	\end{equation}
-	We have obtained an expression for the pressure $P^*$ as a function of temperature $T^*$ and chemical potential $\mu^*$, $P = P(T^*, \mu^*)$. We also remember that the quantity $\bar{y}_{\rm max}$, which is selected from the condition to maximize $E$ at given $T^*$ and $\mu^*$, is a function of $T^*$ and $\mu^*$ itself, $\bar{y}_{\rm max} = \bar{y}_{\rm max}(T^*,\mu^*)$. Since we can't obtain an analytic solution to~\eqref{eq:bar_y}, we'll use numerical methods to approximate $\bar{y}$ and then illustrate the results graphically.
+	We have obtained an expression for the pressure $P^*$ as a function of temperature $T^*$ and chemical potential $\mu^*$, $P = P(T^*, \mu^*)$. We also remember that the quantity $\bar{y}_{\rm max}$, which is selected from the condition to maximize $E$ at given $T^*$ and $\mu^*$, is a function of $T^*$ and $\mu^*$ itself, $\bar{y}_{\rm max} = \bar{y}_{\rm max}(T^*,\mu^*)$. Since we can't obtain an analytic solution to~\eqref{eq:bar_y}, we will use numerical methods to approximate $\bar{y}$ and then illustrate the results graphically.
 
 	
 	\pagebreak
@@ -590,12 +606,49 @@
 	
 	\pagebreak
 	\section{\label{sec:CP} Critical point coordinates}
-	From the general theories of phase transitions and critical phenomena, we have got a recipe to find the coordinates of the critical point from an equation of state in the form $P=P(T,\rho)$. Since the critical point is the inflection point on the critical isotherm, we have two conditions
+	
+	In this section we investigate the region of temperature and chemical potential where the solution $\bar{y}$ to Eq.~\eqref{eq:bar_y} becomes a multi-valued function of $\mu^*$. The point where such an event occurs is called a critical point. The existence of such a point can already be seen from the behavior of quantity $E(T^*,\mu^*;y)$ as a function of $y$. Figure~\ref{fig:EvsYvs_barY_a1} shows several curves for $E$ versus $y$ at $T^*=0.4$ and different values of chemical potential. For any curve, the coordinate of a maximum corresponds to $\bar{y}$ at particular $(T^*,\mu^*)$. We conclude that at this temperature, $\bar{y}(T^*,\mu^*)$ always maximizes $E$. The solid thick line, passing all the maxima, represents the dependence of $E$ versus $\bar{y}$, and at the same time, that of $E$ versus $\bar{y}_{\rm max}$.
+	
+	Figure~\ref{fig:EvsYvs_barY_b1} shows several curves for $E$ versus $y$ at $T^*=0.2$ and different values of chemical potential. For a small value of chemical potential, $\mu^*=0.2$, one maximum is observed at a small $y$. With increasing $\mu^*$, a second maximum is developed at a larger $y$, and a minimum between the two maxima. As $\mu^*$ continues to increase, the second maximum first becomes equal to the first one and eventually exceeds it. With farther increase of $\mu^*$, the first maximum disappears (ceases to exist), and the second maximum becomes the only one to exist. If we continue to increase $\mu^*$, see Fig.~\ref{fig:EvsYvs_barY_b3}, the third maximum appears, that eventually exceeds the second one and becomes the main one. It seems that for the considered model such process can be continued infinitely, and each time a new maximum will appear for larger and larger $y$. Figure~\ref{fig:EvsYvs_barY_b4} illustrates this idea by combining results of Figs.~\ref{fig:EvsYvs_barY_b1} and~\ref{fig:EvsYvs_barY_b3}, and extending to higher values of $y$. 
+	
+	At low temperatures, there are intervals in $y$ where $E$ possesses both maxima and minima. To obey the requirements for the Laplace's method, we should eliminate those solutions $\bar{y}$ that give a minimum for $E$, and keep only those that give maxima. We denote such solutions $\bar{y}_{\rm max}$, see Eq.~\eqref{cond:max}. Additionally, in the case when $E$ possesses two maxima with respect to $y$, we must chose only the higher one, and exclude the lower one. The highest maximum is called {\it the global maximum}. Solutions $\bar{y}_{\rm max}$ that lead to the global maximum are called {\it stable}. Those $\bar{y}_{\rm max}$ that do not lead to the global maximum are called {\it metastable}. Those $\bar{y}$ that lead to a minimum of $E$ are called {\it unstable}.
+	
+	\begin{figure}[htbp]
+		\includegraphics[width=0.42\textwidth,angle=0]{images/EvsYvs_barY_a3}
+		\hfill
+		\includegraphics[width=0.42\textwidth,angle=0]{images/EvsYvs_barY_b2_1}
+		%\\
+		%\captionsetup{width=0.5\textwidth}
+		\vfill
+		\parbox{0.45\textwidth}{\caption{\label{fig:EvsYvs_barY_a1} Thin solid lines represent $E(T^*,\mu^*;y)$ as a function of $y$ at $T^*=0.4$ and the following values of $\mu^*$ (from bottom up): -0.1, 0.1, 0.3, 0.5, and 0.7. Thick solid line represents $E(T^*,\mu^*;\bar{y})$ versus $\bar{y}$ at the same temperature $T^* = 0.4$.}}
+		\hfill
+		\parbox{0.45\textwidth}{\caption{\label{fig:EvsYvs_barY_b1} Thin solid lines represent $E(T^*,\mu^*;y)$ as a function of $y$ at $T^*=0.2$ and the following values of $\mu^*$ (from bottom up): 0.2, 0.23, 0.25, 0.26, and 0.28. Thick solid line represents $E(T^*,\mu^*;\bar{y}_{\rm max})$ versus $\bar{y}_{\rm max}$ at the same temperature $T^* = 0.2$.}}
+		%\captionsetup{width=0.45\textwidth}
+		
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\includegraphics[width=0.42\textwidth,angle=0]{images/EvsYvs_barY_b3}
+		\hfill
+		\includegraphics[width=0.42\textwidth,angle=0]{images/EvsYvs_barY_b4}
+		%\\
+		%\captionsetup{width=0.5\textwidth}
+		\vfill
+		\parbox{0.45\textwidth}{\caption{\label{fig:EvsYvs_barY_b3} Thin solid lines represent $E(T^*,\mu^*;y)$ as a function of $y$ at $T^*=0.2$ and the following values of $\mu^*$ (from bottom up): 0.30, 0.50, 0.55, 0.60, and 0.65. Thick solid line represents $E(T^*,\mu^*;\bar{y}_{\rm max})$ versus $\bar{y}_{\rm max}$ at the same temperature $T^* = 0.2$.}}
+		\hfill
+		\parbox{0.45\textwidth}{\caption{\label{fig:EvsYvs_barY_b4} Thick solid lines represents $E(T^*,\mu^*;\bar{y}_{\rm max})$ versus $\bar{y}_{\rm max}$ at temperature $T^* = 0.2$. Thin solid lines represent $E(T^*,\mu^*;y)$ as a function of $y$ at $T^*=0.2$ and at some arbitrary values of $\mu^*$ ranging from 0.2 (the lowest line) to 0.95 (the topmost line).}}
+		%\captionsetup{width=0.45\textwidth}
+		
+	\end{figure}
+	
+	The above analysis suggests that in the considered model there exist multiple first-order phase transitions at sufficiently low temperatures, and there are no phase transitions at sufficiently high temperatures. The question arises whether those first-order phase transitions end with corresponding critical points? The most natural way to investigate critical points in many-body interacting systems is in terms of pressure and density. We will proceed with such an investigation.
+	
+	From the general theories of phase transitions and critical phenomena, we have got a recipe to find the coordinates of a critical point from an equation of state in the form $P=P(T,\rho)$. Since the critical point is the inflection point on the critical isotherm, we have two conditions
 	\begin{equation}
 		\begin{split}
 			\left(\frac{\partial P^*}{\partial \rho^*}\right)_{T^*} = 0;
 			\\
-			\left(\frac{\partial^2 P^*}{\partial (\rho^*)^2}\right)_{T^*} = 0.
+			\left(\frac{\partial^2 P^*}{\partial \rho^{*2}}\right)_{T^*} = 0.
 		\end{split}		
 	\end{equation}
 	As is shown in Appendix~\ref{sec:app:cp}, these two conditions are equivalent to
@@ -632,6 +685,12 @@
 	
 	The cell model with Curie-Weiss interaction is known to possess multiple critical points~\cite{KKD18,KKD20,KD22}. Thus the system of equations~\eqref{eq:system} has many sets of solutions. We denote such solutions by natural numbers $n$, starting with $n=1$ for the lowest critical temperature. Table~\ref{tab:cp} contains the found sets of solutions, as well as the values for other physical quantities at the critical points calculated based on $T^*_c$, $\mu^*_c$, and $\bar{y}_c$.
 	
+	\textbf{Note on application of the Laplace's method} at the critical point. Since $E_2 = 0$, the formula~\eqref{laplace1} is not applicable anymore. But if the quantity $E_4 < 0$ at the critical point, then we may apply the following formula (based on~\cite[6.4.19d]{BenderOrszag99})
+	\begin{equation}
+		\Xi = \sqrt{\frac{N_v T^*}{2\pi}} \frac{2\Gamma(1/4) (4!)^{1/4}}{4[-N_v E_4(T^*_c,\mu^*_c)]^{1/4}} \exp[N_v E(T^*_c,\mu^*_c; \bar{y}_c)].
+	\end{equation}
+	which in the limit of $N_v \to \infty$ does not change the expressions for pressure~\eqref{eos:reduced}.
+	
 	\begin{table}[h]
 		\centering
 		\caption{The critical point values for some quantities. The number $n$ denotes the critical points starting with $n=1$ for the one with the lowest temperature.}
@@ -652,6 +711,14 @@
 			3 & 1.37162 & 3.98927 & 10.8079 & 12.4174 & 2.90550 & \\
 			4 & \textcolor{blue}{2.39464}  & \textcolor{blue}{7.08603}& \textcolor{blue}{15.4985} & \textcolor{blue}{17.1080} & & \\
 			5 &  & & & & & \\
+			\hline
+			$n$ & $E(T^*_c,\mu^*_c)$ & $E_1(T^*_c,\mu^*_c)$ & $E_2(T^*_c,\mu^*_c)$ & $E_3(T^*_c,\mu^*_c)$ & $E_4(T^*_c,\mu^*_c)$ &  \\
+			\hline
+			1 & & 0.0 & 0.0 & 0.0 & & \\
+			2 & & 0.0 & 0.0 & 0.0 & & \\
+			3 & & 0.0 & 0.0 & 0.0 & & \\
+			4 & & 0.0 & 0.0 & 0.0 & & \\
+			5 & & & & & & \\
 			\hline
 		\end{tabular}
 		\label{tab:cp}
@@ -875,6 +942,23 @@
 		\parbox{0.95\textwidth}{\caption{\label{fig:E2y_vs_y_b} Quantity $E_2(T^*,\mu^*;y)$ as a function of $y$ at different values of $T^*$ and $\mu^*$. Left: $\mu^*=-1.0$; Center: $\mu^*=0.0$; Right: $\mu^*=0.5$. Lines: Navy: $T^*=0.2$; Aquamarine: $T^*=0.25$; Maroon: $T^*=0.5$.}}
 		%\hfill
 		%\captionsetup{width=0.5\textwidth}
+		
+	\end{figure}
+	
+	\pagebreak
+	\subsection{Figures for $E$ vs $\bar{y}$}
+	
+	\begin{figure}[htbp]
+		\includegraphics[width=0.45\textwidth,angle=0]{images/EvsYvs_barY_a1}
+		\hfill
+		\includegraphics[width=0.45\textwidth,angle=0]{images/EvsYvs_barY_b1}
+		%\\
+		%\captionsetup{width=0.5\textwidth}
+		\vfill
+		\parbox{0.45\textwidth}{\caption{\label{fig:EvsYvs_barY_a10} Plots of $E(T^*,\mu^*;y)$ as a function of $y$, and that of $E(T^*,\mu^*;\bar{y})$ versus $\bar{y}$ at $T^* = 0.4$.}}
+		\hfill
+		\parbox{0.45\textwidth}{\caption{\label{fig:EvsYvs_barY_b10} Plots of $E(T^*,\mu^*;y)$ as a function of $y$, and that of $E(T^*,\mu^*;\bar{y})$ versus $\bar{y}$ at $T^* = 0.2$.}}
+		%\captionsetup{width=0.45\textwidth}
 		
 	\end{figure}
 	
@@ -1118,7 +1202,8 @@
 	Note that we may have ignored here the dependence of $\bar{y}_{\rm max}$ on temperature, since $\bar{y}_{\rm max}$ maximizes $E$ and thus the contribution of partial derivative of $E$ with respect to $\bar{y}_{\rm max}$ will be zero. However, such dependence must be accounted when calculating higher order derivatives, e.g. when calculating the heat capacity $C_V$.
 	
 	\pagebreak
-	\section{Special functions $K_i$}
+	\section{Relations for special functions}
+	\subsection{Special functions $K_i$}
 	\textbf{Definitions.}
 	
 	Generic definition is as follows
