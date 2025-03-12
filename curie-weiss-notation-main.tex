@@ -641,7 +641,7 @@
 		
 	\end{figure}
 	
-	The above analysis suggests that in the considered model there exist multiple first-order phase transitions at sufficiently low temperatures, and there are no phase transitions at sufficiently high temperatures. The question arises whether those first-order phase transitions end with corresponding critical points? The most natural way to investigate critical points in many-body interacting systems is in terms of pressure and density. We will proceed with such an investigation.
+	The above analysis suggests that in the considered model there exist multiple first-order phase transitions at sufficiently low temperatures, and there are no phase transitions at sufficiently high temperatures. The question arises whether those first-order phase transitions end with corresponding critical points? The most natural way to investigate this question in many-body interacting systems is in terms of pressure and density. We will proceed with such an investigation.
 	
 	From the general theories of phase transitions and critical phenomena, we have got a recipe to find the coordinates of a critical point from an equation of state in the form $P=P(T,\rho)$. Since the critical point is the inflection point on the critical isotherm, we have two conditions
 	\begin{equation}
@@ -704,19 +704,19 @@
 			4 & \textcolor{blue}{0.267242} & \textcolor{blue}{0.639949} & \textcolor{blue}{13.1039} & \textcolor{blue}{3.74193} & \textcolor{blue}{3.50191} & \textcolor{blue}{1.89369} \\
 			5 & & & & & & \\
 			\hline
-			$n$ & $\beta_c\mu_c$ & $\beta_c P_c v$ & $\bar{z}_c=\bar{y}_c+\mu^*_c/T^*_c$ & $\bar{y}_c+\mu^*_c/T^*_c + \ln v^*$ & $S^*_c$ & $T_c(n)/T_c(n=1)$ \\
+			$n$ & $\beta_c\mu_c$ & $\beta_c P_c v$ & $\bar{z}_c=\bar{y}_c+\mu^*_c/T^*_c$ & $\bar{y}_c+\mu^*_c/T^*_c + \ln v^*$ & $\frac{T_c(n)}{T_c(n-1)}$ & $\frac{T_c(n)}{T_c(n=1)}$ \\
 			\hline
-			1 & -1.22979 & 0.197746 & 0.788910 & 2.39835 & 4.48401 & 1.00000 \\
-			2 & 0.224410 & 1.67135 & 5.97347 & 7.58291 & 3.35912 & \\
-			3 & 1.37162 & 3.98927 & 10.8079 & 12.4174 & 2.90550 & \\
+			1 & -1.22979 & 0.197746 & 0.788910 & 2.39835 & $-$ & 1.00000 \\
+			2 & 0.224410 & 1.67135  & 5.97347 & 7.58291 & 1.02873 & 1.02873 \\
+			3 & 1.37162  & 3.98927  & 10.8079 & 12.4174 & 1.01288 & 1.04198 \\
 			4 & \textcolor{blue}{2.39464}  & \textcolor{blue}{7.08603}& \textcolor{blue}{15.4985} & \textcolor{blue}{17.1080} & & \\
 			5 &  & & & & & \\
 			\hline
-			$n$ & $E(T^*_c,\mu^*_c)$ & $E_1(T^*_c,\mu^*_c)$ & $E_2(T^*_c,\mu^*_c)$ & $E_3(T^*_c,\mu^*_c)$ & $E_4(T^*_c,\mu^*_c)$ &  \\
+			$n$ & $E(T^*_c,\mu^*_c)$ & $E_1(T^*_c,\mu^*_c)$ & $E_2(T^*_c,\mu^*_c)$ & $E_3(T^*_c,\mu^*_c)$ & $E_4(T^*_c,\mu^*_c)$ & $S^*_c$  \\
 			\hline
-			1 & & 0.0 & 0.0 & 0.0 & & \\
-			2 & & 0.0 & 0.0 & 0.0 & & \\
-			3 & & 0.0 & 0.0 & 0.0 & & \\
+			1 & 0.197746 & 0.0 & 0.0 & 0.0 & -0.120306 & 4.48401 \\
+			2 & 1.67135  & 0.0 & 0.0 & 0.0 & -0.113509 & 3.35912 \\
+			3 & 3.98927  & 0.0 & 0.0 & 0.0 & -0.110425 & 2.90550 \\
 			4 & & 0.0 & 0.0 & 0.0 & & \\
 			5 & & & & & & \\
 			\hline
@@ -942,23 +942,6 @@
 		\parbox{0.95\textwidth}{\caption{\label{fig:E2y_vs_y_b} Quantity $E_2(T^*,\mu^*;y)$ as a function of $y$ at different values of $T^*$ and $\mu^*$. Left: $\mu^*=-1.0$; Center: $\mu^*=0.0$; Right: $\mu^*=0.5$. Lines: Navy: $T^*=0.2$; Aquamarine: $T^*=0.25$; Maroon: $T^*=0.5$.}}
 		%\hfill
 		%\captionsetup{width=0.5\textwidth}
-		
-	\end{figure}
-	
-	\pagebreak
-	\subsection{Figures for $E$ vs $\bar{y}$}
-	
-	\begin{figure}[htbp]
-		\includegraphics[width=0.45\textwidth,angle=0]{images/EvsYvs_barY_a1}
-		\hfill
-		\includegraphics[width=0.45\textwidth,angle=0]{images/EvsYvs_barY_b1}
-		%\\
-		%\captionsetup{width=0.5\textwidth}
-		\vfill
-		\parbox{0.45\textwidth}{\caption{\label{fig:EvsYvs_barY_a10} Plots of $E(T^*,\mu^*;y)$ as a function of $y$, and that of $E(T^*,\mu^*;\bar{y})$ versus $\bar{y}$ at $T^* = 0.4$.}}
-		\hfill
-		\parbox{0.45\textwidth}{\caption{\label{fig:EvsYvs_barY_b10} Plots of $E(T^*,\mu^*;y)$ as a function of $y$, and that of $E(T^*,\mu^*;\bar{y})$ versus $\bar{y}$ at $T^* = 0.2$.}}
-		%\captionsetup{width=0.45\textwidth}
 		
 	\end{figure}
 	
