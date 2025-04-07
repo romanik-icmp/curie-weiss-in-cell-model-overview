@@ -363,15 +363,7 @@
 	\begin{equation}
 		\lim_{y \to -\infty} E(T^*,\mu^*;y) = -\infty, \quad \lim\limits_{y \to +\infty} E(T^*,\mu^*;y) = -\infty.
 	\end{equation}
-	The typical behavior of $E(T^*,\mu^*;y)$ as a function of $y$ in the single-phase domain is illustrated in Fig.~\ref{fig:E0_vs_y}. More figures for $E$ can be found in Subsection~\ref{sec:figE0}.
-	
-	\begin{figure}[htbp]
-		\includegraphics[width=0.5\textwidth,angle=0]{images/E0_vs_y2}
-		\centering
-		\captionsetup{width=0.6\textwidth}
-		\caption{Quantity $E(T^*,\mu^*;y)$ as a function of $y$ at $T^*=0.5$ and $\mu^*=-1.0$ for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}
-		\label{fig:E0_vs_y}
-	\end{figure}
+	A typical behavior of $E(T^*,\mu^*;y)$ as a function of $y$ is illustrated in Fig.~\ref{fig:E0y_vs_y_a} and other Figures in Subsection~\ref{sec:figE0}.
 	
 	\textit{Remark}. The estimate in~\eqref{ineq:E0} implies the following: (a) the integral in~\eqref{eq:XiInty} converges for all $T^*>0$ and $\mu^* \in \mathbb{R}$, as $a>1$; (b) for fixed $T$ and $\mu$, since $E(T^*,\mu^*;y)$ is bounded above, it has global maxima, each of which is also a local maximum.
 	
@@ -461,21 +453,8 @@
 		& = & \sum_{n=0}^{\infty} \frac{n^2 (v^* T^{*3/2})^n}{n!} \exp[\left(y+\frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2].
 	\end{eqnarray}
 	
-	Typical behavior of $E_1(T^*,\mu^*;y)$ as a function of $y$ in the single-phase domain is illustrated in Fig.~\ref{fig:E1_vs_y}. More figures for $E_1$ can be found in Subsection~\ref{sec:figE1}.	
-	Typical behavior of $E_2(T^*,\mu^*;y)$ as a function of $y$ in the single-phase domain is illustrated in~Fig.~\ref{fig:E2_vs_y}. More figures for $E_2$ can be found in Subsection~\ref{sec:figE2}.
-	
-		
-	\begin{figure}[htbp]
-		\includegraphics[width=0.45\textwidth,angle=0]{images/E1_vs_y2}
-		\hfill
-		\includegraphics[width=0.45\textwidth,angle=0]{images/E2_vs_y}
-		\\
-		%\captionsetup{width=0.5\textwidth}
-		\parbox{0.45\textwidth}{\caption{\label{fig:E1_vs_y} Quantity $E_1(T^*,\mu^*;y)$ as a function of $y$ at $T^*=0.5$ and $\mu^*=-1.0$ for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}}
-		\hfill
-		%\captionsetup{width=0.5\textwidth}
-		\parbox{0.45\textwidth}{\caption{\label{fig:E2_vs_y} Quantity $E_2(T^*,\mu^*;y)$ as a function of $y$ at $T^*=0.5$ and $\mu^*=-1.0$ for two different values of $v^*$: Solid line (black): $v^* = 10$, Dash line (blue): $v^* = 5$.}}
-	\end{figure}
+	Typical behavior of $E_1(T^*,\mu^*;y)$ as a function of $y$ is illustrated in Fig.~\ref{fig:E1y_vs_y_a} and other Figures in Subsection~\ref{sec:figE1}.	
+	Typical behavior of $E_2(T^*,\mu^*;y)$ as a function of $y$ is illustrated in~Fig.~\ref{fig:E2y_vs_y_a} and other Figures in Subsection~\ref{sec:figE2}.
 	
 	\textbf{Laplace's method.} We apply the Laplace's method~(\cite[(1.21)]{Fedoryuk89}, \cite[(6.4.19c)]{BenderOrszag99}) to~\eqref{eq:XiInty} and arrive at~(cf.~\cite[(19)]{KD22})
 	\begin{equation}
@@ -499,7 +478,7 @@
 
 	
 	\pagebreak
-	\section{Implicit function theorem for the condition of extremum}
+	\section{Application of the implicit function theorem to the extremum condition}
 	The equation~\eqref{eq:bar_y} implicitly defines $\bar{y}$ as a function of temperature and chemical potential. We can benefit from the implicit function theorem to get some results for $\bar{y}$ and its derivatives with respect to chemical potential and temperature.
 	
 	First, let us recall that if a line is given by 
@@ -595,20 +574,6 @@
 		\rho^*(T^*,\mu^*) = T^* \bar{y}_{\rm max}(T^*,\mu^*).
 	\end{equation}
 	%This enables us to calculate the equation of state.
-	
-	The dependence of the number density $\rho^*$ on the chemical potential $\mu^*$ at some values of temperature $T^*$ is illustrated in Fig.~\ref{fig:rho_vs_mu_a1}.
-	
-	\begin{figure}[htbp]
-		\includegraphics[width=0.45\textwidth,angle=0]{images/rho_vs_mu_a1}
-		\hfill
-		\includegraphics[width=0.45\textwidth,angle=0]{images/p_vs_mu_a1}
-		\\
-		%\captionsetup{width=0.5\textwidth}
-		\parbox{0.45\textwidth}{\caption{\label{fig:rho_vs_mu_a1} The particle number density $\rho^*(T^*,\mu^*)$ as a function of $\mu^*$ at different value of temperature: Red - $T^*=0.4$; Blue - $T^*=0.25$; Green - $T^*=0.20$.}}
-		\hfill
-		%\captionsetup{width=0.5\textwidth}
-		\parbox{0.45\textwidth}{\caption{\label{fig:p_vs_mu_a1} Pressure $P^*(T^*,\mu^*)$ as a function of $\mu^*$ at different value of temperature: Red - $T^*=0.4$; Blue - $T^*=0.25$; Green - $T^*=0.20$.}}
-	\end{figure}
 	
 	
 	\section{Equation of state}
@@ -739,6 +704,37 @@
 		\label{tab:cp}
 	\end{table}
 	
+	
+	\pagebreak
+	\section{Graphical representation of results}
+	
+	Taking into account results of Section~\ref{sec:CP}, we can now illustrate some result from previous sections graphically. 
+	
+	The dependence of the number density $\rho^*$ on the chemical potential $\mu^*$ at three representative values of temperature $T^*$ is illustrated in Fig.~\ref{fig:rho_vs_mu_a1}. The corresponding temperature values are (i) $T=0.4$, which is greater than any critical temperature, (ii) $T=0.25$, which is slightly lower than the critical temperature values, and (iii) $T=0.2$, which is much lower than the critical temperatures.
+	
+	The dependence of the pressure $P^*$ on the chemical potential $\mu^*$ at the same three temperatures is demonstrated in Fig.~\ref{fig:p_vs_mu_a1}.
+	
+	\begin{figure}[htbp]
+		\includegraphics[width=0.45\textwidth,angle=0]{images/rho_vs_mu_a1}
+		\hfill
+		\includegraphics[width=0.45\textwidth,angle=0]{images/p_vs_mu_a1}
+		\\
+		%\captionsetup{width=0.5\textwidth}
+		\parbox{0.45\textwidth}{\caption{\label{fig:rho_vs_mu_a1} The particle number density $\rho^*(T^*,\mu^*)$ as a function of $\mu^*$ at different values of temperature: Red - $T^*=0.4$; Blue - $T^*=0.25$; Green - $T^*=0.20$.}}
+		\hfill
+		%\captionsetup{width=0.5\textwidth}
+		\parbox{0.45\textwidth}{\caption{\label{fig:p_vs_mu_a1} Pressure $P^*(T^*,\mu^*)$ as a function of $\mu^*$ at different values of temperature: Red - $T^*=0.4$; Blue - $T^*=0.25$; Green - $T^*=0.20$.}}
+	\end{figure}
+	
+	The pressure as a function of density is shown in Fig.~\ref{fig:p_vs_rho_a1}.
+	
+	\begin{figure}[htbp]
+		\includegraphics[width=0.5\textwidth,angle=0]{images/p_vs_rho_a1}
+		\centering
+		\captionsetup{width=0.6\textwidth}
+		\caption{Pressure $P^*$ as a function of $\rho^*$ at different values of temperature: Red - $T^*=0.4$; Blue - $T^*=0.25$; Green - $T^*=0.20$.}
+		\label{fig:p_vs_rho_a1}
+	\end{figure}
 	
 	
 	\pagebreak
